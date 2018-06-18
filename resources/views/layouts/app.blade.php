@@ -16,8 +16,11 @@
 </head>
 <body>
 
-    {{-- Menu Navbar --}}
+    @include('layouts.header')
+
     @yield('content')
+
+    @include('layouts.footer')
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
