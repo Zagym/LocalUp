@@ -19,8 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-
 // Adminer
 Route::any('adminer', '\Miroc\LaravelAdminer\AdminerAutologinController@index');
 

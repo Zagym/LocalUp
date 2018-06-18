@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad94ed00f6582b458a9e3d65aed14867",
+
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -689,6 +689,7 @@
             "time": "2018-05-07T08:44:23+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "miroc/laravel-adminer",
             "version": "4.5.0",
             "source": {
@@ -732,6 +733,8 @@
             "time": "2018-05-09T18:32:22+00:00"
         },
         {
+=======
+>>>>>>> 0a0fbf58ef8108db1e410ccc941d55fc4ef9697c
             "name": "monolog/monolog",
             "version": "1.23.0",
             "source": {
