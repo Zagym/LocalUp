@@ -5,6 +5,7 @@ cp .env.example .env
 composer install
 npm install
 php artisan key:g
+npm run dev
 ```
 
 Si tu as des erreurs pendant le ```npm install```, essaye d'installer ce paquet sur ta machine :
@@ -12,6 +13,6 @@ Si tu as des erreurs pendant le ```npm install```, essaye d'installer ce paquet 
 
 ### Commande de compilations :
 
-```npm run watch``` : Permet de réécrire le sass en direct
+```npm run watch-poll``` : Permet de réécrire le sass en direct
 ```npm run dev``` : Permet de compiler le sass en css
 
