@@ -2,5 +2,26 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Saira+Semi+Condensed:100,200,300,400,500,600,700,800,900");
 
+@import url("https://use.fontawesome.com/releases/v5.0.13/css/all.css");
+
+@import "~bootstrap/scss/bootstrap";
+
 // Variables
 @import "variables";
+
+.test {
+  background-color: red;
+}
+
+.btn-primary {
+  background-color: $blue;
+
+  &:hover {
+    background-color: $blue-hover;
+  }
+}
+
+.btn {
+  @extend .rounded-0;
+  @extend .border-0;
+}
