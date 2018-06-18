@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-6">
-            <form class="text-center" method="POST" action="{{ route('login') }}">
+            <form class="text-center my-5" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
 
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

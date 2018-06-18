@@ -9,8 +9,13 @@
 // Variables
 @import "variables";
 
-.test {
-  background-color: red;
+body {
+  padding-top: 100px ;
+}
+
+.navbar.fixed-top {
+  height: 100px;
+  background-color: $grey;
 }
 
 .btn-primary {
@@ -24,4 +29,12 @@
 .btn {
   @extend .rounded-0;
   @extend .border-0;
+}
+
+a {
+  color: $blue;
+
+  &:hover {
+    color: $blue-hover;
+  }
 }
