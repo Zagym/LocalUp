@@ -18,7 +18,7 @@ class CreateTableDurations extends Migration
             $table->string('label');
             $table->integer('duration');
             $table->integer('type_id');
-            $table->float('reduction', 2, 2);
+            $table->float('reduction', 8, 2);
             $table->timestamps();
         });
     }

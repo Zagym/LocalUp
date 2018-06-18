@@ -20,6 +20,7 @@ class CreateTableLocals extends Migration
             $table->string('address');
             $table->integer('floor');
             $table->integer('door');
+            $table->integer('capacity');
             $table->float('price', 8, 2);
             $table->integer('type_id');
             $table->timestamps();
