@@ -55,7 +55,7 @@ Route::get('modules', 'ModuleController@getAllModules')->name('modules');
 Route::get('module/{id}', 'ModuleController@getOneModule')->name('module');
 
 //Locals
-Route::get('locals', 'LocalController@getAllLocals')->name('locals');
+Route::get('locations', 'LocalController@getAllLocals')->name('locals');
 Route::get('local/{id}', 'LocalController@getOneLocal')->name('local');
 
 //Contact

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Local;
+use App\City;
+use App\Local_Type;
 class LocalController extends Controller
 {
     /**
@@ -14,7 +16,9 @@ class LocalController extends Controller
     public function getAllLocals()
     {
         $getAllLocals = Local::All();
-        return $getAllLocals;
+        $cities = City::all();
+        $categories = Local_Type::all();
+        return view('listing', ['locals' => $getAllLocals, 'cities' => $cities, 'categories' => $categories]);
     }
 
     /**
