@@ -4,17 +4,16 @@
 <div id="component-offers-list" class="pb-5">
     <div class="container">
         <h1>Nos offres de locations</h1>
-
         <div class="row mt-4" id="accordion">
             <div class="col-lg-6" id="cities">
-                <button class="btn btn-primary collapsed col-lg-12" data-toggle="collapse" data-target="#collapseCity" aria-expanded="false" aria-controls="collapseCity">
-                    City
-                </button>
+              <button class="btn btn-primary collapsed col-lg-12" data-toggle="collapse" data-target="#collapseCity" aria-expanded="false" aria-controls="collapseCity">
+                Filtrer par ville
+              </button>
             </div>
             <div class="col-lg-6" id="categories">
-                <button class="btn btn-primary collapsed col-lg-12" data-toggle="collapse" data-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCategory">
-                    Category
-                </button>
+              <button class="btn btn-primary collapsed col-lg-12" data-toggle="collapse" data-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCategory">
+                Filtrer par type
+              </button>
             </div>
             <div class="col-12 py-4 text-center">
                 <div class="collapse" aria-labelledby="cities" data-parent="#accordion" id="collapseCity">
@@ -28,7 +27,6 @@
                 </div>
                 <div class="collapse" aria-labelledby="categories" data-parent="#accordion" id="collapseCategory">
                     <button class="btn btn-light" data-mixitup-control data-filter="all">Toutes</button>
-
                     @foreach($categories as $category)
                         @php
                             $category_name = str_slug($category->label, "-");
