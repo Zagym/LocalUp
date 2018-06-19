@@ -15,12 +15,15 @@ Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 Route::get('test', function() {
-   return view('listing');
+   return view('detail');
 });
 Route::get('/', 'HomeController@index')->name('home');
 
 //////Côté admin//////
-Route::group(['prefix' => 'admin'], function() {
+
+Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
+
+    Route::get('AllLocal', 'LocalController@index');
 
     //Users
     Route::get('users', 'UserController@getAllUsers')->name('admin_users');
@@ -56,6 +59,8 @@ Route::get('locals', 'LocalController@getAllLocals')->name('locals');
 Route::get('local/{id}', 'LocalController@getOneLocal')->name('local');
 
 //Contact
+
+//Route::get('', '')->name('');
 
 //Louer
 

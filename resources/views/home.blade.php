@@ -1,23 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+  <header id="header-home" class="d-flex align-items-end justify-content-end py-5 px-3">
+    <h1 class="text-center text-lg-right my-5 ml-auto mr-auto mr-sm-5 text-uppercase">Montez d'un level en louant<br class="d-none d-xl-block" /> un espace de travail à votre image</h1>
+  </header>
 @endsection
