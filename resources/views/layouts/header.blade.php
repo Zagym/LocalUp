@@ -39,6 +39,9 @@
       <div class="modal-body">
           <a href="{{ route('login') }}" class="btn btn-primary btn-block">Se connecter</a>
           <a href="{{ route('register') }}" class="btn btn-primary btn-block">S'inscrire</a>
+          <a href="{{ route('register') }}" class="btn btn-primary btn-block">Mon profil</a>
+          <a href="{{ route('register') }}" class="btn btn-primary btn-block">Se déconnecter</a>
+          <a href="{{ route('register') }}" class="btn btn-primary btn-block">Administration</a>
       </div>
     </div>
   </div>
