@@ -49,6 +49,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 ////// Côté Utilisateur //////
 //Users
 Route::get('user', 'UserController@getUser')->name('user');
+Route::post('update', 'UserController@updateUser')->name('update');
 
 //Modules
 Route::get('modules', 'ModuleController@getAllModules')->name('modules');
