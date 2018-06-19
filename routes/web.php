@@ -15,7 +15,7 @@ Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 Route::get('test', function() {
-   return view('profil');
+   return view('admin.home');
 });
 Route::get('/', 'HomeController@index')->name('home');
 
