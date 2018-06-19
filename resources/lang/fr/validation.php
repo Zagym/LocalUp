@@ -13,6 +13,7 @@ return [
         'email' => [
             'required' => 'L\'email est obligatoire.',
             'max' => 'L\'email doit faire 255 caractéres maximum.',
+            'unique' => 'L\'email est déjà utilisé.'
         ],
         'zip' => [
             'digits' => 'Votre code postal doit faire 5 caractéres.',
