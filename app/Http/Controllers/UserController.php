@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function getUser() 
     {
-        $user = User::all();
-        dd($auth->user);
+        $currentUser = app('Illuminate\Contracts\Auth\Guard')->user();
+        return $currentUser->lastname . " " . $currentUser->firstname;
     }
 }
