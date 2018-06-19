@@ -34,7 +34,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        $request->session()->flash('status', 'Task was successful!');
+        $request->session()->flash('success', 'Vos modifications ont bien été prises en compte.');
 
         return redirect('user');
     }

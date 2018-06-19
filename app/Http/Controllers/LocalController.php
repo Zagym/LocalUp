@@ -15,10 +15,11 @@ class LocalController extends Controller
      */
     public function getAllLocals()
     {
-        $getAllLocals = Local::All();
+        $locals = Local::All();
         $cities = City::all();
         $categories = Local_Type::all();
-        return view('listing', ['locals' => $getAllLocals, 'cities' => $cities, 'categories' => $categories]);
+
+        return view('listing', ['locals' => $locals, 'cities' => $cities, 'categories' => $categories]);
     }
 
     /**
