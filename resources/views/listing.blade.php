@@ -19,40 +19,26 @@
                 <div class="collapse" aria-labelledby="cities" data-parent="#accordion" id="collapseCity">
                     <button class="btn btn-light" data-mixitup-control data-filter="all">Toutes</button>
                     @foreach($cities as $city)
-                        @php
-                            $city_name = str_slug($city->label, "-");
-                        @endphp
-                        <button class="btn btn-light" data-filter=".{{ $city_name }}" data-mixitup-control>{{ $city->label }}</button>
+                        <button class="btn btn-light" data-filter=".{{ str_slug($city->label, '-') }}" data-mixitup-control>{{ ucfirst($city->label) }}</button>
                     @endforeach
                 </div>
                 <div class="collapse" aria-labelledby="categories" data-parent="#accordion" id="collapseCategory">
                     <button class="btn btn-light" data-mixitup-control data-filter="all">Toutes</button>
                     @foreach($categories as $category)
-                        @php
-                            $category_name = str_slug($category->label, "-");
-                        @endphp
-                        <button class="btn btn-light" data-filter=".{{$category_name}}" data-mixitup-control>{{ $category->label }}</button>
+                        <button class="btn btn-light" data-filter=".{{ str_slug($category->label, "-") }}" data-mixitup-control>{{ ucfirst($category->label) }}</button>
                     @endforeach
                 </div>
             </div>
         </div>
         <div class="row justify-content-center" id="offers_list">
             @foreach($locals as $local)
-                @php
-                    foreach($categories as $category){
-                        if ($local->type_id == $category->id) {
-                            $category_name = str_slug($category->label, "-");
-                        }
-                    }
-                    $city_name = str_slug($local->city, "-");
-                @endphp
-                <div class="col-lg-3 mb-4 mix {{$city_name." ".$category_name}}">
+                <div class="col-lg-3 mb-4 mix {{ str_slug( $local->city ) . ' ' . str_slug($local->category->label) }}">
                     <div class="offer">
                         <div class="img-offer">
                             <img src="https://imgplaceholder.com/500x300" class="img-fluid" alt="">
                         </div>
                         <div class="description-offer text-center p-4 bg-light">
-                            <h2 class="mt-0">{{$local->label}}</h2>
+                            <h2 class="mt-0">{{ $local->label }}</h2>
 
                             <a href="" class="btn btn-primary">En savoir +</a>
                         </div>
