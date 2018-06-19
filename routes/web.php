@@ -20,7 +20,7 @@ Route::get('test', function() {
 Route::get('/', 'HomeController@index')->name('home');
 
 //////Côté admin//////
-//
+
 Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 
     Route::get('AllLocal', 'LocalController@index');
@@ -34,7 +34,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 
     //Modules
     Route::get('modules', 'ModuleController@getAllModules')->name('admin_modules');
-    Route::get('Module/{id}', 'ModuleController@getOneModule')->name('admin_module');
+    Route::get('module/{id}', 'ModuleController@getOneModule')->name('admin_module');
 
     //Locals
     Route::get('locals', 'LocalController@getAllLocals')->name('admin_locals');
@@ -52,13 +52,14 @@ Route::get('user', 'UserController@getUser')->name('user');
 
 //Modules
 Route::get('modules', 'ModuleController@getAllModules')->name('modules');
-Route::get('Module/{id}', 'ModuleController@getOneModule')->name('module');
+Route::get('module/{id}', 'ModuleController@getOneModule')->name('module');
 
 //Locals
 Route::get('locals', 'LocalController@getAllLocals')->name('locals');
 Route::get('local/{id}', 'LocalController@getOneLocal')->name('local');
 
 //Contact
+
 //Route::get('', '')->name('');
 
 //Louer
