@@ -2,11 +2,6 @@
 
 @section('content')
 
-    {{--
-        Envoyer l'user connecté et supprimer $currentUser et modifier le formulaire.
-        Bien mettre des messages flash sur les erreurs lors de la validation du formaulaire en back.
-        Changer la route du formulaire.
-    --}}
     <div class="flash-message">
         @foreach (['status'] as $msg)
             @if(Session::has($msg))
