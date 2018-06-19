@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <h1 class="text-center">Se connecter</h1>
         <div class="col-12 col-lg-6">
             <form class="text-center my-5" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
