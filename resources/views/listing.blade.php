@@ -2,11 +2,6 @@
 
 @section('content')
 
-    @php
-        $cities = Array('Lyon', 'Paris', 'Marseille', 'Toulouse', 'Bordeaux');
-        $categories = Array('Bureau', 'Hotel', 'Truc de merde')
-    @endphp
-
     <div class="container">
         <div class="row mt-4" id="accordion">
             <div class="col-lg-6" id="cities">
@@ -24,36 +19,47 @@
                     <button class="btn btn-light" data-mixitup-control data-filter="all">Toutes</button>
                     @foreach($cities as $city)
                         @php
-                            $city = str_replace(' ', '-', $city);
+                            $city_name = str_slug($city->label, "-");
                         @endphp
-                        <button class="btn btn-light" data-filter=".{{ $city }}" data-mixitup-control>{{ $city }}</button>
+                        <button class="btn btn-light" data-filter=".{{ $city_name }}" data-mixitup-control>{{ $city->label }}</button>
                     @endforeach
                 </div>
                 <div class="collapse" aria-labelledby="categories" data-parent="#accordion" id="collapseCategory">
                     <button class="btn btn-light" data-mixitup-control data-filter="all">Toutes</button>
 
                     @foreach($categories as $category)
-                        <button class="btn btn-light" data-filter=".{{ str_replace(' ', '-', $category) }}" data-mixitup-control>{{ $category }}</button>
+                        @php
+                            $category_name = str_slug($category->label, "-");
+                        @endphp
+                        <button class="btn btn-light" data-filter=".{{$category_name}}" data-mixitup-control>{{ $category->label }}</button>
                     @endforeach
                 </div>
             </div>
         </div>
 
         <div class="row justify-content-center" id="offers_list">
-            @for($i = 1; $i < 12; $i ++)
-                <div class="col-lg-3 mb-4 mix {{ $i%2 == 0 ? 'Lyon Truc-de-merde' : 'Marseille' }}">
+            @foreach($locals as $local)
+                @php
+                    foreach($categories as $category){
+                        if ($local->type_id == $category->id) {
+                            $category_name = str_slug($category->label, "-");
+                        }
+                    }
+                    $city_name = str_slug($local->city, "-");
+                @endphp
+                <div class="col-lg-3 mb-4 mix {{$city_name." ".$category_name}}">
                     <div class="offer">
                         <div class="img-offer">
                             <img src="https://imgplaceholder.com/500x300" class="img-fluid" alt="">
                         </div>
                         <div class="description-offer text-center p-4 bg-light">
-                            <h2 class="mt-0">Bureau Lyon</h2>
+                            <h2 class="mt-0">{{$local->label}}</h2>
 
                             <a href="" class="btn btn-primary">En savoir +</a>
                         </div>
                     </div>
                 </div>
-            @endfor
+            @endforeach
         </div>
     </div>
 
