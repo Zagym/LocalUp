@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(DurationsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(LevelRatesTableSeeder::class); 
+        $this->call(LevelsTableSeeder::class);
         $this->call(ModulesTableSeeder::class); 
         $this->call(ModuleTypesTableSeeder::class); 
         $this->call(ReductionsTableSeeder::class);
