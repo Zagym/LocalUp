@@ -55,6 +55,18 @@
                     @endif
                 </div>
 
+                <div class="form-group{{ $errors->has('zip') ? ' has-error' : '' }}">
+                    <label for="zip" class="control-label">Code Postal</label>
+
+                    <input id="zip" type="text" class="form-control" name="zip">
+
+                    @if ($errors->has('zip'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('zip') }}</strong>
+                        </span>
+                    @endif
+                </div>
+
                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                     <label for="city" class="control-label">Ville</label>
 
