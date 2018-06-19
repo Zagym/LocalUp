@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <h1 class="text-center">S'inscrire</h1>
         <div class="col-12 col-lg-6">
             <form class="text-center my-5" method="POST" action="{{ route('register') }}">
                 {{ csrf_field() }}
@@ -48,7 +49,7 @@
                     <div class="form-group col-lg-5{{ $errors->has('phone') ? ' has-error' : '' }}">
                         <label for="phone" class="control-label">Téléphone</label>
 
-                        <input id="phone" type="text" class="form-control" name="phone">
+                        <input id="phone" type="text" class="form-control" name="phone" value="{{ old('phone') }}">
 
                         @if ($errors->has('phone'))
                             <span class="help-block">
@@ -62,7 +63,7 @@
                     <div class="form-group col-lg-12{{ $errors->has('address') ? ' has-error' : '' }}">
                         <label for="address" class="control-label">Adresse</label>
 
-                        <input id="address" type="text" class="form-control" name="address">
+                        <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}">
 
                         @if ($errors->has('address'))
                             <span class="help-block">
@@ -76,7 +77,7 @@
                     <div class="form-group col-lg-8{{ $errors->has('city') ? ' has-error' : '' }}">
                         <label for="city" class="control-label">Ville</label>
 
-                        <input id="city" type="text" class="form-control" name="city">
+                        <input id="city" type="text" class="form-control" name="city" value="{{ old('city') }}">
 
                         @if ($errors->has('city'))
                             <span class="help-block">
@@ -88,7 +89,7 @@
                     <div class="form-group col-lg-4{{ $errors->has('zip') ? ' has-error' : '' }}">
                         <label for="zip" class="control-label">Code Postal</label>
 
-                        <input id="zip" type="text" class="form-control" name="zip">
+                        <input id="zip" type="text" class="form-control" name="zip" value="{{ old('zip') }}">
 
                         @if ($errors->has('zip'))
                             <span class="help-block">
