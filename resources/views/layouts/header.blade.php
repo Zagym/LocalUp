@@ -17,7 +17,16 @@
                 <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('login') }}">Se connecter</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('login') }}">Administration</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('login') }}">Se déconnecter</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('register') }}">S'inscrire</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('register') }}">Mon profil</a>
             </li>
         </ul>
 
