@@ -13,12 +13,12 @@
       <div class="row mt-4" id="accordion">
         <div class="col-lg-6" id="cities">
           <button class="btn btn-primary collapsed col-lg-12" data-toggle="collapse" data-target="#collapseCity" aria-expanded="false" aria-controls="collapseCity">
-            Filter by City
+            Filtrer par ville
           </button>
         </div>
         <div class="col-lg-6" id="categories">
           <button class="btn btn-primary collapsed col-lg-12" data-toggle="collapse" data-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCategory">
-            Filter by Category
+            Filtrer par type
           </button>
         </div>
         <div class="col-12 py-4 text-center">
