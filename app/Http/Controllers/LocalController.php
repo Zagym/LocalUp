@@ -25,12 +25,13 @@ class LocalController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param Local $local
+     *
      * @return \Illuminate\Http\Response
      */
-    public function getOneLocal($id)
+    public function getOneLocal(Local $local)
     {
-        $getOneLocal = Local::find($id);
-        return $getOneLocal;
+        return view('detail', ['local' => $local]);
     }
 
     /**

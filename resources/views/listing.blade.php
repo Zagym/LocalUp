@@ -40,7 +40,7 @@
                         <div class="description-offer text-center p-4 bg-light">
                             <h2 class="mt-0">{{ $local->label }}</h2>
 
-                            <a href="" class="btn btn-primary">En savoir +</a>
+                            <a href="{{ route('local', ['id' => $local]) }}" class="btn btn-primary">En savoir +</a>
                         </div>
                     </div>
                 </div>
