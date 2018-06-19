@@ -12,12 +12,15 @@
 */
 
 Auth::routes();
-
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('login', 'AdminController@index');
     Route::post('login', 'AdminController@login');
 });
+
+
+
 // Adminer
 Route::any('adminer', '\Miroc\LaravelAdminer\AdminerAutologinController@index');

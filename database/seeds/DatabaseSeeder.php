@@ -18,10 +18,11 @@ class DatabaseSeeder extends Seeder
         $this->call(DurationTypesTableSeeder::class);
         $this->call(DurationsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
-        $this->call(LevelRatesTableSeeder::class); 
+        $this->call(LevelRatesTableSeeder::class);
         $this->call(LevelsTableSeeder::class);
-        $this->call(ModulesTableSeeder::class); 
-        $this->call(ModuleTypesTableSeeder::class); 
+        $this->call(ModulesTableSeeder::class);
+        $this->call(ModuleTypesTableSeeder::class);
         $this->call(ReductionsTableSeeder::class);
+        $this->call(TownsTableSeeder::class);
     }
 }
