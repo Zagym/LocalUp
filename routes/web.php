@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
@@ -19,3 +23,5 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('login', 'AdminController@index');
     Route::post('login', 'AdminController@login');
 });
+// Adminer
+Route::any('adminer', '\Miroc\LaravelAdminer\AdminerAutologinController@index');
