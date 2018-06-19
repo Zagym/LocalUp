@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
             'city' => 'Kenchucky',
             'zip' => '69200 la trick aie aie aie la famille',
             'phone' => '0666666666',
-            'password' => 'cordell1234',
+            'password' => Hash::make('cordell1234'),
             'admin' => 0
         ]);
         DB::table('users')->insert([
@@ -30,7 +30,7 @@ class UsersTableSeeder extends Seeder
             'city' => 'Heaver',
             'zip' => 'Multipass 45785 avenue',
             'phone' => '0000000009',
-            'password' => 'bruce1234',
+            'password' => Hash::make('bruce1234'),
             'admin' => 1
         ]);
         DB::table('users')->insert([
@@ -41,7 +41,7 @@ class UsersTableSeeder extends Seeder
             'city' => 'Quelque part',
             'zip' => '46 rue de la boustifaille, 44894 entrecote',
             'phone' => '0607080910',
-            'password' => 'dora1234',
+            'password' => Hash::make('dora1234'),
             'admin' => 0
         ]);
     }
