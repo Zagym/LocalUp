@@ -11,9 +11,10 @@ class LocalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getAllLocals()
     {
-        return Local::all();
+        $getAllLocals = Local::All();
+        return $getAllLocals;
     }
 
     /**
@@ -21,9 +22,10 @@ class LocalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function getOneLocal($id)
     {
-        //
+        $getOneLocal = Local::find($id);
+        return $getOneLocal;
     }
 
     /**

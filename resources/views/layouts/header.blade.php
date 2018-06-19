@@ -13,12 +13,31 @@
             <li class="nav-item">
                 <a class="nav-link mx-2" href="tel:0655443322"><i class="fas fa-phone"></i> 06.55.44.33.22</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('login') }}">Se connecter</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('register') }}">S'inscrire</a>
-            </li>
+<!-- Si le user n'est pas connecté -->
+            @if(Auth::guest())
+                <li class="nav-item">
+                    <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('login') }}">Se connecter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('register') }}">S'inscrire</a>
+                </li>
+
+<!-- Si le user est connecté -->
+            @elseif(Auth::check())
+                <li class="nav-item">
+                    <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('user') }}">Mon profil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('logout') }}">Se déconnecter</a>
+                </li>
+
+<!-- Si le user est un admin -->
+                @if(Auth::user()->admin) 
+                    <li class="nav-item">
+                        <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('login') }}">Administration</a>
+                    </li>
+                @endif
+            @endif
         </ul>
 
     </div>
@@ -28,8 +47,16 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-body">
+      @if(Auth::guest())
           <a href="{{ route('login') }}" class="btn btn-primary btn-block">Se connecter</a>
           <a href="{{ route('register') }}" class="btn btn-primary btn-block">S'inscrire</a>
+      @elseif(Auth::check())
+          <a href="{{ route('user') }}" class="btn btn-primary btn-block">Mon profil</a>
+          <a href="{{ route('logout') }}" class="btn btn-primary btn-block">Se déconnecter</a>
+          @if(Auth::user()->admin) 
+            <a href="{{ route('login') }}" class="btn btn-primary btn-block">Administration</a>
+          @endif
+      @endif
       </div>
     </div>
   </div>
