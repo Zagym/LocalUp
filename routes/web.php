@@ -13,6 +13,10 @@
 
 Auth::routes();
 
+Route::get('test', function() {
+   return view('listing');
+});
+
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin'], function() {
