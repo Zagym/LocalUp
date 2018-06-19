@@ -11,15 +11,22 @@
 
 body {
   padding-top: 100px ;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 300;
 }
 
 .navbar.fixed-top {
-  height: 100px;
-  background-color: $grey;
+  min-height: 100px;
+  background-color: #FFF;
+
+  .navbar-brand {
+    width: 300px;
+  }
 }
 
 .btn-primary {
   background-color: $blue;
+  @extend .text-white;
 
   &:hover {
     background-color: $blue-hover;
@@ -31,10 +38,52 @@ body {
   @extend .border-0;
 }
 
-a {
+a,.btn-link {
   color: $blue;
 
   &:hover {
     color: $blue-hover;
+  }
+}
+
+.form-control, a:active, a:focus {
+  box-shadow: none !important;
+}
+
+.bg-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#header-home {
+  @extend .bg-cover;
+  background-image: url(/img/header.jpg);
+  height: 800px;
+  background-position: top center;
+
+  h1 {
+    max-width: 75%;
+    font-size: 3rem;
+    font-weight: 100;
+    color: $blue;
+  }
+}
+
+
+
+@media screen and (max-width: 992px) {
+  #header-home {
+    height: 500px;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .navbar.fixed-top {
+    .navbar-brand {
+      width: 200px;
+    }
   }
 }
