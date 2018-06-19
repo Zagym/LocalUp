@@ -15,11 +15,11 @@ class CreateTableReductions extends Migration
     {
         Schema::create('reductions', function (Blueprint $table) {
             $table->increments('id');
-            $table->float('rates', 2, 2);
+            $table->float('rates', 8, 2);
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *
