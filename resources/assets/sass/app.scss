@@ -26,10 +26,15 @@ body {
 .navbar.fixed-top {
   min-height: 100px;
   background-color: #FFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 
   .navbar-brand {
     width: 300px;
   }
+}
+
+.bg-primary {
+  background-color: $blue;
 }
 
 .btn-primary {
@@ -54,6 +59,26 @@ a,.btn-link {
   }
 }
 
+h1 {
+  font-size: 3.2rem;
+  font-weight: 100;
+  text-align: center;
+  padding: 3rem 0 2rem;
+  margin: 0;
+}
+
+h2 {
+  color: $blue;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.4rem;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
 .form-control, a:active, a:focus {
   box-shadow: none !important;
 }
@@ -75,6 +100,72 @@ a,.btn-link {
     font-size: 3rem;
     font-weight: 100;
     color: $blue;
+  }
+}
+
+#component-offers-list {
+  #offers_list {
+
+  }
+}
+
+.offer {
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+
+  .img-offer {
+    overflow: hidden;
+    img {
+      transition: all 3s ease-in;
+    }
+  }
+
+  &:hover {
+    .img-offer {
+      img {
+        transform: scale(1.5) rotate(-10deg);
+      }
+    }
+  }
+} 
+
+
+#footer {
+  a {
+    color: #FFF;
+    position: relative;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .footer-menu1, .footer-menu2 {
+    a {
+      color: #FFF;
+      position: relative;
+
+      &:hover {
+        text-decoration: none;
+
+        &:before {
+          content: "- ";
+        }
+      }
+    }
+  }
+
+  .footer-social {
+    ul {
+      li {
+        margin: 5px 0;
+      }
+    }
+  }
+
+  .social-icons {
+    a {
+      font-size: 1.2rem;
+    }
   }
 }
 
