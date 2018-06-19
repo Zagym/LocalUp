@@ -15,7 +15,11 @@ Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 Route::get('test', function() {
-   return view('admin.home');
+   return view('listing');
+});
+
+Route::get('test2', function() {
+   return view('detail');
 });
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -49,6 +53,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 ////// Côté Utilisateur //////
 //Users
 Route::get('user', 'UserController@getUser')->name('user');
+Route::post('update', 'UserController@updateUser')->name('update');
 
 //Modules
 Route::get('modules', 'ModuleController@getAllModules')->name('modules');

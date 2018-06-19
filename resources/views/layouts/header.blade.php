@@ -25,18 +25,17 @@
 <!-- Si le user est connecté -->
             @elseif(Auth::check())
                 <li class="nav-item">
-                    <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('user') }}">Mon profil</a>
+                    <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('user') }}">Profil</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('logout') }}">Se déconnecter</a>
-                </li>
-
 <!-- Si le user est un admin -->
                 @if(Auth::user()->admin) 
                     <li class="nav-item">
                         <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('login') }}">Administration</a>
                     </li>
                 @endif
+                <li class="nav-item">
+                    <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('logout') }}">Se déconnecter</a>
+                </li>
             @endif
         </ul>
 
@@ -51,11 +50,11 @@
           <a href="{{ route('login') }}" class="btn btn-primary btn-block">Se connecter</a>
           <a href="{{ route('register') }}" class="btn btn-primary btn-block">S'inscrire</a>
       @elseif(Auth::check())
-          <a href="{{ route('user') }}" class="btn btn-primary btn-block">Mon profil</a>
-          <a href="{{ route('logout') }}" class="btn btn-primary btn-block">Se déconnecter</a>
+          <a href="{{ route('user') }}" class="btn btn-primary btn-block">Profil</a>
           @if(Auth::user()->admin) 
             <a href="{{ route('login') }}" class="btn btn-primary btn-block">Administration</a>
           @endif
+          <a href="{{ route('logout') }}" class="btn btn-primary btn-block">Se déconnecter</a>
       @endif
       </div>
     </div>
