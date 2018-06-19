@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div id="component-offers-list" class="pb-5">
     <div class="container">
+        <h1>Nos offres de locations</h1>
+
         <div class="row mt-4" id="accordion">
             <div class="col-lg-6" id="cities">
                 <button class="btn btn-primary collapsed col-lg-12" data-toggle="collapse" data-target="#collapseCity" aria-expanded="false" aria-controls="collapseCity">
@@ -36,7 +38,6 @@
                 </div>
             </div>
         </div>
-
         <div class="row justify-content-center" id="offers_list">
             @foreach($locals as $local)
                 @php
@@ -61,6 +62,6 @@
                 </div>
             @endforeach
         </div>
-    </div>
-
+     </div>
+  </div>
 @endsection
