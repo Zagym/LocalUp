@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Module;
 
 class ModuleController extends Controller
 {
@@ -11,19 +12,22 @@ class ModuleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function getAllModules()
     {
-        //
+        $getAllModules = Module::All();
+        return $getAllModules;
+
+//Pour afficher le nom de tous les modules        
+/*        foreach ($getAllModules as $getModules) {
+            dump($getModules->label);
+        }
+*/
     }
 
     /**
@@ -32,9 +36,10 @@ class ModuleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function getOneModule($id)
     {
-        //
+        $getOneModule = Module::find($id);
+        return $getOneModule;
     }
 
     /**
