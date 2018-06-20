@@ -15,7 +15,7 @@ Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 Route::get('test', function() {
-   return view('admin.listing.local_types');
+   return view('admin.detail.level_rate');
 });
 
 Route::get('test2', function() {
@@ -34,7 +34,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 
     //Users
     Route::get('users', 'UserController@getUsers')->name('admin_users');
-    Route::get('user/{id}', 'UserController@getOneUser')->name('admin_user');
+    Route::get('user/{user}', 'UserController@getOneUser')->name('admin_user');
+    Route::post('user/{user}/update', 'UserController@AdminUpdateUser')->name('admin_user_update');
+    Route::get('user/{id}/delete', 'UserController@destroyUser')->name('admin_user_delete');
 
     //Levels
     Route::get('levels', 'LevelController@getAllLevels')->name('admin_levels');
@@ -44,13 +46,26 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
     Route::get('module/{id}', 'ModuleController@getOneModule')->name('admin_module');
 
     //Locals
-    Route::get('locals', 'LocalController@getAllLocals')->name('admin_locals');
-    Route::get('local/{id}', 'LocalController@getOneLocal')->name('admin_local');
+    Route::get('locals', 'LocalController@adminAllLocals')->name('admin_locals');
+    Route::get('local/{id}', 'LocalController@adminOneLocal')->name('admin_local');
+    Route::get('local/{id}/delete', 'LocalController@destroy')->name('admin_local_delete');
 
     //Cities
     Route::get('cities', 'CityController@getAllCities')->name('admin_cities');
+    Route::get('city/{id}', 'CityController@getOneCity')->name('admin_city');
+    Route::get('city/{id}/delete', 'CityController@destroyCity')->name('admin_city_destroy');
+
 
     //Historique
+
+    //Locals
+    Route::group(['prefix' => 'rate'], function() {
+        //level
+        Route::get('levels', 'LevelController@index')->name('admin_rate_levels');
+        Route::get('level/{level}', 'LevelController@getOneLevel')->name('admin_rate_level');
+
+    });
+
 
     //Adminer
     Route::any('adminer', '\Miroc\LaravelAdminer\AdminerAutologinController@index');

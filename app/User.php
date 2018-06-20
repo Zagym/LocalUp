@@ -40,6 +40,7 @@ class User extends Authenticatable
             'phone' => 'required|string|max:10',
             'email' => 'nullable|string|email|max:255|unique:users',
             'password' => 'nullable|string|min:6|confirmed',
+            'admin' => 'nullable',
         ]);
     }
  

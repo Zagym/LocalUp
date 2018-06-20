@@ -20,7 +20,9 @@
             @include('admin.layout.aside')
 
             <div class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-                @yield('content')
+                <div class="container-fluid">
+                    @yield('content')
+                </div>
             </div>
         </div>
     </div>
