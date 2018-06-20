@@ -21,7 +21,10 @@
 
             <div class="col-12 col-lg-9 ml-lg-auto pt-3 px-4">
                 <div class="container-fluid">
+
                     @include('includes.flash_messages')
+                    @include('includes.error_form')
+
                     @yield('content')
                 </div>
             </div>

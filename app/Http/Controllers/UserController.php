@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -143,5 +144,48 @@ class UserController extends Controller
         User::destroy($user->id);
 
         return back();
+    }
+
+    public function create()
+    {
+        return view('admin.create.user');
+    }
+
+    public function store(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'address' => 'string|max:255',
+            'city' => 'string|max:255',
+            'zip' => 'digits:5',
+            'phone' => 'string|max:10',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+            'admin' => 'nullable',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('admin_user_create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $user = new User();
+        $user->fill($request->all());
+
+        if ($request->admin) {
+            $user->admin = true;
+        } else {
+            $user->admin = false;
+        }
+
+        $user->password = Hash::make($request->password);
+
+        $user->save();
+
+        $request->session()->flash('success', sprintf('L\'utilisateur %s %s a bien été créé', $user->firstname, $user->lastname));
+
+        return redirect()->route('admin_user', ['user' => $user]);
     }
 }
