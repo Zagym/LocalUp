@@ -8,42 +8,25 @@
         <a href="/locations">< Retour à la liste des offres de location</a>
       </p>
 
-      <h1 class="pt-3">{{ $local->label }}<br/><small>{{ $local->category->label }}, {{ $local->city }}</small></h1>
-
       <div class="row mb-5">
-        <div class="col-12 col-lg-6 text-center">
+        <div class="col-12 col-md-5 text-center">
           <img src="https://imgplaceholder.com/800x800" class="img-fluid" alt=""/>
         </div>
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-md-7">
+          <h1 class="pt-3">{{ $local->label }}<br/><small>{{ $local->category->label }}, {{ $local->city }}</small></h1>
           <h2>Informations générales :</h2>
-          <div class="list-group">
-            <div class="d-flex w-100 justify-content-between">
-              <p class="mb-1">Adresse</p>
-            </div>
-            <p class="mb-1">
-              {{ $local->address }},<br>
-              étage {{ $local->floor }},<br>
-              porte {{ $local->door }}
-            </p>
-            <div class="d-flex w-100 justify-content-between">
-              <p class="mb-1">Capacité</p>
-            </div>
-            <p class="mb-1">
-              {{ $local->capacity }}
-            </p>
-            <div class="d-flex w-100 justify-content-between">
-              <p class="mb-1">Prix à la journée</p>
-            </div>
-            <p class="mb-1">
-              {{ $local->price }}€
-            </p>
-            <div class="d-flex w-100 justify-content-between">
-              <p class="mb-1">Description</p>
-            </div>
-            <p class="mb-1">
-              {{ $local->description }}
-            </p>
-          </div>
+
+          <h4>Description :</h4>
+          <p class="description">
+            {{ $local->description }}
+          </p>
+
+          <ul class="list-unstyled">
+            <li><b>Adresse :</b> {{ $local->address }}, {{ $local->city }} {{ $local->zip }}, France</li>
+            <li><b>Étage :</b> {{ $local->floor }}, <b>Porte :</b> {{ $local->door }}</li>
+            <li><b>Capacité :</b> {{ $local->capacity }} personne(s)</li>
+            <li><b>Prix de la journée : </b> {{ $local->price }}€</li>
+          </ul>
         </div>
       </div>
 
