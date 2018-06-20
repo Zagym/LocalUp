@@ -6,9 +6,6 @@
 
     <form method="POST" action="{{ route('admin_user_update', ['user' => $user]) }}">
         {{ csrf_field() }}
-    @include('includes.error_form')
-
-    <form>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="lastname">Nom</label>
@@ -22,7 +19,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" value="{{ $user->email }}">
+                <input type="email" class="form-control" name="email" value="{{ $user->email }}">
             </div>
             <div class="form-group col-md-6">
                 <label for="phone">Téléphone</label>
