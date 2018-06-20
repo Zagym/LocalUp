@@ -18,10 +18,10 @@ class LocalsTableSeeder extends Seeder
             'city' => 'Paris',
             'floor' => 1,
             'door' => 3,
-            'price' => 8500,
-            'capacity' => 30,
+            'price' => 350,
+            'capacity' => 2,
             'type_id' => 1,
-            'image_url' => "patrice"
+            'image_url' => "img/local/local1.jpg"
         ]);
         DB::table('locals')->insert([
             'label' => 'On est pas bien la ?',
@@ -30,10 +30,10 @@ class LocalsTableSeeder extends Seeder
             'city' => 'Marseille',
             'floor' => 0,
             'door' => 0,
-            'price' => 3500,
-            'capacity' => 120,
+            'price' => 250,
+            'capacity' => 1,
             'type_id' => 4,
-            'image_url' => "patrice"
+            'image_url' => "img/local/local2.jpg"
         ]);
         DB::table('locals')->insert([
             'label' => "Chez Jaouad",
@@ -42,10 +42,10 @@ class LocalsTableSeeder extends Seeder
             'city' => 'Paris',
             'floor' => 2,
             'door' => 2,
-            'price' => 850,
-            'capacity' => 5,
+            'price' => 350,
+            'capacity' => 3,
             'type_id' => 1,
-            'image_url' => "patrice"
+            'image_url' => "img/local/local1.jpg"
         ]);
         DB::table('locals')->insert([
             'label' => "Chez Google",
@@ -54,10 +54,10 @@ class LocalsTableSeeder extends Seeder
             'city' => 'Bordeaux',
             'floor' => 456,
             'door' => 153,
-            'price' => 150000,
-            'capacity' => 1500,
+            'price' => 4000,
+            'capacity' => 150,
             'type_id' => 2,
-            'image_url' => "patrice"
+            'image_url' => "img/local/local2.jpg"
         ]);
         DB::table('locals')->insert([
             'label' => "Chez mamie",
@@ -66,10 +66,10 @@ class LocalsTableSeeder extends Seeder
             'city' => 'Lyon',
             'floor' => -1,
             'door' => 1,
-            'price' => 1200,
-            'capacity' => 20,
-            'type_id' => 1,
-            'image_url' => "patrice"
+            'price' => 6000,
+            'capacity' => 200,
+            'type_id' => 2,
+            'image_url' => "img/local/local1.jpg"
         ]);
         DB::table('locals')->insert([
             'label' => "Chez Bob l'eponge",
@@ -78,22 +78,46 @@ class LocalsTableSeeder extends Seeder
             'city' => 'Marseille',
             'floor' => 1,
             'door' => 5,
-            'price' => 210,
-            'capacity' => 2,
+            'price' => 300,
+            'capacity' => 4,
             'type_id' => 3,
-            'image_url' => "patrice"
+            'image_url' => "img/local/local2.jpg"
         ]);
         DB::table('locals')->insert([
-            'label' => "chez Patrice",
+            'label' => "Chez Dinette",
             'description' => "Accueillant, attention proprietaire aggressif.",
             'address' => "Lyon 6",
             'city' => 'Lyon',
             'floor' => 1,
             'door' => 3,
-            'price' => 6050,
-            'capacity' => 500,
-            'type_id' => 1,
-            'image_url' => "patrice"
+            'price' => 400,
+            'capacity' => 4,
+            'type_id' => 3,
+            'image_url' => "img/local/local1.jpg"
+        ]);
+        DB::table('locals')->insert([
+            'label' => "Chez Patrice",
+            'description' => "Un bel espace pour gagner des millions en scred",
+            'address' => "Lyon 6",
+            'city' => 'Lyon',
+            'floor' => 1,
+            'door' => 3,
+            'price' => 700,
+            'capacity' => 5,
+            'type_id' => 4,
+            'image_url' => "img/local/local2.jpg"
+        ]);
+        DB::table('locals')->insert([
+            'label' => "Chez Dydy",
+            'description' => "Au milieu de plusieurs cancres de la société",
+            'address' => "Lyon 6",
+            'city' => 'Toulouse',
+            'floor' => 1,
+            'door' => 3,
+            'price' => 650,
+            'capacity' => 10,
+            'type_id' => 4,
+            'image_url' => "img/local/local1.jpg"
         ]);
 
     }

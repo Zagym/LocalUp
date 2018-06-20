@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ModuleTypesTableSeeder::class);
         $this->call(ReductionsTableSeeder::class);
         $this->call(TownsTableSeeder::class);
+        $this->call(flatRateModuleTableSeeder::class);
     }
 }

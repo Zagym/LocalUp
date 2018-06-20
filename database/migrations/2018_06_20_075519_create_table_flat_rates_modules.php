@@ -16,7 +16,7 @@ class CreateTableFlatRatesModules extends Migration
         Schema::create('flat_rates_modules', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('flat_rate_id');
-            $table->integer('module_id')
+            $table->integer('module_id');
             $table->timestamps();
         });
     }
