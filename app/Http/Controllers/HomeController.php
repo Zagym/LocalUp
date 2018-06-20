@@ -9,7 +9,7 @@ use App\Module;
 use App\Level;
 use App\Local;
 use App\City;
-
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -34,8 +34,10 @@ class HomeController extends Controller
 
     public function admin()
     {
-        $locals = Local::All();
-
-        return view('admin.home', ["locals" => $locals]);
+        $locals = Local::All()->count();
+        $users = User::all()->count();
+        $cities = City::all()->count();
+        $modules = Module::all()->count();
+        return view('admin.home', ["locals" => $locals, "users" => $users, "cities" => $cities, "modules" => $modules]);
     }
 }

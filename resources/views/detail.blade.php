@@ -15,7 +15,7 @@
           <img src="https://imgplaceholder.com/800x800" class="img-fluid" alt=""/>
         </div>
         <div class="col-12 col-md-7">
-          <h1 class="pt-3">{{ $local->label }}<br/><small>{{ $local->category->label }}, {{ $local->city }}</small></h1>
+          <h1 class="pt-3">{{ $local->label }}<br/><small>{{ $local->category->label }}, {{ $local->city->label }}</small></h1>
           <h2>Informations générales :</h2>
 
           <h4>Description :</h4>
@@ -24,7 +24,7 @@
           </p>
 
           <ul class="list-unstyled">
-            <li><b>Adresse :</b> {{ $local->address }}, {{ $local->city }} {{ $local->zip }}, France</li>
+            <li><b>Adresse :</b> {{ $local->address }}, {{ $local->city->label }} {{ $local->zip }}, France</li>
             <li><b>Étage :</b> {{ $local->floor }}, <b>Porte :</b> {{ $local->door }}</li>
             <li><b>Capacité :</b> {{ $local->capacity }} personne(s)</li>
             <li><b>Prix de la journée : </b> {{ $local->price }}€</li>

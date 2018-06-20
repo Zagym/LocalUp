@@ -50,7 +50,11 @@
                 <label for="type_id">type</label>
                 <select class="form-control" name="type_id">
                     @foreach($types as $type)
-                        <option value="{{$type->id}}">{{ $type->label }}</option>
+                        @if($type->id == $local->type_id)
+                            <option value="{{$type->id}}" selected="selected">{{ $type->label }}</option>
+                        @else
+                            <option value="{{$type->id}}">{{ $type->label }}</option>
+                        @endif
                     @endforeach
                 </select>
             </div>
