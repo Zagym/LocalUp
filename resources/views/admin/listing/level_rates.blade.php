@@ -21,29 +21,25 @@
 
     <h1>Liste des ratio de niveaux</h1>
 
-    <p class="d-block text-right">
-        <a href="" class="btn btn-primary">Ajouter</a>
-    </p>
-
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Rate</th>
-            <th scope="col">Modifier</th>
-            <th scope="col">Supprimer</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($levelRates as $levelRate)
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
             <tr>
-                <td>{{ $levelRate->id }}</td>
-                <td>{{ $levelRate->rate }}</td>
-                <td><a href="" class="btn btn-primary">Modifier</a></td>
-                <td><a href="" class="btn btn-danger">Delete</a></td>
+                <th scope="col">Id</th>
+                <th scope="col">Rate</th>
+                <th scope="col">Modifier</th>
             </tr>
-        @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            @foreach($levelRates as $levelRate)
+                <tr>
+                    <td>{{ $levelRate->id }}</td>
+                    <td>{{ $levelRate->rates }}</td>
+                    <td><a href="{{route('admin_rate_level', ['id' => $levelRate])}}" class="btn btn-primary">Modifier</a></td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 
 @endsection
