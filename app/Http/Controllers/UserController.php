@@ -16,7 +16,7 @@ class UserController extends Controller
 
     public function getOneUser(User $user)
     {
-        return view('profil', ['user' => $user]);
+        return view('admin.detail.user', ['user' => $user]);
     }
 
     public function getUser(Request $request)
@@ -31,7 +31,7 @@ class UserController extends Controller
         $validator = $user->validator($request->all());
 
         if ($validator->fails()) {
-            return redirect('user')
+            return redirect()->route('user')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -52,7 +52,46 @@ class UserController extends Controller
 
         $request->session()->flash('success', 'Vos modifications ont bien été prises en compte.');
 
-        return redirect('user');
+        return redirect()->route('user');
+    }
+
+    public function adminUpdateUser(Request $request, User $user)
+    {
+
+
+        $validator = $user->validator($request->all());
+
+        if ($validator->fails()) {
+            return redirect('user')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
+        $user->address = $request->address;
+        $user->city = $request->city;
+        $user->zip = $request->zip;
+        $user->phone = $request->phone;
+
+        if ($request->admin) {
+            $user->admin = true;
+        } else {
+            $user->admin = false;
+        }
+        
+        
+
+        // If the password exist hash, or ignore.
+        if ($request->password) {
+            $user->password = Hash::make($request->password);
+        }
+
+        $user->save();
+
+        $request->session()->flash('success', 'Vos modifications ont bien été prises en compte.');
+
+        return redirect()->route('admin_user', ['user' => $user]);
     }
 
     public function destroyUser($id)
