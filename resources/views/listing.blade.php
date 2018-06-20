@@ -6,12 +6,12 @@
         <h1>Nos offres de locations</h1>
         <div class="row mt-4" id="accordion">
             <div class="col-lg-6" id="cities">
-              <button class="btn btn-primary collapsed col-lg-12" data-toggle="collapse" data-target="#collapseCity" aria-expanded="false" aria-controls="collapseCity">
+              <button class="btn btn-primary btn-block collapsed mb-2" data-toggle="collapse" data-target="#collapseCity" aria-expanded="false" aria-controls="collapseCity">
                 Filtrer par ville
               </button>
             </div>
             <div class="col-lg-6" id="categories">
-              <button class="btn btn-primary collapsed col-lg-12" data-toggle="collapse" data-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCategory">
+              <button class="btn btn-primary btn-block collapsedmb-2" data-toggle="collapse" data-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCategory">
                 Filtrer par type
               </button>
             </div>
@@ -32,13 +32,17 @@
         </div>
         <div class="row justify-content-center" id="offers_list">
             @foreach($locals as $local)
-                <div class="col-lg-3 mb-4 mix {{ str_slug( $local->city ) . ' ' . str_slug($local->category->label) }}">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4 mix {{ str_slug( $local->city ) . ' ' . str_slug($local->category->label) }}">
                     <div class="offer">
                         <div class="img-offer">
                             <img src="https://imgplaceholder.com/500x300" class="img-fluid" alt="">
                         </div>
                         <div class="description-offer text-center p-4 bg-light">
-                            <h2 class="mt-0">{{ $local->label }}</h2>
+                            <h6 class="text-nowrap">{{ $local->label }}</h6>
+                            <h3 class="mt-0">
+                              <span class="text-nowrap">{{ $local->category->label }}</span>,<br/>
+                              {{ $local->city }}
+                            </h3>
 
                             <a href="{{ route('local', ['id' => $local]) }}" class="btn btn-primary">En savoir +</a>
                         </div>
