@@ -15,11 +15,11 @@ Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 Route::get('test', function() {
-   return view('admin.detail.level_rate');
+  return view('admin.detail.level_rate');
 });
 
 Route::get('test2', function() {
-   return view('detail');
+  return view('detail');
 });
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -27,23 +27,24 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 
-    Route::get('AllLocal', 'LocalController@index');
+  Route::get('AllLocal', 'LocalController@index');
 
-    //home
-    Route::get('/', 'HomeController@admin')->name('admin_home');
+  //home
+  Route::get('/', 'HomeController@admin')->name('admin_home');
 
-    //Users
-    Route::get('users', 'UserController@getUsers')->name('admin_users');
-    Route::get('user/{user}', 'UserController@getOneUser')->name('admin_user');
-    Route::post('user/{user}/update', 'UserController@AdminUpdateUser')->name('admin_user_update');
-    Route::get('user/{id}/delete', 'UserController@destroyUser')->name('admin_user_delete');
+  //Users
+  Route::get('users', 'UserController@getUsers')->name('admin_users');
+  Route::get('user/{user}', 'UserController@getOneUser')->name('admin_user');
+  Route::post('user/{user}/update', 'UserController@AdminUpdateUser')->name('admin_user_update');
+  Route::get('user/{id}/delete', 'UserController@destroyUser')->name('admin_user_delete');
 
-    //Levels
-    Route::get('levels', 'LevelController@getAllLevels')->name('admin_levels');
+  //Levels
+  Route::get('levels', 'LevelController@getAllLevels')->name('admin_levels');
 
-    //Modules
-    Route::get('modules', 'ModuleController@getAllModules')->name('admin_modules');
-    Route::get('module/{id}', 'ModuleController@getOneModule')->name('admin_module');
+  //Modules
+  Route::get('modules', 'ModuleController@getAllModules')->name('admin_modules');
+  Route::get('module/{id}', 'ModuleController@getOneModule')->name('admin_module');
+
 
     //Locals
     Route::get('locals', 'LocalController@adminAllLocals')->name('admin_locals');
@@ -58,7 +59,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
     Route::get('city/{id}/delete', 'CityController@destroyCity')->name('admin_city_destroy');
 
 
-    //Historique
+
+  //Historique
+
 
 
     Route::group(['prefix' => 'rate'], function() {
@@ -66,8 +69,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
         Route::get('levels', 'LevelController@index')->name('admin_rate_levels');
         Route::get('level/{level}', 'LevelController@getOneLevel')->name('admin_rate_level');
 
-    });
-
+  });
 
 
     //Adminer

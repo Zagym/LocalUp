@@ -19,22 +19,25 @@ window.Mixitup = require('mixitup');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-const app = new Vue({
-    el: '#app'
-});
 
-// Mixitup
+var pathname = window.location.pathname;
+if(pathname == 'locations'){
+  var offersList = $('#offers_list');
+  var mixer = Mixitup(offersList, {
+      selectors: {
+          control: '[data-mixitup-control]'
+      }
+  });
 
-var offersList = $('#offers_list');
-var mixer = Mixitup(offersList, {
-    selectors: {
-        control: '[data-mixitup-control]'
-    }
-});
-let url = window.location.href;
-if(url.indexOf('filter') != -1){
-  let splitted = url.split("=")
-  mixer.filter('.'+splitted[1]);
-}else {
-  mixer.filter('all');
+  let url = window.location.href;
+  if(url.indexOf('filter') != -1){
+    let splitted = url.split("=")
+    mixer.filter('.'+splitted[1]);
+  }else {
+    mixer.filter('all');
+  }
 }
+
+window.setTimeout(function(){
+      $("#alert-message").fadeOut(500);
+},2000)
