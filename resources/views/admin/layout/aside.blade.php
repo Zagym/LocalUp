@@ -2,7 +2,7 @@
     <div class="sidebar-sticky">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{route('admin_home')}}">
                     Tableau de bord
                 </a>
             </li>
@@ -17,7 +17,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin_modules') }}">
+                <a class="nav-link" href="{{route('admin_modules')}}">
                     Modules
                 </a>
             </li>
