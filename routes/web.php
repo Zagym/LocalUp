@@ -15,7 +15,7 @@ Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 Route::get('test', function() {
-   return view('listing');
+   return view('admin.listing_users');
 });
 
 Route::get('test2', function() {
