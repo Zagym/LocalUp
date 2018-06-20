@@ -25,6 +25,8 @@
 
     <h1>Modification de l'utilisateur {{ $user->id }}</h1>
 
+    @include('includes.error_form')
+
     <form>
         <div class="form-row">
             <div class="form-group col-md-6">
