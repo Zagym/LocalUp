@@ -52,7 +52,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 
 ////// Côté Utilisateur //////
 //Users
-Route::get('user', 'UserController@getUser')->name('user');
+Route::get('user', 'UserController@getUser')->name('user')->middleware('auth');
 Route::post('update', 'UserController@updateUser')->name('update');
 
 //Modules
