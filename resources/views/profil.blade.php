@@ -10,8 +10,6 @@
 
                 @include('includes.error_form')
 
-                @include('includes.flash_messages')
-
                 <form class="text-center my-5" method="POST" action="{{ route('update') }}">
                     {{ csrf_field() }}
                     <div class="form-row">
