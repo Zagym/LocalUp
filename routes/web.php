@@ -47,6 +47,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
     Route::get('locals', 'LocalController@getAllLocals')->name('admin_locals');
     Route::get('local/{id}', 'LocalController@getOneLocal')->name('admin_local');
 
+    //Cities
+    Route::get('cities', 'CityController@getAllCities')->name('admin_cities');
+
     //Historique
 
     //Adminer
