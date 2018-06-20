@@ -2,40 +2,13 @@
 
 @section('content')
 
-    {{--
-        Ajouter le local, mais aussi envoyer la liste des types.
-    --}}
 
-    @php
-
-        $local = new class () {
-            public $id = 2;
-            public $label = 'Test';
-            public $description = 'Test';
-            public $address = 'Test';
-            public $city = 'Test';
-            public $floor = 'Test';
-            public $door = 'Test';
-            public $capacity = 'Test';
-            public $price = 'test';
-            public $type = 'test';
-            public $image_url = 'test';
-        };
-
-        $type = new class () {
-            public $label = 'test';
-        };
-
-        $types[] = $type;
-        $types[] = $type;
-
-    @endphp
-
-    <h1>Modification du local {{ $local->id }}</h1>
+    <h1>Modification du local "{{ $local->label }}"</h1>
 
     @include('includes.error_form')
 
-    <form>
+    <form  method="POST" action="{{ route('admin_local_update', ['id' => $local->id]) }}" enctype="multipart/form-data">
+        {{ csrf_field() }}
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="label">Libellé</label>
@@ -61,7 +34,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="city">Ville</label>
-                <input type="text" class="form-control" name="city" value="{{ $local->city }}">
+                <input type="text" class="form-control" name="city" value="{{ $local->city->label }}">
             </div>
             <div class="form-group col-md-3">
                 <label for="floor">Etage</label>
@@ -74,18 +47,22 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="type">type</label>
-                <select class="form-control" name="type">
+                <label for="type_id">type</label>
+                <select class="form-control" name="type_id">
                     @foreach($types as $type)
-                        <option>{{ $type->label }}</option>
+                        <option value="{{$type->id}}">{{ $type->label }}</option>
                     @endforeach
                 </select>
             </div>
             <div class="form-group col-md-6">
                 <label for="file">Image du local</label>
-                <input type="file" class="form-control-file" name="file">
+                <input type="file" class="form-control-file" name="image_url">
+
             </div>
         </div>
+            @if($local->image_url)
+                <img src="{{asset('storage').'/'.$local->image_url}}" class="img-fluid" alt="">
+            @endif
         <button type="submit" class="btn btn-primary">Modifier</button>
         <a href="" class="btn btn-danger">Supprimer</a>
     </form>

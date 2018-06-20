@@ -30,7 +30,7 @@
               <div class="description-offer text-center p-4 bg-light">
                 <h3 class="mt-0">
                   <span class="text-nowrap">{{ $local->category->label }}</span>,<br/>
-                  {{ $local->city }}
+                  {{ $local->city->label }}
                 </h3>
                 <a href="{{ route('local', ['id' => $local]) }}" class="btn btn-primary">En savoir +</a>
               </div>
