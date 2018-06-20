@@ -4,7 +4,6 @@
 
     <h1>Modification du type d'un module {{ $module->id }}</h1>
 
-    @include('includes.error_form')
     <form method="POST" action="{{ route('admin_module_update', ['module' => $module]) }}">
         {{ csrf_field() }}
         <div class="form-row">

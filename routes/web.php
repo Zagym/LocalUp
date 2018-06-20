@@ -52,6 +52,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 
     //Locals
     Route::get('locals', 'LocalController@adminAllLocals')->name('admin_locals');
+    Route::get('local/create', 'LocalController@create')->name('admin_local_create');
+    Route::get('local/store', 'LocalController@store')->name('admin_local_store');
     Route::get('local/{id}', 'LocalController@adminOneLocal')->name('admin_local');
     Route::get('local/{id}/delete', 'LocalController@destroy')->name('admin_local_delete');
     Route::post('local/{local}/update', 'LocalController@edit')->name('admin_local_update');

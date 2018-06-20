@@ -5,8 +5,6 @@
     
     <h1>Modification du local "{{ $local->label }}"</h1>
 
-    @include('includes.error_form')
-
     <form  method="POST" action="{{ route('admin_local_update', ['local' => $local]) }}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-row">
