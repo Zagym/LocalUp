@@ -34,6 +34,7 @@
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Modifier</button>
+        <a href="" class="btn btn-danger">Supprimer</a>
     </form>
 
 @endsection
