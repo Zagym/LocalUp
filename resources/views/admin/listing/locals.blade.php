@@ -2,26 +2,7 @@
 
 @section('content')
 
-    {{--
-        Ajouter chaque local + les liens modification/suppresion
-        Ne pas oublier de supprimer la class user pr test, et ce commentaire.
-    --}}
-
-    @php
-
-        $local = new class () {
-            public $id = 2;
-            public $label = 'Test';
-            public $price = 'Test';
-            public $city= 'Test';
-        };
-
-        $locals[] = $local;
-        $locals[] = $local;
-
-    @endphp
-
-    <h1>Liste des utilisateurs</h1>
+    <h1>Liste des locaux</h1>
 
     <div class="row">
         <table class="table table-striped">
@@ -42,8 +23,8 @@
                     <td>{{ $local->label }}</td>
                     <td>{{ $local->price }}</td>
                     <td>{{ $local->city }}</td>
-                    <td><a href="" class="btn btn-primary">Modifier</a></td>
-                    <td><a href="" class="btn btn-danger">Delete</a></td>
+                    <td><a href="{{route('admin_local', ['id' => $local->id]) }}" class="btn btn-primary">Modifier</a></td>
+                    <td><a href="{{route('admin_local_delete', ['id' => $local->id]) }}" class="btn btn-danger">Delete</a></td>
                 </tr>
             @endforeach
             </tbody>
