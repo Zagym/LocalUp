@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class TownsTableSeeder extends Seeder
+class CitiesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,19 +11,19 @@ class TownsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('towns')->insert([
+        DB::table('cities')->insert([
             'label' => 'Paris'
         ]);
-        DB::table('towns')->insert([
+        DB::table('cities')->insert([
             'label' => 'Lyon'
         ]);
-        DB::table('towns')->insert([
+        DB::table('cities')->insert([
             'label' => 'Bordeaux'
         ]);
-        DB::table('towns')->insert([
+        DB::table('cities')->insert([
             'label' => 'Marseille'
         ]);
-        DB::table('towns')->insert([
+        DB::table('cities')->insert([
             'label' => 'Toulouse'
         ]);
     }

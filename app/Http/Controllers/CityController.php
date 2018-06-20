@@ -48,4 +48,33 @@ class CityController extends Controller
         City::destroy($city->id);
         return back();
     }
+
+    public function create()
+    {
+        return view('admin.create.city');
+    }
+
+    public function store(Request $request)
+    {
+        $city = new City();
+        $validator = $city->validator($request->all());
+
+        if ($validator->fails()) {
+            return redirect()->route('admin_city_create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $city->fill($request->all());
+
+        if ($request->active) {
+            $city->active = true;
+        } else {
+            $city->active = false;
+        }
+
+        $city->save();
+
+        return redirect()->route('admin_city', ['city' => $city]);
+    }
 }
