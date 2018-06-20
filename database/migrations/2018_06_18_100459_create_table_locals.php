@@ -26,7 +26,7 @@ class CreateTableLocals extends Migration
             $table->float('price', 8, 2);
             $table->integer('type_id');
             $table->timestamps();
-            $table->string('image_url');
+            $table->string('image_url')->nullable();
         });
     }
 
