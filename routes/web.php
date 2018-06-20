@@ -15,7 +15,7 @@ Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 Route::get('test', function() {
-   return view('admin.detail.local');
+   return view('admin.detail.level_rate');
 });
 
 Route::get('test2', function() {
@@ -34,7 +34,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 
     //Users
     Route::get('users', 'UserController@getUsers')->name('admin_users');
-    Route::get('user/{id}', 'UserController@getOneUser')->name('admin_user');
+    Route::get('user/{user}', 'UserController@getOneUser')->name('admin_user');
+    Route::post('user/{user}/update', 'UserController@AdminUpdateUser')->name('admin_user_update');
+    Route::get('user/{id}/delete', 'UserController@destroyUser')->name('admin_user_delete');
 
     //Levels
     Route::get('levels', 'LevelController@getAllLevels')->name('admin_levels');
@@ -52,6 +54,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
     //Cities
     Route::get('cities', 'CityController@getAllCities')->name('admin_cities');
     Route::get('city/{id}', 'CityController@getOneCity')->name('admin_city');
+    Route::post('city/{id}/update', 'CityController@updateCity')->name('admin_city_update');
     Route::get('city/{id}/delete', 'CityController@destroyCity')->name('admin_city_destroy');
 
 

@@ -28,4 +28,8 @@ class Local extends Model
             'image_url' => 'image|mimes:jpeg,png,jpg,jpeg,gif,svg|max:2048'
             ]);
     }
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id');
+    }
 }

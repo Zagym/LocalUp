@@ -34,7 +34,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="city">Ville</label>
-                <input type="text" class="form-control" name="city" value="{{ $local->city }}">
+                <input type="text" class="form-control" name="city" value="{{ $local->city->label }}">
             </div>
             <div class="form-group col-md-3">
                 <label for="floor">Etage</label>
@@ -64,6 +64,7 @@
                 <img src="{{asset('storage').'/'.$local->image_url}}" class="img-fluid" alt="">
             @endif
         <button type="submit" class="btn btn-primary">Modifier</button>
+        <a href="" class="btn btn-danger">Supprimer</a>
     </form>
 
 @endsection

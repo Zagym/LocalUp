@@ -7,6 +7,18 @@
         Ne pas oublier de supprimer la class user pr test, et ce commentaire.
     --}}
 
+    @php
+
+        $levelRate = new class () {
+            public $id = 2;
+            public $rate = 'Test';
+        };
+
+        $levelRates[] = $levelRate;
+        $levelRates[] = $levelRate;
+
+    @endphp
+
     <h1>Liste des ratio de niveaux</h1>
 
     <div class="row">

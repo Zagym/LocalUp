@@ -4,7 +4,11 @@
 
 
   <header id="header-home" class="d-flex align-items-end justify-content-end py-5 px-3">
-    <h1 class="text-center text-lg-right my-5 ml-auto mr-auto mr-sm-5 text-uppercase">Montez d'un level en louant<br class="d-none d-xl-block" /> un espace de travail à votre image</h1>
+    <h1 class="text-center text-lg-right my-5 ml-auto mr-auto mr-sm-5 text-uppercase">
+      Montez d'un level en louant<br class="d-none d-xl-block" /> un espace de travail à votre image
+      <br/>
+      <a href="/locations" class="btn btn-primary btn-lg px-3 py-2">Louer un bureau maintenant</a>
+    </h1>
   </header>
 
   <div id="component-homepage" class="pb-5">
@@ -26,7 +30,7 @@
               <div class="description-offer text-center p-4 bg-light">
                 <h3 class="mt-0">
                   <span class="text-nowrap">{{ $local->category->label }}</span>,<br/>
-                  {{ $local->city }}
+                  {{ $local->city->label }}
                 </h3>
                 <a href="{{ route('local', ['id' => $local]) }}" class="btn btn-primary">En savoir +</a>
               </div>

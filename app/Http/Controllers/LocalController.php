@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Local;
 use App\City;
 use App\Local_Type;
+
 class LocalController extends Controller
 {
     /**
@@ -15,8 +16,15 @@ class LocalController extends Controller
      */
     public function getAllLocals()
     {
-        $locals = Local::All();
-        $cities = City::all();
+            $locals = Local::whereHas('city', function($query) {
+                $query->where('active', 1);
+            })
+            ->get()
+            ->sortByDesc('id')
+            ->values()
+        ;
+
+        $cities = City::all()->where('active', 1);
         $categories = Local_Type::all();
 
         return view('listing', ['locals' => $locals, 'cities' => $cities, 'categories' => $categories]);

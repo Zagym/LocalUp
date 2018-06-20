@@ -17,7 +17,29 @@ class CityController extends Controller
     public function getOneCity($id)
     {
         $city = City::find($id);
-        dd($city);
+        return view('admin/detail.city', ['city' => $city]);
+    }
+
+    public function updateCity(Request $request, $id)
+    {
+        $city = City::find($id);
+
+        
+        if ($request->active) {
+            $city->active = true;
+        } else {
+            $city->active = false;
+        }
+
+
+        $city->label = $request->label;
+
+        $city->save();
+
+        $request->session()->flash('success', 'Vos modifications ont bien été prises en compte.');
+
+        return redirect()->route('admin_city', ['city' => $city]);
+
     }
 
     public function destroyCity($id)
