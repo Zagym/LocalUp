@@ -34,7 +34,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 
     //Users
     Route::get('users', 'UserController@getUsers')->name('admin_users');
-    Route::get('user/{id}', 'UserController@getOneUser')->name('admin_user');
+    Route::get('user/{user}', 'UserController@getOneUser')->name('admin_user');
+    Route::post('user/{user}/update', 'UserController@AdminUpdateUser')->name('admin_user_update');
+    Route::get('user/{id}/delete', 'UserController@destroyUser')->name('admin_user_delete');
 
     //Levels
     Route::get('levels', 'LevelController@getAllLevels')->name('admin_levels');
