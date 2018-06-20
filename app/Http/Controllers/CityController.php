@@ -38,6 +38,11 @@ class CityController extends Controller
 
     public function destroyCity(Request $request, City $city)
     {
+        if (count($city->locals) !== 0) {
+            $request->session()->flash('error', sprintf('La ville %s ne peut être supprimée. Des locaux y sont associés.', $city->label));
+            return back();
+        }
+
         $request->session()->flash('success', sprintf('La ville %s a bien été supprimée', $city->label));
 
         City::destroy($city->id);
