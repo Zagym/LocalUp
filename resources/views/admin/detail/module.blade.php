@@ -2,33 +2,12 @@
 
 @section('content')
 
-    {{--
-        Ajouter le local, mais aussi envoyer la liste des types.
-    --}}
-
-    @php
-
-        $module = new class () {
-            public $id = 2;
-            public $label = 'Test';
-            public $price = 'Test';
-            public $description = 'Test';
-        };
-
-        $type = new class () {
-            public $label = 'test';
-        };
-
-        $types[] = $type;
-        $types[] = $type;
-
-    @endphp
-
     <h1>Modification du type d'un module {{ $module->id }}</h1>
 
     @include('includes.error_form')
-
-    <form>
+    @include('includes.flash_messages')
+    <form method="POST" action="{{ route('admin_module_update', ['module' => $module]) }}">
+        {{ csrf_field() }}
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="label">Libellé</label>
@@ -46,8 +25,12 @@
         <div class="form-group">
             <label for="type">type</label>
             <select class="form-control" name="type">
-                @foreach($types as $type)
-                    <option>{{ $type->label }}</option>
+                @foreach($moduleTypes as $moduleType)
+                    @if($moduleType->id == $module->type_id)
+                        <option name="moduleType" value='{{ $moduleType->id }}' selected="selected">{{ $moduleType->nature }}</option>
+                    @else
+                        <option name="moduleType" value='{{ $moduleType->id }}'>{{ $moduleType->nature }}</option>
+                    @endif
                 @endforeach
             </select>
         </div>
