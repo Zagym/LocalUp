@@ -71,6 +71,7 @@ h2 {
   color: $blue;
   font-size: 1.8rem;
   font-weight: 500;
+  margin-bottom: 1.5rem;
 }
 
 h3 {
@@ -103,9 +104,24 @@ h3 {
   }
 }
 
-#component-offers-list {
+#component-homepage {
   #offers_list {
+    .description-offer {
+      h3 {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
 
+#component-offers-list {
+  min-height: 600px;
+  #offers_list {
+    .description-offer {
+      h3 {
+        font-size: 1.2rem;
+      }
+    }
   }
 }
 
@@ -115,18 +131,18 @@ h3 {
   .img-offer {
     overflow: hidden;
     img {
-      transition: all 3s ease-in;
+      transition: all 0.2s ease-in;
     }
   }
 
   &:hover {
     .img-offer {
       img {
-        transform: scale(1.5) rotate(-10deg);
+        transform: scale(1.4) rotate(-5deg);
       }
     }
-  }
-} 
+  } 
+}
 
 
 #footer {
