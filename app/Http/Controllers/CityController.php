@@ -13,4 +13,16 @@ class CityController extends Controller
 
         return view('admin/listing.cities', ['cities' => $cities]);
     }
+
+    public function getOneCity($id)
+    {
+        $city = City::find($id);
+        dd($city);
+    }
+
+    public function destroyCity($id)
+    {
+        City::destroy($id);
+        return back();
+    }
 }
