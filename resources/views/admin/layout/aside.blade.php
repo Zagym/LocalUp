@@ -2,17 +2,17 @@
     <div class="sidebar-sticky">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="">
                     Tableau de bord
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('admin_users') }}">
                     Utilisateurs
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('admin_locals') }}">
                     Locaux
                 </a>
             </li>
@@ -22,7 +22,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('admin_cities') }}">
                     Ville
                 </a>
             </li>
