@@ -7,7 +7,7 @@
 
     @include('includes.error_form')
 
-    <form  method="POST" action="{{ route('admin_local_update', ['id' => $local->id]) }}" enctype="multipart/form-data">
+    <form  method="POST" action="{{ route('admin_local_update', ['local' => $local]) }}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -34,7 +34,15 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="city">Ville</label>
-                <input type="text" class="form-control" name="city" value="{{ $local->city->label }}">
+                <select class="form-control" name="city">
+                    @foreach($cities as $city)
+                        @if($city->id == $local->city_id)
+                            <option value="{{$city->id}}" selected="selected">{{ $city->label }}</option>
+                        @else
+                            <option value="{{$city->id}}">{{ $city->label }}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
             <div class="form-group col-md-3">
                 <label for="floor">Etage</label>
@@ -50,7 +58,11 @@
                 <label for="type_id">type</label>
                 <select class="form-control" name="type_id">
                     @foreach($types as $type)
-                        <option value="{{$type->id}}">{{ $type->label }}</option>
+                        @if($type->id == $local->type_id)
+                            <option value="{{$type->id}}" selected="selected">{{ $type->label }}</option>
+                        @else
+                            <option value="{{$type->id}}">{{ $type->label }}</option>
+                        @endif
                     @endforeach
                 </select>
             </div>

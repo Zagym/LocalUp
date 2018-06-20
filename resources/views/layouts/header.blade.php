@@ -14,14 +14,13 @@
         <a class="nav-link mx-2" href="tel:0655443322"><i class="fas fa-phone"></i> 06.55.44.33.22</a>
       </li>
       <!-- Si le user n'est pas connecté -->
-      @if(Auth::guest()) 
+      @if(Auth::guest())
         <li class="nav-item">
           <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('login') }}">Se connecter</a>
         </li>
         <li class="nav-item">
           <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('register') }}">S'inscrire</a>
         </li>
-
         <!-- Si le user est connecté -->
       @elseif(Auth::check())
         <li class="nav-item">
@@ -30,7 +29,7 @@
         <!-- Si le user est un admin -->
         @if(Auth::user()->admin)
           <li class="nav-item">
-            <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('login') }}">Administration</a>
+            <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('admin_home') }}">Administration</a>
           </li>
         @endif
         <li class="nav-item">
@@ -39,6 +38,7 @@
       @endif
     </ul>
   </div>
+
 </nav>
 
 <div class="modal fade" id="modalConnect" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -51,7 +51,7 @@
         @elseif(Auth::check())
           <a href="{{ route('user') }}" class="btn btn-primary btn-block">Profil</a>
           @if(Auth::user()->admin)
-            <a href="{{ route('login') }}" class="btn btn-primary btn-block">Administration</a>
+            <a href="{{ route('admin_home') }}" class="btn btn-primary btn-block">Administration</a>
           @endif
           <a href="{{ route('logout') }}" class="btn btn-primary btn-block">Se déconnecter</a>
         @endif

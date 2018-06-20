@@ -7,20 +7,6 @@
         Ne pas oublier de supprimer la class user pr test, et ce commentaire.
     --}}
 
-    @php
-
-        $module = new class () {
-            public $id = 2;
-            public $label = 'Test';
-            public $price = 'Test';
-            public $type = 'Test';
-        };
-
-        $modules[] = $module;
-        $modules[] = $module;
-
-    @endphp
-
     <h1>Liste des modules</h1>
 
     <p class="d-block text-right">
@@ -45,8 +31,8 @@
                 <td>{{ $module->label }}</td>
                 <td>{{ $module->price }}</td>
                 <td>{{ $module->type }}</td>
-                <td><a href="" class="btn btn-primary">Modifier</a></td>
-                <td><a href="" class="btn btn-danger">Delete</a></td>
+                <td><a href="{{route('admin_module', ['module' => $module])}}" class="btn btn-primary">Modifier</a></td>
+                <td><a href="{{route('admin_module_destroy', ['module' => $module])}}" class="btn btn-danger">Delete</a></td>
             </tr>
         @endforeach
         </tbody>
