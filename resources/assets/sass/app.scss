@@ -37,6 +37,10 @@ body {
   background-color: $blue;
 }
 
+.border-primary {
+    border-color: $blue !important;
+}
+
 .btn-primary {
   background-color: $blue;
   @extend .text-white;
@@ -94,7 +98,7 @@ h3 {
 
 #alert-message {
   position: fixed;
-  top: 10%; 
+  top: 10%;
   z-index: 9999;
   right: 0;
   left: 0;
@@ -216,6 +220,70 @@ h3 {
   border-color: $danger;
 }
 
+// Admin
+
+
+#admin .sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+#admin .sidebar-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#admin .sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+#admin .sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #999;
+}
+
+#admin .sidebar .nav-link.active {
+  color: #007bff;
+}
+
+#admin .sidebar .nav-link:hover .feather,
+#admin .sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+#admin .sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+#admin .sidebar {
+    .sidebar-sticky {
+        height: 100vh;
+
+        .nav {
+            img {
+                width: 300px;
+            } 
+            li.nav-item {
+                &:hover {
+                    background-color: $grey;
+                }
+            }
+        }
+    }
+}
+
+
+
 @media screen and (max-width: 992px) {
   #header-home {
     height: 500px;
@@ -230,50 +298,12 @@ h3 {
       width: 200px;
     }
   }
-}
 
-// Admin
-
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 100; /* Behind the navbar */
-  padding: 0;
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-}
-
-.sidebar-sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  height: 100vh;
-  padding-top: .5rem;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.sidebar .nav-link {
-  font-weight: 500;
-  color: #333;
-}
-
-.sidebar .nav-link .feather {
-  margin-right: 4px;
-  color: #999;
-}
-
-.sidebar .nav-link.active {
-  color: #007bff;
-}
-
-.sidebar .nav-link:hover .feather,
-.sidebar .nav-link.active .feather {
-  color: inherit;
-}
-
-.sidebar-heading {
-  font-size: .75rem;
-  text-transform: uppercase;
+  #admin {
+      .sidebar {
+          .sidebar-sticky {
+              height: auto;
+          }
+      }
+  }
 }
