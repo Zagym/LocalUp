@@ -28,13 +28,13 @@
                     <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('user') }}">Profil</a>
                 </li>
 <!-- Si le user est un admin -->
-                @if(Auth::user()->admin) 
+                @if(Auth::user()->admin)
                     <li class="nav-item">
                         <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('login') }}">Administration</a>
                     </li>
                 @endif
                 <li class="nav-item">
-                    <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('logout') }}">Se déconnecter</a>
+                    <a class="nav-link btn-danger btn-sm btn mx-2" href="{{ route('logout') }}">Se déconnecter</a>
                 </li>
             @endif
         </ul>

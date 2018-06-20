@@ -78,7 +78,7 @@
               <p>Oui</p>
             </div>
             <div class="col-12 col-md-3 text-center">
-              <h5>Disponibilté :</h5>
+              <h5>Disponibilité :</h5>
               <p>Immédiate</p>
             </div>
           </div>
