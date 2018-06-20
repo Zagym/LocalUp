@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'texas@rangers.fr',
             'address' => 'Partout et nul part à la fois.',
             'city' => 'Kenchucky',
-            'zip' => '69200 la trick aie aie aie la famille',
+            'zip' => '69200',
             'phone' => '0666666666',
             'password' => Hash::make('cordell1234'),
             'admin' => 0
@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'sixieme@sens.fr',
             'address' => 'He is dead. He doesnt know that he is, but he is. Sure he is. Trust me.',
             'city' => 'Heaver',
-            'zip' => 'Multipass 45785 avenue',
+            'zip' => '45785',
             'phone' => '0000000009',
             'password' => Hash::make('bruce1234'),
             'admin' => 1
@@ -39,7 +39,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'ouestmonmail@cliquesitulevois.fr',
             'address' => 'Je dois demander à la carte. Est-ce que tu vois la carte ?',
             'city' => 'Quelque part',
-            'zip' => '46 rue de la boustifaille, 44894 entrecote',
+            'zip' => '44894',
             'phone' => '0607080910',
             'password' => Hash::make('dora1234'),
             'admin' => 0
