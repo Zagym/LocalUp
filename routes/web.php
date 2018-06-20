@@ -15,7 +15,7 @@ Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 Route::get('test', function() {
-   return view('admin.detail.local');
+   return view('admin.listing.cities');
 });
 
 Route::get('test2', function() {
@@ -57,6 +57,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 
 
     //Historique
+
+    //Locals
+    Route::group(['prefix' => 'rate'], function() {
+        //level
+        Route::get('levels', 'LevelController@index')->name('admin_rate_levels');
+        Route::get('level/{level}', 'LevelController@getOneLevel')->name('admin_rate_level');
+
+    });
+
 
     //Adminer
     Route::any('adminer', '\Miroc\LaravelAdminer\AdminerAutologinController@index');
