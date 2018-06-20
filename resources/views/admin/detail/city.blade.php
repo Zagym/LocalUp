@@ -8,7 +8,6 @@
 
     <h1>Modification du type de local {{ $city->id }}</h1>
     @include('includes.error_form')
-    @include('includes.flash_messages')
     <form method="POST" action="{{ route('admin_city_update', ['city' => $city]) }}">
         {{ csrf_field() }}
         <div class="form-group">
