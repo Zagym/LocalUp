@@ -3,39 +3,39 @@
 @section('content')
 
     {{--
-        Ajouter chaque ration de niveau + les liens modification/suppresion
+        Ajouter chaque réduction + les liens modification/suppresion
         Ne pas oublier de supprimer la class user pr test, et ce commentaire.
     --}}
 
     @php
 
-        $localType = new class () {
+        $reduction = new class () {
             public $id = 2;
-            public $label = 'Test';
+            public $rate = 'Test';
         };
 
-        $localTypes[] = $localType;
-        $localTypes[] = $localType;
+        $reductions[] = $reduction;
+        $reductions[] = $reduction;
 
     @endphp
 
-    <h1>Liste des types de locaux</h1>
+    <h1>Liste des réductions</h1>
 
     <div class="row">
         <table class="table table-striped">
             <thead>
             <tr>
                 <th scope="col">Id</th>
-                <th scope="col">Libellé</th>
+                <th scope="col">Rate</th>
                 <th scope="col">Modifier</th>
                 <th scope="col">Supprimer</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($localTypes as $localType)
+            @foreach($reductions as $reduction)
                 <tr>
-                    <td>{{ $localType->id }}</td>
-                    <td>{{ $localType->label }}</td>
+                    <td>{{ $reduction->id }}</td>
+                    <td>{{ $reduction->rate }}%</td>
                     <td><a href="" class="btn btn-primary">Modifier</a></td>
                     <td><a href="" class="btn btn-danger">Delete</a></td>
                 </tr>
