@@ -93,7 +93,7 @@ class LocalController extends Controller
         $local->price = $request->price;
         $local->type_id = $request->type_id;
         if ($request->image_url != null) {
-            $name = $request->image_url->store('public/img/local/'.$id);
+            $name = $request->image_url->store('public/img/local/'. $local->id);
             $local->image_url = str_replace("public/","",$name);
         }
 
@@ -101,7 +101,7 @@ class LocalController extends Controller
 
         $request->session()->flash('success', 'Vos modifications ont bien été prises en compte.');
 
-        return redirect()->route('admin_locals');
+        return redirect()->route('admin_local', ['local' => $local]);
     }
 
     /**
