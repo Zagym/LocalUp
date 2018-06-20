@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function getUser()
+    public function getUser(Request $request)
     {
-        $currentUser = app('Illuminate\Contracts\Auth\Guard')->user();
-        return view('profil', ['currentUser' => $currentUser ]);
+        $user = $request->user();
+        return view('profil', ['user' => $user]);
     }
 
     public function updateUser(Request $request)
@@ -31,10 +31,15 @@ class UserController extends Controller
         $user->city = $request->city;
         $user->zip = $request->zip;
         $user->phone = $request->phone;
-        $user->password = Hash::make($request->password);
+
+        // If the password exist hash, or ignore.
+        if ($request->password) {
+            $user->password = Hash::make($request->password);
+        }
+
         $user->save();
 
-        $request->session()->flash('status', 'Task was successful!');
+        $request->session()->flash('success', 'Vos modifications ont bien été prises en compte.');
 
         return redirect('user');
     }

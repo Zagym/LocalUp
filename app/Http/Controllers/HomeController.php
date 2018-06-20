@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use App\Local;
 class HomeController extends Controller
 {
     /**
@@ -13,6 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $locals = Local::All()->sortByDesc('id')->values()->slice(0,4);
+        return view('home', ["locals" => $locals]);
     }
 }
