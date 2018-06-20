@@ -16,6 +16,7 @@
 </head>
 <body id="admin">
     <div class="container-fluid">
+        @include('includes.flash_messages')
         <div class="row">
             @include('admin.layout.aside')
 

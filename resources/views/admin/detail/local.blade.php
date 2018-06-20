@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+    
     <h1>Modification du local "{{ $local->label }}"</h1>
 
     @include('includes.error_form')
