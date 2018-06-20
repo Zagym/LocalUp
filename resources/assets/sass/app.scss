@@ -46,6 +46,15 @@ body {
   }
 }
 
+.btn-danger {
+  background-color: $red;
+  @extend .text-white;
+
+  &:hover {
+    background-color: $red-hover;
+  }
+}
+
 .btn {
   @extend .rounded-0;
   @extend .border-0;
@@ -114,9 +123,18 @@ h3 {
   }
 }
 
+.mixitup-control-active {
+  background-color: $blue;
+  @extend .text-white;
+
+  &:hover {
+    background-color: $blue-hover;
+  }
+}
+
 #component-offers-list {
-  min-height: 600px;
   #offers_list {
+    overflow: hidden; 
     .description-offer {
       h3 {
         font-size: 1.2rem;
@@ -141,7 +159,7 @@ h3 {
         transform: scale(1.4) rotate(-5deg);
       }
     }
-  } 
+  }
 }
 
 
