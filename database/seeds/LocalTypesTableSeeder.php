@@ -12,19 +12,19 @@ class LocalTypesTableSeeder extends Seeder
     public function run()
     {
         DB::table('local_types')->insert([
-            'label' => "fermé",
+            'label' => "Bureau fermé",
             'description' => "Espace clos"
         ]);
         DB::table('local_types')->insert([
-            'label' => "centre d'affaires",
+            'label' => "Centre d'affaires",
             'description' => "Adapté pour les entreprises corporatistes"
         ]);
         DB::table('local_types')->insert([
-            'label' => "co-working",
+            'label' => "Espace de co-working",
             'description' => "espace où la discussion y est simple et plaisant."
         ]);
         DB::table('local_types')->insert([
-            'label' => "open space",
+            'label' => "Open space",
             'description' => "espace de travail trendy et demandé."
         ]);
     }
