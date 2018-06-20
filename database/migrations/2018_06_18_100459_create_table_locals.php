@@ -18,6 +18,7 @@ class CreateTableLocals extends Migration
             $table->string('label');
             $table->string('description');
             $table->string('address');
+            $table->string('city');
             $table->integer('floor');
             $table->integer('door');
             $table->integer('capacity');
