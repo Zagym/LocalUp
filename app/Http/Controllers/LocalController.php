@@ -15,21 +15,23 @@ class LocalController extends Controller
      */
     public function getAllLocals()
     {
-        $getAllLocals = Local::All();
+        $locals = Local::All();
         $cities = City::all();
         $categories = Local_Type::all();
-        return view('listing', ['locals' => $getAllLocals, 'cities' => $cities, 'categories' => $categories]);
+
+        return view('listing', ['locals' => $locals, 'cities' => $cities, 'categories' => $categories]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * @param Local $local
+     *
      * @return \Illuminate\Http\Response
      */
-    public function getOneLocal($id)
+    public function getOneLocal(Local $local)
     {
-        $getOneLocal = Local::find($id);
-        return $getOneLocal;
+        return view('detail', ['local' => $local]);
     }
 
     /**

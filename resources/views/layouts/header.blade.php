@@ -38,7 +38,6 @@
                 </li>
             @endif
         </ul>
-
     </div>
 </nav>
 
@@ -51,8 +50,8 @@
           <a href="{{ route('register') }}" class="btn btn-primary btn-block">S'inscrire</a>
       @elseif(Auth::check())
           <a href="{{ route('user') }}" class="btn btn-primary btn-block">Profil</a>
-          @if(Auth::user()->admin) 
-            <a href="{{ route('login') }}" class="btn btn-primary btn-block">Administration</a>
+          @if(Auth::user()->admin)
+              <a href="{{ route('login') }}" class="btn btn-primary btn-block">Administration</a>
           @endif
           <a href="{{ route('logout') }}" class="btn btn-primary btn-block">Se déconnecter</a>
       @endif
