@@ -42,5 +42,5 @@ class User extends Authenticatable
             'password' => 'nullable|string|min:6|confirmed',
         ]);
     }
- 
+
 }
