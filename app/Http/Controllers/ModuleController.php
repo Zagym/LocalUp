@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Module;
+use App\Module_Type;
 
 class ModuleController extends Controller
 {
@@ -20,14 +21,9 @@ class ModuleController extends Controller
      */
     public function getAllModules()
     {
-        $getAllModules = Module::All();
-        return $getAllModules;
+        $modules = Module::All();
+        return view('admin.listing.modules', ['modules' => $modules]);
 
-//Pour afficher le nom de tous les modules        
-/*        foreach ($getAllModules as $getModules) {
-            dump($getModules->label);
-        }
-*/
     }
 
     /**
@@ -36,10 +32,12 @@ class ModuleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function getOneModule($id)
+    public function getOneModule(Module $module)
     {
-        $getOneModule = Module::find($id);
-        return $getOneModule;
+        $moduleTypes = Module_Type::All();
+
+        return view('admin.detail.module', ['module' => $module, 'moduleTypes' => $moduleTypes]);
+
     }
 
     /**
@@ -48,42 +46,23 @@ class ModuleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function updateModule(Request $request, Module $module)
     {
-        //
+        $module->label = $request->label;
+        $module->price = $request->price;
+        $module->type_id = $request->type;
+        $module->description = $request->description;
+
+        $module->save();
+
+        $request->session()->flash('success', 'Vos modifications ont bien été prises en compte.');
+
+        return redirect()->route('admin_module', ['module' => $module]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function destroyModule(Module $module)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        Module::destroy($module->id);
+        return back();
     }
 }

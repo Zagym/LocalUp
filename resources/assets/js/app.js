@@ -21,7 +21,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 
 
 var pathname = window.location.pathname;
-if(pathname == 'locations'){
+if(pathname == '/locations'){
   var offersList = $('#offers_list');
   var mixer = Mixitup(offersList, {
       selectors: {
