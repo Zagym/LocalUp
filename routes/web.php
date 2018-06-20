@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
     Route::get('AllLocal', 'LocalController@index');
 
     //Users
-    Route::get('users', 'UserController@getAllUsers')->name('admin_users');
+    Route::get('users', 'UserController@getUsers')->name('admin_users');
     Route::get('user/{id}', 'UserController@getOneUser')->name('admin_user');
 
     //Levels
