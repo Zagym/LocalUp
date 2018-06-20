@@ -32,7 +32,7 @@
         </div>
         <div class="row justify-content-center" id="offers_list">
             @foreach($locals as $local)
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4 mix {{ str_slug( $local->city ) . ' ' . str_slug($local->category->label) }}">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4 mix {{ str_slug( $local->city->label ) . ' ' . str_slug($local->category->label) }}">
                     <div class="offer">
                         <div class="img-offer">
                             <img src="https://imgplaceholder.com/500x300" class="img-fluid" alt="">
@@ -41,7 +41,7 @@
                             <h6 class="text-nowrap">{{ $local->label }}</h6>
                             <h3 class="mt-0">
                               <span class="text-nowrap">{{ $local->category->label }}</span>,<br/>
-                              {{ $local->city }}
+                              {{ $local->city->label }}
                             </h3>
 
                             <a href="{{ route('local', ['id' => $local]) }}" class="btn btn-primary">En savoir +</a>

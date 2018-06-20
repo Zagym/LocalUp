@@ -25,7 +25,7 @@
                 <td>{{ $local->id }}</td>
                 <td>{{ $local->label }}</td>
                 <td>{{ $local->price }}</td>
-                <td>{{ $local->city }}</td>
+                <td>{{ $local->city->label }}</td>
                 <td><a href="{{route('admin_local', ['id' => $local->id]) }}" class="btn btn-primary">Modifier</a></td>
                 <td><a href="{{route('admin_local_delete', ['id' => $local->id]) }}" class="btn btn-danger">Delete</a></td>
             </tr>
