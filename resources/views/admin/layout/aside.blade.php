@@ -4,7 +4,7 @@
     <div class="sidebar-sticky p-4">
 
         <div class="d-block text-center text-lg-left" style="max-width: 300px; margin: auto;">
-            <img src="img/logo-localup.png" class="img-fluid border-bottom border-primary pb-3 mb-3" alt="">
+            <img src="/img/logo-localup.png" class="img-fluid border-bottom border-primary pb-3 mb-3" alt="">
         </div>
 
         <ul class="nav flex-row flex-lg-column justify-content-center justify-content-lg-start">
@@ -27,7 +27,7 @@
                 <a class="nav-link" href="{{route('admin_modules')}}">
                     <i class="fas fa-plus-square"></i> Gérer les modules
                 </a>
-            </li> 
+            </li>
             <li class="nav-item">
             <a class="nav-link" href="{{ route('admin_cities') }}">
                     <i class="fas fa-university"></i> Gérer les villes
