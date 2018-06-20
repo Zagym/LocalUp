@@ -57,8 +57,6 @@ class UserController extends Controller
 
     public function adminUpdateUser(Request $request, User $user)
     {
-
-
         $validator = $user->validator($request->all());
 
         if ($validator->fails()) {
@@ -79,8 +77,6 @@ class UserController extends Controller
         } else {
             $user->admin = false;
         }
-        
-        
 
         // If the password exist hash, or ignore.
         if ($request->password) {
@@ -94,9 +90,17 @@ class UserController extends Controller
         return redirect()->route('admin_user', ['user' => $user]);
     }
 
-    public function destroyUser($id)
+    public function destroyUser(Request $request, User $user)
     {
-        User::destroy($id);
+        if ($request->user()->id === $user->id) {
+            $request->session()->flash('error', 'Vous ne pouvez pas supprimer votre compte.');
+            return back();
+        }
+
+        $request->session()->flash('success', sprintf('L\'utilisateur %s %s a bien été supprimé', $user->firstname, $user->lastname));
+
+        User::destroy($user->id);
+
         return back();
     }
 }
