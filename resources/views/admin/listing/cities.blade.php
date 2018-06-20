@@ -7,18 +7,6 @@
         Ne pas oublier de supprimer la class user pr test, et ce commentaire.
     --}}
 
-    @php
-
-        $city = new class () {
-            public $id = 2;
-            public $label = 'Test';
-        };
-
-        $cities[] = $city;
-        $cities[] = $city;
-
-    @endphp
-
     <h1>Liste des villes</h1>
 
     <div class="row">
@@ -36,7 +24,7 @@
                 <tr>
                     <td>{{ $city->id }}</td>
                     <td>{{ $city->label }}</td>
-                    <td><a href="" class="btn btn-primary">Modifier</a></td>
+                <td><a href="{{ route('admin_city', ['id' => $city->id]) }}" class="btn btn-primary">Modifier</a></td>
                     <td><a href="" class="btn btn-danger">Delete</a></td>
                 </tr>
             @endforeach
