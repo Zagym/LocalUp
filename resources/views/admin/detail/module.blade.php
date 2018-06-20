@@ -24,7 +24,7 @@
 
     @endphp
 
-    <h1>Modification du type de local {{ $module->id }}</h1>
+    <h1>Modification du type d'un module {{ $module->id }}</h1>
 
     @include('includes.error_form')
 
