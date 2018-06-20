@@ -16,7 +16,7 @@ class LocalController extends Controller
      */
     public function getAllLocals()
     {
-            $locals = Local::whereHas('city', function($query) {
+        $locals = Local::whereHas('city', function($query) {
                 $query->where('active', 1);
             })
             ->get()

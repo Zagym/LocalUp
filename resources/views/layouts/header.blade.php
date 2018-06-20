@@ -30,7 +30,7 @@
 <!-- Si le user est un admin -->
                 @if(Auth::user()->admin)
                     <li class="nav-item">
-                        <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('login') }}">Administration</a>
+                        <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('admin_home') }}">Administration</a>
                     </li>
                 @endif
                 <li class="nav-item">

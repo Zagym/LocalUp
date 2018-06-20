@@ -27,8 +27,8 @@
             <tr>
                 <td>{{ $city->id }}</td>
                 <td>{{ $city->label }}</td>
-            <td><a href="{{ route('admin_city', ['id' => $city->id]) }}" class="btn btn-primary">Modifier</a></td>
-            <td><a href="{{ route('admin_city_destroy', ['id' => $city->id]) }}" class="btn btn-danger">Delete</a></td>
+                <td><a href="{{ route('admin_city', ['id' => $city->id]) }}" class="btn btn-primary">Modifier</a></td>
+                <td><a href="{{ route('admin_city_destroy', ['id' => $city->id]) }}" class="btn btn-danger">Delete</a></td>
             </tr>
         @endforeach
         </tbody>
