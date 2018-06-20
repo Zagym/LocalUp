@@ -27,24 +27,26 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 
-  Route::get('AllLocal', 'LocalController@index');
+    Route::get('AllLocal', 'LocalController@index');
 
-  //home
-  Route::get('/', 'HomeController@admin')->name('admin_home');
+    //home
+    Route::get('/', 'HomeController@admin')->name('admin_home');
 
-  //Users
-  Route::get('users', 'UserController@getUsers')->name('admin_users');
-  Route::get('user/{user}', 'UserController@getOneUser')->name('admin_user');
-  Route::post('user/{user}/update', 'UserController@AdminUpdateUser')->name('admin_user_update');
-  Route::get('user/{id}/delete', 'UserController@destroyUser')->name('admin_user_delete');
+    //Users
+    Route::get('users', 'UserController@getUsers')->name('admin_users');
+    Route::get('user/{user}', 'UserController@getOneUser')->name('admin_user');
+    Route::post('user/{user}/update', 'UserController@AdminUpdateUser')->name('admin_user_update');
+    Route::get('user/{id}/delete', 'UserController@destroyUser')->name('admin_user_delete');
 
-  //Levels
-  Route::get('levels', 'LevelController@getAllLevels')->name('admin_levels');
+    //Levels
+    Route::get('levels', 'LevelController@getAllLevels')->name('admin_levels');
 
-  //Modules
-  Route::get('modules', 'ModuleController@getAllModules')->name('admin_modules');
-  Route::get('module/{id}', 'ModuleController@getOneModule')->name('admin_module');
 
+    //Modules
+    Route::get('modules', 'ModuleController@getAllModules')->name('admin_modules');
+    Route::get('module/{module}', 'ModuleController@getOneModule')->name('admin_module');
+    Route::post('module/{module}/update', 'ModuleController@updateModule')->name('admin_module_update');
+    Route::get('module/{module}/delete', 'ModuleController@destroyModule')->name('admin_module_destroy');
 
     //Locals
     Route::get('locals', 'LocalController@adminAllLocals')->name('admin_locals');
@@ -60,7 +62,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 
 
 
-  //Historique
+    //Historique
 
 
 

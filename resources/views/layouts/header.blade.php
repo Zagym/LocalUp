@@ -21,7 +21,6 @@
         <li class="nav-item">
           <a class="nav-link btn-primary btn-sm btn mx-2" href="{{ route('register') }}">S'inscrire</a>
         </li>
-
         <!-- Si le user est connecté -->
       @elseif(Auth::check())
         <li class="nav-item">
@@ -39,6 +38,7 @@
       @endif
     </ul>
   </div>
+
 </nav>
 
 <div class="modal fade" id="modalConnect" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
