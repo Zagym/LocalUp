@@ -17,7 +17,7 @@
         };
 
         $locals[] = $local;
-        $ulocals[] = $local;
+        $locals[] = $local;
 
     @endphp
 
