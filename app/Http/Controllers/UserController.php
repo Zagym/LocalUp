@@ -18,6 +18,7 @@ class UserController extends Controller
         $user = User::find($id);
         return view('profil', ['user' => $user]);
     }
+
     public function getUser(Request $request)
     {
         $user = $request->user();

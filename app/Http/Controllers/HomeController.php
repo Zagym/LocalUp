@@ -23,7 +23,7 @@ class HomeController extends Controller
 
     public function admin()
     {
-        $locals = Local::All()->sortByDesc('id')->values()->slice(0,4);
+        $locals = Local::All();
         return view('admin.home', ["locals" => $locals]);
     }
 }
