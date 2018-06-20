@@ -44,8 +44,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
     Route::get('module/{id}', 'ModuleController@getOneModule')->name('admin_module');
 
     //Locals
-    Route::get('locals', 'LocalController@getAllLocals')->name('admin_locals');
-    Route::get('local/{id}', 'LocalController@getOneLocal')->name('admin_local');
+    Route::get('locals', 'LocalController@adminAllLocals')->name('admin_locals');
+    Route::get('local/{id}', 'LocalController@adminOneLocal')->name('admin_local');
+    Route::get('local/{id}/delete', 'LocalController@destroy')->name('admin_local_delete');
 
     //Cities
     Route::get('cities', 'CityController@getAllCities')->name('admin_cities');
