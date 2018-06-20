@@ -68,7 +68,7 @@
                 <input class="form-check-input" type="checkbox" name="admin" {{ $user->admin ? 'checked' : '' }}>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Modification</button>
+        <button type="submit" class="btn btn-primary">Modifier</button>
     </form>
 
 @endsection
