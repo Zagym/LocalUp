@@ -32,7 +32,7 @@
                     <td>{{ $user->lastname }}</td>
                     <td>{{ $user->email }}</td>
                 <td><a href="{{ route('admin_user', ['id' => $user]) }}" class="btn btn-primary">Modifier</a></td>
-                <td><a href="{{ route('admin_user_delete', ['id' => $user]) }}" class="btn btn-danger">Delete</a></td>
+                <td><a href="{{ route('admin_user_delete', ['user' => $user]) }}" class="btn btn-danger {{ $user->id == request()->user()->id ? 'disabled' : '' }}">Delete</a></td>
                 
                 </tr>
             @endforeach

@@ -16,12 +16,12 @@
 </head>
 <body id="admin">
     <div class="container-fluid">
-        @include('includes.flash_messages')
         <div class="row">
             @include('admin.layout.aside')
 
             <div class="col-12 col-lg-9 ml-lg-auto pt-3 px-4">
                 <div class="container-fluid">
+                    @include('includes.flash_messages')
                     @yield('content')
                 </div>
             </div>
