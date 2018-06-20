@@ -8,6 +8,8 @@
         <a href="/locations">< Retour à la liste des offres de location</a>
       </p>
 
+      <h1 class="pt-3">{{ $local->label }}<br/><small>{{ $local->category->label }}, {{ $local->city->label }}</small></h1>
+
       <div class="row mb-5">
         <div class="col-12 col-md-5 text-center">
           <img src="https://imgplaceholder.com/800x800" class="img-fluid" alt=""/>
@@ -117,8 +119,6 @@
       </div>
     </div>
   </div>
-</div>
-</div>
 </div>
 
 @endsection

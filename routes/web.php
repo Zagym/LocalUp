@@ -45,30 +45,35 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
   Route::get('modules', 'ModuleController@getAllModules')->name('admin_modules');
   Route::get('module/{id}', 'ModuleController@getOneModule')->name('admin_module');
 
-  //Locals
-  Route::get('locals', 'LocalController@adminAllLocals')->name('admin_locals');
-  Route::get('local/{id}', 'LocalController@adminOneLocal')->name('admin_local');
-  Route::get('local/{id}/delete', 'LocalController@destroy')->name('admin_local_delete');
 
-  //Cities
-  Route::get('cities', 'CityController@getAllCities')->name('admin_cities');
-  Route::get('city/{id}', 'CityController@getOneCity')->name('admin_city');
-  Route::get('city/{id}/delete', 'CityController@destroyCity')->name('admin_city_destroy');
+    //Locals
+    Route::get('locals', 'LocalController@adminAllLocals')->name('admin_locals');
+    Route::get('local/{id}', 'LocalController@adminOneLocal')->name('admin_local');
+    Route::get('local/{id}/delete', 'LocalController@destroy')->name('admin_local_delete');
+    Route::post('local/{id}/update', 'LocalController@edit')->name('admin_local_update');
+
+    //Cities
+    Route::get('cities', 'CityController@getAllCities')->name('admin_cities');
+    Route::get('city/{id}', 'CityController@getOneCity')->name('admin_city');
+    Route::post('city/{id}/update', 'CityController@updateCity')->name('admin_city_update');
+    Route::get('city/{id}/delete', 'CityController@destroyCity')->name('admin_city_destroy');
+
 
 
   //Historique
 
-  //Locals
-  Route::group(['prefix' => 'rate'], function() {
-    //level
-    Route::get('levels', 'LevelController@index')->name('admin_rate_levels');
-    Route::get('level/{level}', 'LevelController@getOneLevel')->name('admin_rate_level');
+
+
+    Route::group(['prefix' => 'rate'], function() {
+        //level
+        Route::get('levels', 'LevelController@index')->name('admin_rate_levels');
+        Route::get('level/{level}', 'LevelController@getOneLevel')->name('admin_rate_level');
 
   });
 
 
-  //Adminer
-  Route::any('adminer', '\Miroc\LaravelAdminer\AdminerAutologinController@index');
+    //Adminer
+    Route::any('adminer', '\Miroc\LaravelAdminer\AdminerAutologinController@index');
 });
 
 ////// Côté Utilisateur //////
