@@ -7,25 +7,10 @@
         Ne pas oublier de supprimer la class user pr test, et ce commentaire.
     --}}
 
-    @php
-
-        $user = new class () {
-            public $id = 2;
-            public $lastname = 'Test';
-            public $firstname = 'Test';
-            public $email = 'Test';
-            public $address = 'Test';
-            public $city = 'Test';
-            public $zip = 'Test';
-            public $phone = 'Test';
-            public $admin = true;
-        };
-
-    @endphp
-
     <h1>Modification de l'utilisateur {{ $user->id }}</h1>
-
-    <form>
+    @include('includes.flash_messages')
+    <form method="POST" action="{{ route('admin_user_update', ['user' => $user]) }}">
+        {{ csrf_field() }}
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="lastname">Nom</label>
