@@ -52,7 +52,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
     Route::get('locals', 'LocalController@adminAllLocals')->name('admin_locals');
     Route::get('local/{id}', 'LocalController@adminOneLocal')->name('admin_local');
     Route::get('local/{id}/delete', 'LocalController@destroy')->name('admin_local_delete');
-    Route::post('local/{id}/update', 'LocalController@edit')->name('admin_local_update');
+    Route::post('local/{local}/update', 'LocalController@edit')->name('admin_local_update');
 
     //Cities
     Route::get('cities', 'CityController@getAllCities')->name('admin_cities');

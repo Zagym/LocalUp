@@ -73,15 +73,16 @@ class LocalController extends Controller
         //
     }
 
-    public function edit(Request $request, $id)
+    public function edit(Request $request, Local $local)
     {
-        $local = Local::find($id);
         $validator = $local->validator($request->all());
+
         if ($validator->fails()) {
             return redirect()->route('admin_local', ['local' => $local])
                 ->withErrors($validator)
                 ->withInput();
         }
+
         $local->label = $request->label;
         $local->description = $request->description;
         $local->address = $request->address;
