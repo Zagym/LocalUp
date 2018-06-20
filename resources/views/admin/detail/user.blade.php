@@ -8,7 +8,8 @@
     --}}
 
     <h1>Modification de l'utilisateur {{ $user->id }}</h1>
-
+    
+    @include('includes.flash_messages')
     <form method="POST" action="{{ route('admin_user_update', ['user' => $user]) }}">
         {{ csrf_field() }}
     @include('includes.error_form')
