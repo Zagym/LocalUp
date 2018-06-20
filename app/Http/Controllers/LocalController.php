@@ -40,7 +40,8 @@ class LocalController extends Controller
     }
     public function adminOneLocal($id)
     {
-         return view('detail', ['local' => Local::find($id)]);
+
+         return view('admin.detail.local', ['local' => Local::find($id), 'types' => Local_Type::all()]);
     }
     /**
      * Store a newly created resource in storage.
@@ -64,15 +65,35 @@ class LocalController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        $local = Local::find($id);
+        $validator = $local->validator($request->all());
+        if ($validator->fails()) {
+            return redirect()->route('admin_local', ['local' => $local])
+                ->withErrors($validator)
+                ->withInput();
+        }
+        $local->label = $request->label;
+        $local->description = $request->description;
+        $local->address = $request->address;
+        $local->city = $request->city;
+        $local->floor = $request->floor;
+        $local->door = $request->door;
+        $local->capacity = $request->capacity;
+        $local->price = $request->price;
+        $local->type_id = $request->type_id;
+        //dd($request->image_url);
+        if ($request->image_url != null) {
+            $name = $request->image_url->store('public/img/local/'.$id);
+            $local->image_url = str_replace("public/","",$name);
+        }
+
+        $local->save();
+
+        $request->session()->flash('success', 'Vos modifications ont bien été prises en compte.');
+
+        return redirect()->route('admin_locals');
     }
 
     /**

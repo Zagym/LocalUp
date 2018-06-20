@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
     Route::get('AllLocal', 'LocalController@index');
 
     //home
-    Route::get('/', 'HomeController@admin')->name('home');
+    Route::get('/', 'HomeController@admin')->name('admin_home');
 
     //Users
     Route::get('users', 'UserController@getUsers')->name('admin_users');
@@ -47,6 +47,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
     Route::get('locals', 'LocalController@adminAllLocals')->name('admin_locals');
     Route::get('local/{id}', 'LocalController@adminOneLocal')->name('admin_local');
     Route::get('local/{id}/delete', 'LocalController@destroy')->name('admin_local_delete');
+    Route::post('local/{id}/update', 'LocalController@edit')->name('admin_local_update');
 
     //Cities
     Route::get('cities', 'CityController@getAllCities')->name('admin_cities');
@@ -56,13 +57,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 
     //Historique
 
-    //Locals
+
     Route::group(['prefix' => 'rate'], function() {
         //level
         Route::get('levels', 'LevelController@index')->name('admin_rate_levels');
         Route::get('level/{level}', 'LevelController@getOneLevel')->name('admin_rate_level');
 
     });
+
 
 
     //Adminer
