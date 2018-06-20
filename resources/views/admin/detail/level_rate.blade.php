@@ -19,8 +19,6 @@
 
     <h1>Modification du ratio de niveau {{ $levelRate->id }}</h1>
 
-    @include('includes.error_form')
-
     <form>
         <div class="form-group">
             <label for="rate">Rate</label>

@@ -7,7 +7,7 @@
     --}}
 
     <h1>Modification du type de local {{ $city->id }}</h1>
-    @include('includes.error_form')
+
     <form method="POST" action="{{ route('admin_city_update', ['city' => $city]) }}">
         {{ csrf_field() }}
         <div class="form-group">

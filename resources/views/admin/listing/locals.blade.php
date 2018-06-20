@@ -5,7 +5,7 @@
     <h1>Liste des locaux</h1>
 
     <p class="d-block text-right">
-        <a href="" class="btn btn-primary">Ajouter</a>
+        <a href="{{ route('admin_local_create') }}" class="btn btn-primary">Ajouter</a>
     </p>
 
     <table class="table table-striped">
