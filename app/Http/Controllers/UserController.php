@@ -11,11 +11,11 @@ class UserController extends Controller
     public function getUsers()
     {
         $users = User::all();
-        return view('users', ['users' => $users]);
+        return view('admin.listing.users', ['users' => $users]);
     }
-    public function getOneUser($id)
+
+    public function getOneUser(User $user)
     {
-        $user = User::find($id);
         return view('profil', ['user' => $user]);
     }
 
@@ -53,5 +53,11 @@ class UserController extends Controller
         $request->session()->flash('success', 'Vos modifications ont bien été prises en compte.');
 
         return redirect('user');
+    }
+
+    public function destroyUser($id)
+    {
+        User::destroy($id);
+        return back();
     }
 }
