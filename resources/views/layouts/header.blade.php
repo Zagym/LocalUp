@@ -59,3 +59,4 @@
     </div>
   </div>
 </div>
+@include('includes.flash_messages')
