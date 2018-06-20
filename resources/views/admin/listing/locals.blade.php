@@ -3,7 +3,7 @@
 @section('content')
 
     {{--
-        Ajouter chaque utilisateur + les liens modification/suppresion
+        Ajouter chaque local + les liens modification/suppresion
         Ne pas oublier de supprimer la class user pr test, et ce commentaire.
     --}}
 
