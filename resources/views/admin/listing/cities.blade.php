@@ -3,25 +3,23 @@
 @section('content')
 
     {{--
-        Ajouter chaque local + les liens modification/suppresion
+        Ajouter chaque ville + les liens modification/suppresion
         Ne pas oublier de supprimer la class user pr test, et ce commentaire.
     --}}
 
     @php
 
-        $local = new class () {
+        $city = new class () {
             public $id = 2;
             public $label = 'Test';
-            public $price = 'Test';
-            public $city= 'Test';
         };
 
-        $locals[] = $local;
-        $locals[] = $local;
+        $cities[] = $city;
+        $cities[] = $city;
 
     @endphp
 
-    <h1>Liste des locaux</h1>
+    <h1>Liste des villes</h1>
 
     <div class="row">
         <table class="table table-striped">
@@ -29,19 +27,15 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Libellé</th>
-                <th scope="col">Prix</th>
-                <th scope="col">Ville</th>
                 <th scope="col">Modifier</th>
                 <th scope="col">Supprimer</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($locals as $local)
+            @foreach($cities as $city)
                 <tr>
-                    <td>{{ $local->id }}</td>
-                    <td>{{ $local->label }}</td>
-                    <td>{{ $local->price }}</td>
-                    <td>{{ $local->city }}</td>
+                    <td>{{ $city->id }}</td>
+                    <td>{{ $city->label }}</td>
                     <td><a href="" class="btn btn-primary">Modifier</a></td>
                     <td><a href="" class="btn btn-danger">Delete</a></td>
                 </tr>
