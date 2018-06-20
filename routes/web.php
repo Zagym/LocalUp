@@ -46,6 +46,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 
     //Modules
     Route::get('modules', 'ModuleController@getAllModules')->name('admin_modules');
+    Route::get('module/create', 'ModuleController@create')->name('admin_module_create');
+    Route::post('module/store', 'ModuleController@store')->name('admin_module_store');
     Route::get('module/{module}', 'ModuleController@getOneModule')->name('admin_module');
     Route::post('module/{module}/update', 'ModuleController@updateModule')->name('admin_module_update');
     Route::get('module/{module}/delete', 'ModuleController@destroyModule')->name('admin_module_destroy');

@@ -22,7 +22,7 @@
         </div>
         <div class="form-group">
             <label for="type">type</label>
-            <select class="form-control" name="type">
+            <select class="form-control" name="type_id">
                 @foreach($moduleTypes as $moduleType)
                     @if($moduleType->id == $module->type_id)
                         <option name="moduleType" value='{{ $moduleType->id }}' selected="selected">{{ $moduleType->nature }}</option>

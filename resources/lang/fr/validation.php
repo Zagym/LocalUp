@@ -27,6 +27,16 @@ return [
         'password' => [
             'min' => 'Le mot de passe doit faire 6 caractéres minimum.',
             'confirmed' => 'Les deux mots de passe doivent être identiquent.',
+        ],
+        'label' => [
+            'required' => 'Le Libellé est obligatoire.',
+        ],
+        'description' => [
+            'required' => 'La description est obligatoire.',
+            'numeric' => 'Le prix doit être un nombre.'
+        ],
+        'price' => [
+            'required' => 'Le prix est obligatoire.',
         ]
     ],
 ];
