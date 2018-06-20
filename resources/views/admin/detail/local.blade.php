@@ -7,7 +7,7 @@
 
     @include('includes.error_form')
 
-    <form  method="POST" action="{{ route('admin_local_update', ['id' => $local->id]) }}" enctype="multipart/form-data">
+    <form  method="POST" action="{{ route('admin_local_update', ['local' => $local]) }}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-row">
             <div class="form-group col-md-6">
