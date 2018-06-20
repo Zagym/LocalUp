@@ -85,13 +85,13 @@ class LocalController extends Controller
         $local->label = $request->label;
         $local->description = $request->description;
         $local->address = $request->address;
-        $local->city = $request->city;
+        $city = City::all()->where('label', $request->city);
+        $local->city_id = $city[0]->id;
         $local->floor = $request->floor;
         $local->door = $request->door;
         $local->capacity = $request->capacity;
         $local->price = $request->price;
         $local->type_id = $request->type_id;
-        //dd($request->image_url);
         if ($request->image_url != null) {
             $name = $request->image_url->store('public/img/local/'.$id);
             $local->image_url = str_replace("public/","",$name);
