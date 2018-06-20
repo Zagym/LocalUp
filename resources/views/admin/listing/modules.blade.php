@@ -10,7 +10,7 @@
     <h1>Liste des modules</h1>
 
     <p class="d-block text-right">
-        <a href="" class="btn btn-primary">Ajouter</a>
+        <a href="{{ route('admin_module_create') }}" class="btn btn-primary">Ajouter</a>
     </p>
 
     <table class="table table-striped">
@@ -30,7 +30,7 @@
                 <td>{{ $module->id }}</td>
                 <td>{{ $module->label }}</td>
                 <td>{{ $module->price }}</td>
-                <td>{{ $module->type }}</td>
+                <td>{{ $module->moduleType->nature }}</td>
                 <td><a href="{{route('admin_module', ['module' => $module])}}" class="btn btn-primary">Modifier</a></td>
                 <td><a href="{{route('admin_module_destroy', ['module' => $module])}}" class="btn btn-danger">Delete</a></td>
             </tr>
