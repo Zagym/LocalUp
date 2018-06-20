@@ -7,20 +7,6 @@
         Ne pas oublier de supprimer la class user pr test, et ce commentaire.
     --}}
 
-    @php
-
-        $user = new class () {
-            public $id = 2;
-            public $lastname = 'Test';
-            public $firstname = 'Test';
-            public $email = 'Test';
-        };
-
-        $users[] = $user;
-        $users[] = $user;
-
-    @endphp
-
     <h1>Liste des utilisateurs</h1>
 
     <div class="row">
@@ -42,8 +28,9 @@
                     <td>{{ $user->firstname }}</td>
                     <td>{{ $user->lastname }}</td>
                     <td>{{ $user->email }}</td>
-                    <td><a href="" class="btn btn-primary">Modifier</a></td>
-                    <td><a href="" class="btn btn-danger">Delete</a></td>
+                <td><a href="{{ route('admin_user', ['id' => $user]) }}" class="btn btn-primary">Modifier</a></td>
+                <td><a href="{{ route('admin_user_delete', ['id' => $user]) }}" class="btn btn-danger">Delete</a></td>
+                
                 </tr>
             @endforeach
             </tbody>
