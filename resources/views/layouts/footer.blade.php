@@ -12,11 +12,11 @@
       </div>
       <div class="col-12 col-lg-3 footer-menu2">
         <ul class="list-unstyled mb-0">
-          <li><a href="#">Trouver un bureau à Lyon</a></li>
-          <li><a href="#">Trouver un bureau à Paris</a></li>
-          <li><a href="#">Trouver un bureau à Bordeaux</a></li>
-          <li><a href="#">Trouver un bureau à Marseille</a></li>
-          <li><a href="#">Trouver un bureau à Toulouse</a></li>
+          <li><a href="{{ route('locals').'?filter=lyon' }}">Trouver un bureau à Lyon</a></li>
+          <li><a href="{{ route('locals').'?filter=paris' }}">Trouver un bureau à Paris</a></li>
+          <li><a href="{{ route('locals').'?filter=bordeaux' }}">Trouver un bureau à Bordeaux</a></li>
+          <li><a href="{{ route('locals').'?filter=marseille' }}">Trouver un bureau à Marseille</a></li>
+          <li><a href="{{ route('locals').'?filter=toulouse' }}">Trouver un bureau à Toulouse</a></li>
         </ul>
       </div>
       <div class="col-12 col-lg-6 text-right footer-social">

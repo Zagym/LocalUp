@@ -31,3 +31,10 @@ var mixer = Mixitup(offersList, {
         control: '[data-mixitup-control]'
     }
 });
+let url = window.location.href;
+if(url.indexOf('filter') != -1){
+  let splitted = url.split("=")
+  mixer.filter('.'+splitted[1]);
+}else {
+  mixer.filter('all');
+}

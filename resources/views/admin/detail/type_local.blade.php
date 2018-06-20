@@ -30,6 +30,7 @@
             <textarea class="form-control" name="description" rows="3">{{ $localtype->description }}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">Modifier</button>
+        <a href="" class="btn btn-danger">Supprimer</a>
     </form>
 
 @endsection

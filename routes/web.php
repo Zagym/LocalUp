@@ -15,7 +15,7 @@ Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 Route::get('test', function() {
-   return view('admin.detail.city');
+   return view('admin.detail.level_rate');
 });
 
 Route::get('test2', function() {
@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
     Route::get('AllLocal', 'LocalController@index');
 
     //home
-    Route::get('/', 'HomeController@admin')->name('home');
+    Route::get('/', 'HomeController@admin')->name('admin_home');
 
     //Users
     Route::get('users', 'UserController@getUsers')->name('admin_users');
