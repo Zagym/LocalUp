@@ -119,7 +119,6 @@ class LocalsTableSeeder extends Seeder
             'label' => "Chez Dydy",
             'description' => "Au milieu de plusieurs cancres de la société",
             'address' => "8 Rue Furgole",
-            'city' => 'Toulouse',
             'zip' => '31000',
             'city_id' => 4,
             'floor' => 1,
@@ -128,7 +127,7 @@ class LocalsTableSeeder extends Seeder
             'capacity' => 10,
             'type_id' => 4,
             'image_url' => "img/local/local1.jpg"
-        ]); 
+        ]);
 
     }
 }
