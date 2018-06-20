@@ -19,4 +19,10 @@ class CityController extends Controller
         $city = City::find($id);
         dd($city);
     }
+
+    public function destroyCity($id)
+    {
+        City::destroy($id);
+        return back();
+    }
 }

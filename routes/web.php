@@ -51,6 +51,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
     //Cities
     Route::get('cities', 'CityController@getAllCities')->name('admin_cities');
     Route::get('city/{id}', 'CityController@getOneCity')->name('admin_city');
+    Route::get('city/{id}/delete', 'CityController@destroyCity')->name('admin_city_destroy');
+
 
     //Historique
 
