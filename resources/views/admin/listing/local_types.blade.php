@@ -21,27 +21,29 @@
 
     <h1>Liste des types de locaux</h1>
 
-    <div class="row">
-        <table class="table table-striped">
-            <thead>
+    <p class="d-block text-right">
+        <a href="" class="btn btn-primary">Ajouter</a>
+    </p>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Libellé</th>
+            <th scope="col">Modifier</th>
+            <th scope="col">Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($localTypes as $localType)
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Libellé</th>
-                <th scope="col">Modifier</th>
-                <th scope="col">Supprimer</th>
+                <td>{{ $localType->id }}</td>
+                <td>{{ $localType->label }}</td>
+                <td><a href="" class="btn btn-primary">Modifier</a></td>
+                <td><a href="" class="btn btn-danger">Delete</a></td>
             </tr>
-            </thead>
-            <tbody>
-            @foreach($localTypes as $localType)
-                <tr>
-                    <td>{{ $localType->id }}</td>
-                    <td>{{ $localType->label }}</td>
-                    <td><a href="" class="btn btn-primary">Modifier</a></td>
-                    <td><a href="" class="btn btn-danger">Delete</a></td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-    </div>
+        @endforeach
+        </tbody>
+    </table>
 
 @endsection

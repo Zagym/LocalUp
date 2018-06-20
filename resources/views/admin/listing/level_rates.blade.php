@@ -21,27 +21,29 @@
 
     <h1>Liste des ratio de niveaux</h1>
 
-    <div class="row">
-        <table class="table table-striped">
-            <thead>
+    <p class="d-block text-right">
+        <a href="" class="btn btn-primary">Ajouter</a>
+    </p>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Rate</th>
+            <th scope="col">Modifier</th>
+            <th scope="col">Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($levelRates as $levelRate)
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Rate</th>
-                <th scope="col">Modifier</th>
-                <th scope="col">Supprimer</th>
+                <td>{{ $levelRate->id }}</td>
+                <td>{{ $levelRate->rate }}</td>
+                <td><a href="" class="btn btn-primary">Modifier</a></td>
+                <td><a href="" class="btn btn-danger">Delete</a></td>
             </tr>
-            </thead>
-            <tbody>
-            @foreach($levelRates as $levelRate)
-                <tr>
-                    <td>{{ $levelRate->id }}</td>
-                    <td>{{ $levelRate->rate }}</td>
-                    <td><a href="" class="btn btn-primary">Modifier</a></td>
-                    <td><a href="" class="btn btn-danger">Delete</a></td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-    </div>
+        @endforeach
+        </tbody>
+    </table>
 
 @endsection
