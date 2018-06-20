@@ -15,7 +15,7 @@ Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 Route::get('test', function() {
-   return view('admin.home');
+   return view('admin.listing.local_types');
 });
 
 Route::get('test2', function() {
@@ -28,6 +28,9 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 
     Route::get('AllLocal', 'LocalController@index');
+
+    //home
+    Route::get('/', 'HomeController@admin')->name('home');
 
     //Users
     Route::get('users', 'UserController@getUsers')->name('admin_users');
@@ -43,6 +46,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
     //Locals
     Route::get('locals', 'LocalController@getAllLocals')->name('admin_locals');
     Route::get('local/{id}', 'LocalController@getOneLocal')->name('admin_local');
+
+    //Cities
+    Route::get('cities', 'CityController@getAllCities')->name('admin_cities');
 
     //Historique
 

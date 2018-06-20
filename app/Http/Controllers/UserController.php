@@ -13,6 +13,12 @@ class UserController extends Controller
         $users = User::all();
         return view('users', ['users' => $users]);
     }
+    public function getOneUser($id)
+    {
+        $user = User::find($id);
+        return view('profil', ['user' => $user]);
+    }
+
     public function getUser(Request $request)
     {
         $user = $request->user();
