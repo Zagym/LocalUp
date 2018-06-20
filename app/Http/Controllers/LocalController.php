@@ -22,7 +22,6 @@ class LocalController extends Controller
             ->get()
             ->sortByDesc('id')
             ->values()
-            ->slice(0,4)
         ;
 
         $cities = City::all()->where('active', 1);
