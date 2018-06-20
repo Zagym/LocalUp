@@ -8,23 +8,48 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    /**
+     * Listing of the users in admin.
+     *
+     * @return array|\Illuminate\Contracts\View\Factory|\Illuminate\View\View|mixed
+     */
     public function getUsers()
     {
         $users = User::all();
         return view('admin.listing.users', ['users' => $users]);
     }
 
+    /**
+     * Detail of the user in admin.
+     *
+     * @param User $user
+     *
+     * @return array|\Illuminate\Contracts\View\Factory|\Illuminate\View\View|mixed
+     */
     public function getOneUser(User $user)
     {
         return view('admin.detail.user', ['user' => $user]);
     }
 
+    /**
+     * Send the user to his profil
+     *
+     * @param Request $request
+     *
+     * @return array|\Illuminate\Contracts\View\Factory|\Illuminate\View\View|mixed
+     */
     public function getUser(Request $request)
     {
-        $user = $request->user();
-        return view('profil', ['user' => $user]);
+        return view('profil', ['user' => $request->user()]);
     }
 
+    /**
+     * Update the current user.
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function updateUser(Request $request)
     {
         $user = $request->user();
@@ -55,6 +80,14 @@ class UserController extends Controller
         return redirect()->route('user');
     }
 
+    /**
+     * Update the user in admin.
+     *
+     * @param Request $request
+     * @param User    $user
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|void
+     */
     public function adminUpdateUser(Request $request, User $user)
     {
         $validator = $user->validator($request->all());
@@ -90,6 +123,14 @@ class UserController extends Controller
         return redirect()->route('admin_user', ['user' => $user]);
     }
 
+    /**
+     * Delete user
+     *
+     * @param Request $request
+     * @param User    $user
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroyUser(Request $request, User $user)
     {
         if ($request->user()->id === $user->id) {
