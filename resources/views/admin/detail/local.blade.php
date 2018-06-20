@@ -34,7 +34,15 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="city">Ville</label>
-                <input type="text" class="form-control" name="city" value="{{ $local->city->label }}">
+                <select class="form-control" name="city">
+                    @foreach($cities as $city)
+                        @if($city->id == $local->city_id)
+                            <option value="{{$city->id}}" selected="selected">{{ $city->label }}</option>
+                        @else
+                            <option value="{{$city->id}}">{{ $city->label }}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
             <div class="form-group col-md-3">
                 <label for="floor">Etage</label>

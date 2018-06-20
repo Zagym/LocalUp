@@ -49,7 +49,7 @@ class LocalController extends Controller
     public function adminOneLocal($id)
     {
 
-         return view('admin.detail.local', ['local' => Local::find($id), 'types' => Local_Type::all()]);
+         return view('admin.detail.local', ['local' => Local::find($id), 'types' => Local_Type::all(), 'cities' => City::all()]);
     }
     /**
      * Store a newly created resource in storage.
@@ -85,8 +85,7 @@ class LocalController extends Controller
         $local->label = $request->label;
         $local->description = $request->description;
         $local->address = $request->address;
-        $city = City::all()->where('label', $request->city);
-        $local->city_id = $city[0]->id;
+        $local->city_id = $request->city;
         $local->floor = $request->floor;
         $local->door = $request->door;
         $local->capacity = $request->capacity;
