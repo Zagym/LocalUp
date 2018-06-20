@@ -36,8 +36,8 @@ class User extends Authenticatable
             'lastname' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'city' => 'required|string|max:255',
-            'zip' => 'required|string|max:255',
-            'phone' => 'required|string|max:255',
+            'zip' => 'required|digits:5',
+            'phone' => 'required|string|max:10',
             'email' => 'nullable|string|email|max:255|unique:users',
             'password' => 'nullable|string|min:6|confirmed',
         ]);
