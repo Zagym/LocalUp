@@ -53,6 +53,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 
     //Historique
 
+    //Locals
+    Route::group(['prefix' => 'rate'], function() {
+        //level
+        Route::get('levels', 'LevelController@index')->name('admin_rate_levels');
+        Route::get('level/{level}', 'LevelController@getOneLevel')->name('admin_rate_level');
+
+    });
+
+
     //Adminer
     Route::any('adminer', '\Miroc\LaravelAdminer\AdminerAutologinController@index');
 });
