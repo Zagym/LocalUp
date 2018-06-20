@@ -38,6 +38,9 @@ class HomeController extends Controller
         $users = User::all()->count();
         $cities = City::all()->count();
         $modules = Module::all()->count();
-        return view('admin.home', ["locals" => $locals, "users" => $users, "cities" => $cities, "modules" => $modules]);
+        $bookings = Booking::all()
+        ->where('begins_at','<=',date('Y-m-d'))
+        ->where('ends_at','>=',date('Y-m-d'))->count();
+        return view('admin.home', ["locals" => $locals, "users" => $users, "cities" => $cities, "modules" => $modules, 'bookings' => $bookings]);
     }
 }
