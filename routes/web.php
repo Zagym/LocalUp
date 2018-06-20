@@ -43,7 +43,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
     //Levels
     Route::get('levels', 'LevelController@getAllLevels')->name('admin_levels');
 
-
     //Modules
     Route::get('modules', 'ModuleController@getAllModules')->name('admin_modules');
     Route::get('module/create', 'ModuleController@create')->name('admin_module_create');
@@ -68,11 +67,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
     Route::post('city/{city}/update', 'CityController@updateCity')->name('admin_city_update');
     Route::get('city/{city}/delete', 'CityController@destroyCity')->name('admin_city_destroy');
 
-
+    // Reductions
+    Route::get('reductions', 'ReductionController@index')->name('admin_reduction_index');
 
     //Historique
-
-
 
     Route::group(['prefix' => 'rate'], function() {
         //level
@@ -80,7 +78,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
         Route::get('level/{level}', 'LevelController@getOneLevel')->name('admin_rate_level');
 
   });
-
 
     //Adminer
     Route::any('adminer', '\Miroc\LaravelAdminer\AdminerAutologinController@index');
