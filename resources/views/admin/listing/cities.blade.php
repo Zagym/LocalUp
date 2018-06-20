@@ -2,15 +2,10 @@
 
 @section('content')
 
-    {{--
-        Ajouter chaque ville + les liens modification/suppresion
-        Ne pas oublier de supprimer la class user pr test, et ce commentaire.
-    --}}
-
     <h1>Liste des villes</h1>
 
     <p class="d-block text-right">
-        <a href="" class="btn btn-primary">Ajouter</a>
+        <a href="{{ route('admin_city_create') }}" class="btn btn-primary">Ajouter</a>
     </p>
 
     <table class="table table-striped">

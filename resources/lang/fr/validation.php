@@ -30,6 +30,7 @@ return [
         ],
         'label' => [
             'required' => 'Le Libellé est obligatoire.',
+            'unique' => 'Ce libellé est déjà utilisé.'
         ],
         'description' => [
             'required' => 'La description est obligatoire.',
