@@ -22,7 +22,7 @@ class LocalsTableSeeder extends Seeder
             'price' => 350,
             'capacity' => 2,
             'type_id' => 1,
-            'image_url' => "img/local/local1.jpg"
+            'image_url' => null
         ]);
         DB::table('locals')->insert([
             'label' => 'On est pas bien la ?',
@@ -35,7 +35,7 @@ class LocalsTableSeeder extends Seeder
             'price' => 250,
             'capacity' => 1,
             'type_id' => 4,
-            'image_url' => "img/local/local2.jpg"
+            'image_url' => null
         ]);
         DB::table('locals')->insert([
             'label' => "Chez Jaouad",
@@ -48,7 +48,7 @@ class LocalsTableSeeder extends Seeder
             'price' => 350,
             'capacity' => 3,
             'type_id' => 1,
-            'image_url' => "img/local/local1.jpg"
+            'image_url' => null
         ]);
         DB::table('locals')->insert([
             'label' => "Chez Google",
@@ -61,7 +61,7 @@ class LocalsTableSeeder extends Seeder
             'price' => 4000,
             'capacity' => 150,
             'type_id' => 2,
-            'image_url' => "img/local/local2.jpg"
+            'image_url' => null
         ]);
         DB::table('locals')->insert([
             'label' => "Chez mamie",
@@ -74,7 +74,7 @@ class LocalsTableSeeder extends Seeder
             'price' => 6000,
             'capacity' => 200,
             'type_id' => 2,
-            'image_url' => "img/local/local1.jpg"
+            'image_url' => null
         ]);
         DB::table('locals')->insert([
             'label' => "Chez Bob l'eponge",
@@ -87,7 +87,7 @@ class LocalsTableSeeder extends Seeder
             'price' => 300,
             'capacity' => 4,
             'type_id' => 3,
-            'image_url' => "img/local/local2.jpg"
+            'image_url' => null
         ]);
         DB::table('locals')->insert([
             'label' => "Chez Dinette",
@@ -100,7 +100,7 @@ class LocalsTableSeeder extends Seeder
             'price' => 400,
             'capacity' => 4,
             'type_id' => 3,
-            'image_url' => "img/local/local1.jpg"
+            'image_url' => null
         ]);
         DB::table('locals')->insert([
             'label' => "Chez Patrice",
@@ -113,7 +113,7 @@ class LocalsTableSeeder extends Seeder
             'price' => 700,
             'capacity' => 5,
             'type_id' => 4,
-            'image_url' => "img/local/local2.jpg"
+            'image_url' => null
         ]);
         DB::table('locals')->insert([
             'label' => "Chez Dydy",
@@ -126,7 +126,7 @@ class LocalsTableSeeder extends Seeder
             'price' => 650,
             'capacity' => 10,
             'type_id' => 4,
-            'image_url' => "img/local/local1.jpg"
+            'image_url' => null
         ]);
 
     }

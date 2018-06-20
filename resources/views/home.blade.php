@@ -26,9 +26,9 @@
                         <div class="offer">
                             <div class="img-offer">
                                 @if($local->image_url)
-                                    <img src="https://imgplaceholder.com/500x300" class="img-fluid" alt="">
-                                @else
                                     <img src="{{ asset('storage').'/'.$local->image_url }}" class="img-fluid" alt="">
+                                @else
+                                    <img src="https://imgplaceholder.com/500x300" class="img-fluid" alt="">
                                 @endif
                             </div>
                             <div class="description-offer text-center p-4 bg-light">
