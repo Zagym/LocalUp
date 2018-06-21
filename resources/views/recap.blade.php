@@ -48,6 +48,9 @@
         <h1 class="py-0">
             <span>Facture du {{ $order->created_date }}</span>
         </h1>
+        <div>
+            <a href="/lien/vers/telechargement/pdf">Télécharger la facture</a>
+        </div>
     </div>
     <hr>
     <div class="row">
