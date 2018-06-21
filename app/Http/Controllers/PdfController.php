@@ -84,6 +84,7 @@ class PdfController extends Controller
 
     public function download(Request $request)
     {
-        // get the pdf in storage and return it
+        $pdf = PDF::loadView('pdf.test');
+        return $pdf->download();
     }
 }
