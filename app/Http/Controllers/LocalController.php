@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Booking;
 use App\Local;
 use App\City;
 use App\Local_Type;
@@ -175,6 +176,18 @@ class LocalController extends Controller
     {
         Local::destroy($local->id);
         return back();
+    }
+
+    public function louer(Request $request, Local $local)
+    {
+        $booking = new Booking();
+        $booking->begins_at = $request->dateDebut;
+        $booking->ends_at = $request->datefin;
+        $booking->local_id = $local->id;
+        $booking->user_id = $request->user()->id;
+        $booking->flat_rate_id = $request->offre;
+
+        $booking->save();
     }
 
     public function pdf(){
