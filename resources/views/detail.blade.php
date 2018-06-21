@@ -90,6 +90,31 @@
                                     <label class="form-check-label" for="inlineRadio3">Offre premium</label>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                @php
+                                $i = 1;
+                                @endphp
+                                @foreach($modules_bases as $modules)
+                                    <div class="form-check form-check-inline" id="module_radio{{$i}}">
+                                        @php
+                                        $res = $modules[0];
+                                        @endphp
+                                        @foreach($modules as $module)
+                                            @if($module != $res)
+                                                @php
+                                                $res .=", ". $module;
+                                                @endphp
+                                            @endif
+                                        @endforeach
+                                        <p>{{$res}}</p>
+                                    </div>
+                                    @php
+                                    $i++;
+                                    $res = "";
+                                    @endphp
+                                @endforeach
+
+                            </div>
                             <h4>Choisissez des options supplémentaires :</h4>
 
                             <div class="form-group">
@@ -117,7 +142,7 @@
                             <button type="submit" class="btn btn-primary btn-lg">Choisir cette offre</button>
                         </form>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     </div>
