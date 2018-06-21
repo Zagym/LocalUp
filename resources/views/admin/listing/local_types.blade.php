@@ -2,23 +2,6 @@
 
 @section('content')
 
-    {{--
-        Ajouter chaque ration de niveau + les liens modification/suppresion
-        Ne pas oublier de supprimer la class user pr test, et ce commentaire.
-    --}}
-
-    @php
-
-        $localType = new class () {
-            public $id = 2;
-            public $label = 'Test';
-        };
-
-        $localTypes[] = $localType;
-        $localTypes[] = $localType;
-
-    @endphp
-
     <h1>Liste des types de locaux</h1>
 
     <p class="d-block text-right">
@@ -39,8 +22,7 @@
             <tr>
                 <td>{{ $localType->id }}</td>
                 <td>{{ $localType->label }}</td>
-                <td><a href="" class="btn btn-primary">Modifier</a></td>
-                <td><a href="" class="btn btn-danger">Delete</a></td>
+                <td><a href="{{ route('admin_local_type', ['localType' => $localType]) }}" class="btn btn-primary">Modifier</a></td>
             </tr>
         @endforeach
         </tbody>

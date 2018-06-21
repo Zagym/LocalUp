@@ -39,7 +39,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('admin_local_types') }}">
                     <i class="fas fa-bullseye"></i> Gérer les types de local
                 </a>
             </li>
