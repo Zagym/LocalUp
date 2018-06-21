@@ -18,6 +18,11 @@ Route::get('/', 'HomeController@index')->name('home');
 
 //////Côté admin//////
 
+Route::get('test', function() {
+ $pdf = PDF::loadView('pdf.test');
+ return $pdf->download();
+});
+
 Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 
     Route::get('AllLocal', 'LocalController@index');
