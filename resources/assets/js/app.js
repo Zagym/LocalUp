@@ -11,7 +11,6 @@ window.Vue = require('vue');
 
 window.Mixitup = require('mixitup');
 
-pickadate = require('pickadate');
 
 /**
 * Next, we will create a fresh Vue application instance and attach it to
@@ -64,7 +63,3 @@ $("input[name$='offre']").click(function() {
     }
 
 });
-
-
-
-$('.datepicker').pickadate();
