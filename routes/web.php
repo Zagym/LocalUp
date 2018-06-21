@@ -15,9 +15,9 @@ Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 Route::get('test', function() {
-  $pdf = PDF::loadView('pdf.order');
+  $pdf = PDF::loadView('pdf.test');
   return $pdf->download();
-});
+}); 
 
 Route::get('test2', function() {
   return view('detail');
