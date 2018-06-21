@@ -18,7 +18,17 @@ class ReductionController extends Controller
 
         return view('admin.listing.reductions', ['reductions' => $reductions]);
     }
-
+    public function oneReduction(Reduction $reduction)
+    {
+        return view('admin.detail.reduction', ['reduction' => $reduction]);
+    }
+    public function updateReduction(Request $request, Reduction $reduction)
+    {
+        $reduction->rates = $request->rates;
+        $reduction->save();
+        $request->session()->flash('success', 'Vos modifications ont bien été prises en compte.');
+        return redirect()->route('admin_reduction', ['reduction' => $reduction]);
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -59,6 +59,7 @@
                     </label>
                 </div>
             </div>
+            <br/>
             <button type="submit" class="btn btn-primary">Créer</button>
         </form>
 

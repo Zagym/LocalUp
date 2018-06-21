@@ -2,10 +2,10 @@
 
 @section('content')
 
-    <h1>Liste des locaux</h1>
-
+    <h1 class="pb-4 pt-3">Liste des locaux</h1>
+    <hr>
     <p class="d-block text-right">
-        <a href="{{ route('admin_local_create') }}" class="btn btn-primary">Ajouter</a>
+        <a href="{{ route('admin_local_create') }}" class="btn btn-primary">Ajouter un local</a>
     </p>
 
     <table class="table table-striped">
@@ -25,7 +25,7 @@
                 <td>{{ $local->id }}</td>
                 <td>{{ $local->label }}</td>
                 <td>{{ $local->price }}</td>
-                <td>{{ $local->city->label }}</td>
+                <td>{{ ucfirst($local->city->label) }}</td>
                 <td><a href="{{route('admin_local', ['local' => $local]) }}" class="btn btn-primary">Modifier</a></td>
                 <td><a href="{{route('admin_local_delete', ['local' => $local]) }}" class="btn btn-danger">Delete</a></td>
             </tr>
