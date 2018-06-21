@@ -106,6 +106,8 @@ Route::get('locations', 'LocalController@getAllLocals')->name('locals');
 Route::get('local/{local}', 'LocalController@getOneLocal')->name('local');
 Route::post('local/{local}/louer', 'LocalController@louer')->name('louer');
 
+Route::get('pdf/download', 'PdfController@download')->name('pdf_download');
+
 //Contact
 
 //Louer
