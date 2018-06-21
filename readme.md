@@ -17,6 +17,11 @@ Si des erreurs surviennent pendant le ```npm install```, essayer d'installer ce 
 ```sudo apt-get install build-essential```
 
 Pour lier le dossier et pouvoir uploader des images, faire un ``` php artisan storage:link ```
+=======
+### Extension php à installer
+
+- ``` sudo apt-get install php7.2-gd```
+
 
 ### Commande de compilations :
 

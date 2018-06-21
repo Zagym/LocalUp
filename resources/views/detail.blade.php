@@ -71,22 +71,36 @@
                     </div>
                     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                         <form method="POST" action="">
+
+                            <h4>Date de location :</h4>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="dateDebut">Date de debut</label>
+                                    <input type="date" class="form-control datepicker" id="dateDebut" name="dateDebut" placeholder="Choisissez une date de debut">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="dateFin">Date de fin</label>
+                                    <input type="date" class="form-control datepicker" id="dateFin" name="datefin" placeholder="Choisissez une date de fin">
+                                </div>
+                            </div>
+
                             <h4>Choisissez un forfait :</h4>
                             <div class="form-group">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                    id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">Offre basic</label>
+                                    <input class="form-check-input" type="radio" name="offre"
+                                    id="offre1" value="offre1">
+                                    <label class="form-check-label" for="offre1">Offre basic</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                    id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">Offre perso</label>
+                                    <input class="form-check-input" type="radio" name="offre"
+                                    id="offre2" value="offre2">
+                                    <label class="form-check-label" for="offre2">Offre perso</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                    id="inlineRadio3" value="option3">
-                                    <label class="form-check-label" for="inlineRadio3">Offre premium</label>
+                                    <input class="form-check-input" type="radio" name="offre"
+                                    id="offre3" value="offre3">
+                                    <label class="form-check-label" for="offre3">Offre premium</label>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -94,7 +108,7 @@
                                 $i = 1;
                                 @endphp
                                 @foreach($modules_bases as $moduls)
-                                    <div class="form-check form-check-inline" id="module_radio{{$i}}">
+                                    <div class="module_ratio" id="module_radio{{$i}}">
                                         @php
                                         $res = $moduls[0];
                                         @endphp
@@ -105,6 +119,7 @@
                                                 @endphp
                                             @endif
                                         @endforeach
+                                        <p class="h6 text-primary d-block">Cette offre contient:</p>
                                         <p>{{$res}}</p>
                                     </div>
                                     @php
@@ -115,11 +130,12 @@
 
                             </div>
                             <h4>Choisissez des options supplémentaires :</h4>
+                            <p class="alert alert-success msg-offre-selected">Vous devez choisir une offre avant de choisir des options supplémentaires</p>
                             @php
                                 $occurence = count($modules_bases);
                             @endphp
                             @for($j = 1; $j <= $occurence; $j++)
-                                <div class="form-group" id="optionSuppl{{$j}}">
+                                <div class="form-group optionSuppl" id="optionSuppl{{$j}}">
                                     @php
                                         $i = 1;
                                     @endphp
