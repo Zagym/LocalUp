@@ -5,16 +5,15 @@
     <h1>Liste des types de locaux</h1>
 
     <p class="d-block text-right">
-        <a href="" class="btn btn-primary">Ajouter</a>
+        <a href="{{ route('admin_local_type_create')}}" class="btn btn-primary">Ajouter</a>
     </p>
 
     <table class="table table-striped">
         <thead>
         <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Libellé</th>
-            <th scope="col">Modifier</th>
-            <th scope="col">Supprimer</th>
+            <th scope="col" width="30%">Id</th>
+            <th scope="col" width="60%">Libellé</th>
+            <th scope="col" width="20%">Modifier</th>
         </tr>
         </thead>
         <tbody>

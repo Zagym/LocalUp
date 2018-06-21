@@ -44,7 +44,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('admin_level_rates') }}">
                     <i class="fas fa-angle-double-up"></i> Gérer les ratios de niveaux
                 </a>
             </li>
