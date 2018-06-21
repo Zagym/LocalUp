@@ -35,7 +35,11 @@
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4 mix {{ str_slug( $local->city->label ) . ' ' . str_slug($local->category->label) }}">
                     <div class="offer">
                         <div class="img-offer">
-                            <img src="https://imgplaceholder.com/500x300" class="img-fluid" alt="">
+                            @if($local->image_url)
+                                <img src="{{ asset('storage').'/'.$local->image_url }}" class="img-fluid" alt="">
+                            @else
+                                <img src="https://imgplaceholder.com/500x300" class="img-fluid" alt="">
+                            @endif
                         </div>
                         <div class="description-offer text-center p-4 bg-light">
                             <h6 class="text-nowrap">{{ $local->label }}</h6>
