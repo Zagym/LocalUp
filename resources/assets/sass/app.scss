@@ -34,11 +34,20 @@ body {
 }
 
 .bg-primary {
-  background-color: $blue;
+  background-color: $blue !important;
 }
 
 .border-primary {
     border-color: $blue !important;
+}
+
+.nav-pills .nav-link {
+    @extend .rounded-0;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: $blue;
+    @extend .text-white;
 }
 
 .btn-primary {
@@ -70,6 +79,10 @@ a,.btn-link {
   &:hover {
     color: $blue-hover;
   }
+}
+
+.img-cover {
+    object-fit: cover;
 }
 
 h1 {
@@ -113,7 +126,7 @@ h3 {
 }
 
 #header-home {
-  @extend .bg-cover; 
+  @extend .bg-cover;
   background-image: url(/img/header.jpg);
   height: 700px;
   background-position: top center;
@@ -163,7 +176,7 @@ h3 {
     overflow: hidden;
 
     img {
-      transition: all 0.2s ease-in;
+      transition: all 2s ease-in;
       object-fit: cover;
       height: 200px;
     }
@@ -172,7 +185,7 @@ h3 {
   &:hover {
     .img-offer {
       img {
-        transform: scale(1.4) rotate(-5deg);
+        transform: scale(1.1) rotate(-3deg);
       }
     }
   }
@@ -282,6 +295,12 @@ h3 {
                 }
             }
         }
+    }
+}
+
+#admin #component-admin-home {
+    .numbers {
+        height: 100%;
     }
 }
 

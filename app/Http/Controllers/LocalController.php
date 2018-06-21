@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Local;
 use App\City;
 use App\Local_Type;
-
+use App\Module;
+use App\Flat_Rate;
+use App\Flat_Rate_Module;
 class LocalController extends Controller
 {
     /**
@@ -44,7 +46,21 @@ class LocalController extends Controller
      */
     public function getOneLocal(Local $local)
     {
-         return view('detail', ['local' => $local]);
+        $modules_bases_ids = Flat_Rate_Module::all();
+        $flats_rates_count = Flat_Rate::all()->count();
+        $modules = Module::all();
+        $modules_bases = array();
+        $res = array();
+        for ($i=1; $i <= $flats_rates_count; $i++) {
+            foreach ($modules_bases_ids as $module_base_id) {
+                if ($i == $module_base_id->flat_rate_id) {
+                    array_push($res, $modules[$module_base_id->module_id-1]->label);
+                }
+            }
+            array_push($modules_bases, $res);
+            $res = array();
+        }
+        return view('detail', ['local' => $local, 'modules_bases' => $modules_bases, 'modules' => $modules]);
     }
     public function adminOneLocal($id)
     {
@@ -58,7 +74,7 @@ class LocalController extends Controller
 
         return view('admin.create.local', ['cities' => $cities, 'types' => $types]);
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
