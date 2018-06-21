@@ -49,7 +49,7 @@
             <span>Facture du {{ $order->created_date }}</span>
         </h1>
         <div>
-            <a href="/lien/vers/telechargement/pdf">Télécharger la facture</a>
+            <a href="{{ route('pdf_download') }}">Télécharger la facture</a>
         </div>
     </div>
     <hr>
