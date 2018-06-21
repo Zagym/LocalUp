@@ -113,9 +113,9 @@ h3 {
 }
 
 #header-home {
-  @extend .bg-cover;
+  @extend .bg-cover; 
   background-image: url(/img/header.jpg);
-  height: 800px;
+  height: 700px;
   background-position: top center;
 
   h1 {
@@ -161,8 +161,11 @@ h3 {
 
   .img-offer {
     overflow: hidden;
+
     img {
       transition: all 0.2s ease-in;
+      object-fit: cover;
+      height: 200px;
     }
   }
 
@@ -272,7 +275,7 @@ h3 {
         .nav {
             img {
                 width: 300px;
-            } 
+            }
             li.nav-item {
                 &:hover {
                     background-color: $grey;
