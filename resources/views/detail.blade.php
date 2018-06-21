@@ -22,7 +22,7 @@
 
                     <h4>Description :</h4>
                     <p class="description">
-                        {!! nl2br(e($local->description)) !!} 
+                        {!! nl2br(e($local->description)) !!}
                     </p>
 
                     <ul class="list-unstyled">
@@ -120,9 +120,11 @@
                             @endphp
                             @for($j = 1; $j <= $occurence; $j++)
                                 <div class="form-group" id="optionSuppl{{$j}}">
+                                    @php
+                                        $i = 1;
+                                    @endphp
                                     @foreach($modules as $module)
                                         @php
-                                            $i = 1;
                                             $flag = true;
                                         @endphp
                                         @foreach($modules_ids_ex[$j-1] as $id)
@@ -136,7 +138,7 @@
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="checkbox" id="inlineCheckbox{{$j."-".$i}}"
                                                 value="option{{$j."-".$i}}">
-                                                <label class="form-check-label" for="inlineCheckbox{{$j."-".$i}}">{{$module->label}}</label>
+                                                <label class="form-check-label" for="inlineCheckbox{{$j."-".$i}}">{{$module->label." (".$module->price.'€)'}}</label>
                                             </div>
                                         @endif
                                         @php
