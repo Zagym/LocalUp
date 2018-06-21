@@ -18,7 +18,7 @@ Si tu as des erreurs pendant le ```npm install```, essaye d'installer ce paquet 
 
 ### Extension php à installer
 
-
+- ``` sudo apt-get install php7.2-gd```
 
 ### Commande de compilations :
 
