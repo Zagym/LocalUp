@@ -15,6 +15,7 @@ Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 Route::get('test', function() {
+    return view('recap');
   $pdf = PDF::loadView('pdf.test');
   return $pdf->download();
 });
@@ -112,6 +113,8 @@ Route::get('module/{id}', 'ModuleController@getOneModule')->name('module');
 //Locals
 Route::get('locations', 'LocalController@getAllLocals')->name('locals');
 Route::get('local/{local}', 'LocalController@getOneLocal')->name('local');
+
+Route::get('pdf/download', 'PdfController@download')->name('pdf_download');
 
 //Contact
 
