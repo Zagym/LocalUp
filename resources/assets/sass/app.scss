@@ -304,6 +304,12 @@ h3 {
     }
 }
 
+#admin {
+    .table thead th { 
+        border-top: 0;
+    }
+}
+
 
 
 @media screen and (max-width: 992px) {
