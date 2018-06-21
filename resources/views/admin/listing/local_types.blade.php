@@ -5,7 +5,7 @@
     <h1>Liste des types de locaux</h1>
 
     <p class="d-block text-right">
-        <a href="{{ route('admin_local_type_create')}}" class="btn btn-primary">Ajouter</a>
+        <a href="{{ route('admin_local_type_create')}}" class="btn btn-primary">Ajouter un type de local</a>
     </p>
 
     <table class="table table-striped">
