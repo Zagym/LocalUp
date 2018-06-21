@@ -9,6 +9,8 @@ use App\Local_Type;
 use App\Module;
 use App\Flat_Rate;
 use App\Flat_Rate_Module;
+use Illuminate\Support\Facades\Auth;
+
 class LocalController extends Controller
 {
     /**
@@ -173,5 +175,32 @@ class LocalController extends Controller
     {
         Local::destroy($local->id);
         return back();
+    }
+
+    public function pdf(){
+        //Local $local, $modules
+        $local = Local::find(1);
+        $modules = Module::all();
+        $modules_bases_ids = Flat_Rate_Module::all();
+        $flats_rates_count = Flat_Rate::all()->count();
+        $modules = Module::all();
+        $modules_bases = array();
+        $res = array();
+        for ($i=1; $i <= $flats_rates_count; $i++) {
+            foreach ($modules_bases_ids as $module_base_id) {
+                if ($i == $module_base_id->flat_rate_id) {
+                    array_push($res, $modules[$module_base_id->module_id-1]->label);
+                }
+            }
+            array_push($modules_bases, $res);
+            $res = array();
+        }
+        if (Auth::user() != null) {
+            $user = Auth::user();
+        }
+
+        return view('pdf.order', ['user' => $user, 'local' => $local, 'modules' => $modules, 'baseModules' => $modules_bases]);
+
+
     }
 }
