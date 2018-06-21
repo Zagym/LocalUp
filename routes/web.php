@@ -14,18 +14,14 @@
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
-Route::get('test', function() {
-    return view('recap');
-  $pdf = PDF::loadView('pdf.test');
-  return $pdf->download();
-});
-
-Route::get('test2', function() {
-  return view('detail');
-});
 Route::get('/', 'HomeController@index')->name('home');
 
 //////Côté admin//////
+
+Route::get('test', function() {
+ $pdf = PDF::loadView('pdf.test');
+ return $pdf->download();
+});
 
 Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 
@@ -113,15 +109,17 @@ Route::get('module/{id}', 'ModuleController@getOneModule')->name('module');
 //Locals
 Route::get('locations', 'LocalController@getAllLocals')->name('locals');
 Route::get('local/{local}', 'LocalController@getOneLocal')->name('local');
+Route::post('local/{local}/louer', 'LocalController@louer')->name('louer');
 
 Route::get('pdf/download', 'PdfController@download')->name('pdf_download');
 
 //Contact
 
-//Route::get('', '')->name('');
-
 //Louer
 
-//Historique
+// Route::get('test', function() {
+//   $pdf = PDF::loadView('pdf.order');
+//   return $pdf->download();
+// });
 
-//Panier
+Route::get('pdf', 'LocalController@pdf')->name('pdf');
