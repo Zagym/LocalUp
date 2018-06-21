@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Modification de l'utilisateur {{ $user->id }}</h1>
+    <h1>Modification de "{{ $user->firstname." ".$user->lastname }}"</h1>
 
     <form method="POST" action="{{ route('admin_user_update', ['user' => $user]) }}">
         {{ csrf_field() }}

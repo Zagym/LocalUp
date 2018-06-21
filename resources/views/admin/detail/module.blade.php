@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Modification du type d'un module {{ $module->id }}</h1>
+    <h1>Modification de "{{ $module->label }}"</h1>
 
     <form method="POST" action="{{ route('admin_module_update', ['module' => $module]) }}">
         {{ csrf_field() }}
