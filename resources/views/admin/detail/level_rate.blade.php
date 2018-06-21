@@ -2,30 +2,18 @@
 
 @section('content')
 
-    {{--
-        Ajouter le local, mais aussi envoyer la liste des types.
-    --}}
-
-    @php
-
-        $levelRate = new class () {
-            public $id = 2;
-            public $rate = '2';
-            public $price = 'Test';
-            public $description = 'Test';
-        };
-
-    @endphp
 
     <h1>Modification du ratio de niveau {{ $levelRate->id }}</h1>
 
-    <form>
+    <form method="POST" action="{{ route('admin_level_rate_store', ['levelRate' => $levelRate]) }}">
+    {{ csrf_field() }}
+
         <div class="form-group">
             <label for="rate">Rate</label>
-            <input type="number" class="form-control" name="rate" value="{{ $levelRate->rate }}">
+            <input type="text" class="form-control" name="rate" value="{{ $levelRate->rates }}">
         </div>
+        <br/>
         <button type="submit" class="btn btn-primary">Modifier</button>
-        <a href="" class="btn btn-danger">Supprimer</a>
     </form>
 
 @endsection
