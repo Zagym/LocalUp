@@ -22,7 +22,7 @@
 
                     <h4>Description :</h4>
                     <p class="description">
-                        {!! nl2br(e($local->description)) !!} 
+                        {!! nl2br(e($local->description)) !!}
                     </p>
 
                     <ul class="list-unstyled">
@@ -74,19 +74,19 @@
                             <h4>Choisissez un forfait :</h4>
                             <div class="form-group">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                    id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">Offre basic</label>
+                                    <input class="form-check-input" type="radio" name="offre"
+                                    id="offre1" value="offre1"> 
+                                    <label class="form-check-label" for="offre1">Offre basic</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                    id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">Offre perso</label>
+                                    <input class="form-check-input" type="radio" name="offre"
+                                    id="offre2" value="offre2">
+                                    <label class="form-check-label" for="offre2">Offre perso</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                    id="inlineRadio3" value="option3">
-                                    <label class="form-check-label" for="inlineRadio3">Offre premium</label>
+                                    <input class="form-check-input" type="radio" name="offre"
+                                    id="offre3" value="offre3">
+                                    <label class="form-check-label" for="offre3">Offre premium</label>
                                 </div>
                             </div>
                             <div class="form-group">
