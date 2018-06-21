@@ -4,7 +4,8 @@
 
     <h1>Création d'un type de local</h1>
 
-    <form>
+<form method="POST" action="{{ route('admin_local_type_store') }}">
+    {{ csrf_field() }}
         <div class="form-group">
             <label for="label">Libellé</label>
             <input type="text" class="form-control" name="label" value="{{ old('label') }}">
