@@ -180,29 +180,42 @@ class LocalController extends Controller
 
     public function louer(Request $request, Local $local)
     {
-
+        $debut = new \DateTime($request->dateDebut);
+        $fin = new \DateTime($request->datefin);
+        $nb = $debut->diff($fin);
         $booking = new Booking();
         $booking->begins_at = $request->dateDebut;
         $booking->ends_at = $request->datefin;
         $booking->local_id = $local->id;
         $booking->user_id = $request->user()->id;
         $booking->flat_rate_id = $request->offre;
+        $booking->price = 0;
         $booking->save();
+        $res = 0;
         foreach ($request->option as $module) {
             $moduleSupp = new Booking_Module();
             $moduleSupp->bookings_id = $booking->id;
             $moduleSupp->modules_id = $module;
-            $modulesSupp->save();
+            $modulePrice = Module::find($module);
+            $res += $modulePrice->price;
+            $moduleSupp->save();
         }
         $modules_bases_ids = Flat_Rate_Module::all();
         $modules = Module::all();
         $modules_bases = array();
         foreach ($modules_bases_ids as $module_base_id) {
             if ($request->offre == $module_base_id->flat_rate_id) {
-                array_push($modules_bases, $modules[$module_base_id->module_id-1]->label);
+                array_push($modules_bases, $modules[$module_base_id->module_id-1]->id);
             }
         }
-        return view('recap', ['user' => $request->user(), 'local' => $local, 'modules' => $request->option, 'baseModules' => $modules_bases]);
+        foreach ($modules_bases as $id) {
+            $modulePrice = Module::find($id);
+            $res += $modulePrice->price;
+        }
+        $booking->price = $res;
+        $booking->save();
+        //str_to_time($request->datefin)
+        return view('recap', ['nbJour' => $nb->format('%a'), 'booking' => $booking, 'user' => $request->user(), 'local' => $local, 'modules' => $request->option, 'baseModules' => $modules_bases]);
     }
 
     public function pdf(){

@@ -20,7 +20,7 @@ class CreateTableBookings extends Migration
             $table->integer('local_id');
             $table->integer('user_id');
             $table->integer('flat_rate_id');
-
+            $table->float('price', 8,2);
             $table->timestamps();
         });
     }
