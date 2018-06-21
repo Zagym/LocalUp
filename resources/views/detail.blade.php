@@ -153,7 +153,7 @@
                                         @if($flag)
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="checkbox" id="inlineCheckbox{{$j."-".$i}}"
-                                                name="{{"option".$i."-".$j}}" value="{{$module->id}}">
+                                                name="{{"option[".$i."-".$j.']'}}" value="{{$module->id}}">
                                                 <label class="form-check-label" for="inlineCheckbox{{$j."-".$i}}">{{$module->label." (".$module->price.'€)'}}</label>
                                             </div>
                                         @endif

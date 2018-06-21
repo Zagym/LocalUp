@@ -51,13 +51,13 @@ $("input[name$='offre']").click(function() {
     $('.msg-offre-selected').hide();
     var name_offer = $(this).val();
 
-    if(name_offer == "offre1"){
+    if(name_offer == "1"){
         $('#module_radio1').fadeIn();
         $('#optionSuppl1').fadeIn();
-    }else if(name_offer == "offre2") {
+    }else if(name_offer == "2") {
         $('#module_radio2').fadeIn();
         $('#optionSuppl2').fadeIn();
-    }else if(name_offer == "offre3"){
+    }else if(name_offer == "3"){
         $('#module_radio3').fadeIn();
         $('#optionSuppl3').fadeIn();
     }

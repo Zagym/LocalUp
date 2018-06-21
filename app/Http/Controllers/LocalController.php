@@ -11,7 +11,7 @@ use App\Module;
 use App\Flat_Rate;
 use App\Flat_Rate_Module;
 use Illuminate\Support\Facades\Auth;
-
+use App\Booking_Module;
 class LocalController extends Controller
 {
     /**
@@ -180,14 +180,29 @@ class LocalController extends Controller
 
     public function louer(Request $request, Local $local)
     {
+
         $booking = new Booking();
         $booking->begins_at = $request->dateDebut;
         $booking->ends_at = $request->datefin;
         $booking->local_id = $local->id;
         $booking->user_id = $request->user()->id;
         $booking->flat_rate_id = $request->offre;
-
         $booking->save();
+        foreach ($request->option as $module) {
+            $moduleSupp = new Booking_Module();
+            $moduleSupp->bookings_id = $booking->id;
+            $moduleSupp->modules_id = $module;
+            $modulesSupp->save();
+        }
+        $modules_bases_ids = Flat_Rate_Module::all();
+        $modules = Module::all();
+        $modules_bases = array();
+        foreach ($modules_bases_ids as $module_base_id) {
+            if ($request->offre == $module_base_id->flat_rate_id) {
+                array_push($modules_bases, $modules[$module_base_id->module_id-1]->label);
+            }
+        }
+        return view('recap', ['user' => $request->user(), 'local' => $local, 'modules' => $request->option, 'baseModules' => $modules_bases]);
     }
 
     public function pdf(){
