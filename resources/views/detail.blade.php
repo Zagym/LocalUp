@@ -4,10 +4,9 @@
 
     <div id="component-offer-detail" class="pb-5">
         <div class="container">
-            <p class="mt-4">
+            <p class="my-5">
                 <a href="/locations">< Retour à la liste des offres de location</a>
             </p>
-            <h1 class="pt-3">{{ $local->label }}<br/><small>{{ $local->category->label }}, {{ $local->city->label }}</small></h1>
 
             <div class="row mb-5">
                 <div class="col-12 col-md-5 text-center">
@@ -23,7 +22,7 @@
 
                     <h4>Description :</h4>
                     <p class="description">
-                        {{ $local->description }}
+                        {!! nl2br(e($local->description)) !!} 
                     </p>
 
                     <ul class="list-unstyled">
@@ -90,6 +89,31 @@
                                     <label class="form-check-label" for="inlineRadio3">Offre premium</label>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                @php
+                                $i = 1;
+                                @endphp
+                                @foreach($modules_bases as $modules)
+                                    <div class="form-check form-check-inline" id="module_radio{{$i}}">
+                                        @php
+                                        $res = $modules[0];
+                                        @endphp
+                                        @foreach($modules as $module)
+                                            @if($module != $res)
+                                                @php
+                                                $res .=", ". $module;
+                                                @endphp
+                                            @endif
+                                        @endforeach
+                                        <p>{{$res}}</p>
+                                    </div>
+                                    @php
+                                    $i++;
+                                    $res = "";
+                                    @endphp
+                                @endforeach
+
+                            </div>
                             <h4>Choisissez des options supplémentaires :</h4>
 
                             <div class="form-group">
@@ -117,7 +141,7 @@
                             <button type="submit" class="btn btn-primary btn-lg">Choisir cette offre</button>
                         </form>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     </div>

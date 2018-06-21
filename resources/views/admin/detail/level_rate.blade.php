@@ -12,6 +12,7 @@
             <label for="rate">Rate</label>
             <input type="text" class="form-control" name="rate" value="{{ $levelRate->rates }}">
         </div>
+        <br/>
         <button type="submit" class="btn btn-primary">Modifier</button>
     </form>
 
