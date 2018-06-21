@@ -104,6 +104,7 @@ Route::get('module/{id}', 'ModuleController@getOneModule')->name('module');
 //Locals
 Route::get('locations', 'LocalController@getAllLocals')->name('locals');
 Route::get('local/{local}', 'LocalController@getOneLocal')->name('local');
+Route::post('local/{local}/louer', 'LocalController@louer')->name('louer');
 
 //Contact
 

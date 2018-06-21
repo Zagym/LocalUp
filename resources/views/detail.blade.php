@@ -70,8 +70,8 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                        <form method="POST" action="">
-
+                        <form method="POST" action="{{ route('louer', ['local' => $local]) }}">
+                            {{ csrf_field() }}
                             <h4>Date de location :</h4>
 
                             <div class="form-row">
@@ -89,17 +89,17 @@
                             <div class="form-group">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="offre"
-                                    id="offre1" value="offre1">
+                                    id="offre1" value="1">
                                     <label class="form-check-label" for="offre1">Offre basic</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="offre"
-                                    id="offre2" value="offre2">
+                                    id="offre2" value="2">
                                     <label class="form-check-label" for="offre2">Offre perso</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="offre"
-                                    id="offre3" value="offre3">
+                                    id="offre3" value="3">
                                     <label class="form-check-label" for="offre3">Offre premium</label>
                                 </div>
                             </div>
@@ -153,7 +153,7 @@
                                         @if($flag)
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="checkbox" id="inlineCheckbox{{$j."-".$i}}"
-                                                value="option{{$j."-".$i}}">
+                                                name="{{"option".$i."-".$j}}" value="{{$module->id}}">
                                                 <label class="form-check-label" for="inlineCheckbox{{$j."-".$i}}">{{$module->label." (".$module->price.'€)'}}</label>
                                             </div>
                                         @endif
