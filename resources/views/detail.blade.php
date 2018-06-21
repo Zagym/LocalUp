@@ -93,12 +93,12 @@
                                 @php
                                 $i = 1;
                                 @endphp
-                                @foreach($modules_bases as $modules)
+                                @foreach($modules_bases as $moduls)
                                     <div class="form-check form-check-inline" id="module_radio{{$i}}">
                                         @php
-                                        $res = $modules[0];
+                                        $res = $moduls[0];
                                         @endphp
-                                        @foreach($modules as $module)
+                                        @foreach($moduls as $module)
                                             @if($module != $res)
                                                 @php
                                                 $res .=", ". $module;
@@ -115,29 +115,36 @@
 
                             </div>
                             <h4>Choisissez des options supplémentaires :</h4>
-
-                            <div class="form-group">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
-                                    value="option1">
-                                    <label class="form-check-label" for="inlineCheckbox1">Imprimante</label>
+                            @php
+                                $occurence = count($modules_bases);
+                            @endphp
+                            @for($j = 1; $j <= $occurence; $j++)
+                                <div class="form-group" id="optionSuppl{{$j}}">
+                                    @foreach($modules as $module)
+                                        @php
+                                            $i = 1;
+                                            $flag = true;
+                                        @endphp
+                                        @foreach($modules_ids_ex[$j-1] as $id)
+                                            @if($module->id == $id)
+                                                @php
+                                                    $flag = false;
+                                                @endphp
+                                            @endif
+                                        @endforeach
+                                        @if($flag)
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox{{$j."-".$i}}"
+                                                value="option{{$j."-".$i}}">
+                                                <label class="form-check-label" for="inlineCheckbox{{$j."-".$i}}">{{$module->label}}</label>
+                                            </div>
+                                        @endif
+                                        @php
+                                            $i++;
+                                        @endphp
+                                    @endforeach
                                 </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
-                                    value="option2">
-                                    <label class="form-check-label" for="inlineCheckbox2">Option 2</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
-                                    value="option3">
-                                    <label class="form-check-label" for="inlineCheckbox3">Option 3</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox4"
-                                    value="option4">
-                                    <label class="form-check-label" for="inlineCheckbox4">Option 4</label>
-                                </div>
-                            </div>
+                            @endfor
                             <button type="submit" class="btn btn-primary btn-lg">Choisir cette offre</button>
                         </form>
                     </div>
