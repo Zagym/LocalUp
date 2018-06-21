@@ -18,7 +18,7 @@ body {
   font-family: 'Saira Semi Condensed', sans-serif;
   font-weight: 300;
 
-  &#admin {
+  &#admin, &#pdf-order {
     padding-top: 0;
   }
 }
@@ -67,10 +67,14 @@ body {
     background-color: $red-hover;
   }
 }
-
+ 
 .btn {
   @extend .rounded-0;
   @extend .border-0;
+}
+
+.text-primary {
+    color: $blue !important;
 }
 
 a,.btn-link {
@@ -305,7 +309,7 @@ h3 {
 }
 
 #admin {
-    .table thead th { 
+    .table thead th {
         border-top: 0;
     }
 }
