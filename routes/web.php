@@ -56,8 +56,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
     Route::get('local/create', 'LocalController@create')->name('admin_local_create');
     Route::post('local/store', 'LocalController@store')->name('admin_local_store');
     Route::get('local/{local}', 'LocalController@adminOneLocal')->name('admin_local');
-    Route::get('local/{local}/delete', 'LocalController@destroy')->name('admin_local_delete');
     Route::post('local/{local}/update', 'LocalController@edit')->name('admin_local_update');
+    Route::get('local/{local}/delete', 'LocalController@destroy')->name('admin_local_delete');
+
+    //Local_types
+    Route::get('local_types', 'LocalTypeController@adminAllLocalTypes')->name('admin_local_types');
+    Route::get('local_type/{local_type}', 'LocalTypeController@adminLocalType')->name('admin_local_type');
+    Route::post('local_type/{local_type}/update', 'LocalTypeController@adminLocalTypeUpdate')->name('admin_local_type_update');
+    //Route::get('local_types/{local_type}/delete', 'LocalTypeController@adminLocalTypeDestroy')->name('admin_local_types_destroy');
+
 
     //Cities
     Route::get('cities', 'CityController@getAllCities')->name('admin_cities');
