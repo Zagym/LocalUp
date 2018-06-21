@@ -2,19 +2,10 @@
 
 @section('content')
 
-    {{--
-        Ajouter chaque ration de niveau + les liens modification/suppresion
-        Ne pas oublier de supprimer la class user pr test, et ce commentaire.
-    --}}
-
     <h1>Modification de l'utilisateur {{ $user->id }}</h1>
 
     <form method="POST" action="{{ route('admin_user_update', ['user' => $user]) }}">
         {{ csrf_field() }}
-    @include('includes.error_form')
-
-    <form>
-
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="lastname">Nom</label>
@@ -28,7 +19,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" value="{{ $user->email }}">
+                <input type="email" class="form-control" name="email" value="{{ $user->email }}">
             </div>
             <div class="form-group col-md-6">
                 <label for="phone">Téléphone</label>
@@ -51,10 +42,10 @@
         </div>
         <div class="form-row">
             <div class="form-check form-check-inline col-md-2">
+                <input class="form-check-input" type="checkbox" name="admin" {{ $user->admin ? 'checked' : '' }}>
                 <label class="form-check-label" for="admin">
                     Administrateur
                 </label>
-                <input class="form-check-input" type="checkbox" name="admin" {{ $user->admin ? 'checked' : '' }}>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Modifier</button>

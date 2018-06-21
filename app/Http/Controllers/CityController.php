@@ -11,26 +11,21 @@ class CityController extends Controller
     {
         $cities = City::All();
 
-        return view('admin/listing.cities', ['cities' => $cities]);
+        return view('admin.listing.cities', ['cities' => $cities]);
     }
 
-    public function getOneCity($id)
+    public function getOneCity(City $city)
     {
-        $city = City::find($id);
-        return view('admin/detail.city', ['city' => $city]);
+        return view('admin.detail.city', ['city' => $city]);
     }
 
-    public function updateCity(Request $request, $id)
+    public function updateCity(Request $request, City $city)
     {
-        $city = City::find($id);
-
-        
         if ($request->active) {
             $city->active = true;
         } else {
             $city->active = false;
         }
-
 
         $city->label = $request->label;
 
@@ -39,12 +34,47 @@ class CityController extends Controller
         $request->session()->flash('success', 'Vos modifications ont bien été prises en compte.');
 
         return redirect()->route('admin_city', ['city' => $city]);
-
     }
 
-    public function destroyCity($id)
+    public function destroyCity(Request $request, City $city)
     {
-        City::destroy($id);
+        if (count($city->locals) !== 0) {
+            $request->session()->flash('error', sprintf('La ville %s ne peut être supprimée. Des locaux y sont associés.', $city->label));
+            return back();
+        }
+
+        $request->session()->flash('success', sprintf('La ville %s a bien été supprimée', $city->label));
+
+        City::destroy($city->id);
         return back();
+    }
+
+    public function create()
+    {
+        return view('admin.create.city');
+    }
+
+    public function store(Request $request)
+    {
+        $city = new City();
+        $validator = $city->validator($request->all());
+
+        if ($validator->fails()) {
+            return redirect()->route('admin_city_create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $city->fill($request->all());
+
+        if ($request->active) {
+            $city->active = true;
+        } else {
+            $city->active = false;
+        }
+
+        $city->save();
+
+        return redirect()->route('admin_city', ['city' => $city]);
     }
 }

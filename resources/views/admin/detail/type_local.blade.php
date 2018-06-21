@@ -18,8 +18,6 @@
 
     <h1>Modification du type de local {{ $localtype->id }}</h1>
 
-    @include('includes.error_form')
-
     <form>
         <div class="form-group">
             <label for="label">Libellé</label>

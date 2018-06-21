@@ -50,7 +50,7 @@ class ModuleController extends Controller
     {
         $module->label = $request->label;
         $module->price = $request->price;
-        $module->type_id = $request->type;
+        $module->type_id = $request->type_id;
         $module->description = $request->description;
 
         $module->save();
@@ -64,5 +64,31 @@ class ModuleController extends Controller
     {
         Module::destroy($module->id);
         return back();
+    }
+
+    public function create()
+    {
+        $moduleTypes = Module_Type::all();
+        return view('admin.create.module', ['moduleTypes' => $moduleTypes]);
+    }
+
+    public function store(Request $request)
+    {
+        $module = new Module();
+        $validator = $module->validator($request->all());
+
+        if ($validator->fails()) {
+            return redirect()->route('admin_module_create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $module->fill($request->all());
+
+        $module->save();
+
+        $request->session()->flash('success', sprintf('Le module %s a bien été créé.', $module->label));
+
+        return redirect()->route('admin_module', ['module' => $module]);
     }
 }

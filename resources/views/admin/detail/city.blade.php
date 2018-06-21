@@ -6,9 +6,8 @@
         Ajouter le local, mais aussi envoyer la liste des types.
     --}}
 
-    <h1>Modification du type de local {{ $city->id }}</h1>
-    @include('includes.error_form')
-    @include('includes.flash_messages')
+    <h1>Modification d'une ville {{ $city->id }}</h1>
+
     <form method="POST" action="{{ route('admin_city_update', ['city' => $city]) }}">
         {{ csrf_field() }}
         <div class="form-group">

@@ -4,8 +4,6 @@
 
     <h1>Modification du type d'un module {{ $module->id }}</h1>
 
-    @include('includes.error_form')
-    @include('includes.flash_messages')
     <form method="POST" action="{{ route('admin_module_update', ['module' => $module]) }}">
         {{ csrf_field() }}
         <div class="form-row">
@@ -24,7 +22,7 @@
         </div>
         <div class="form-group">
             <label for="type">type</label>
-            <select class="form-control" name="type">
+            <select class="form-control" name="type_id">
                 @foreach($moduleTypes as $moduleType)
                     @if($moduleType->id == $module->type_id)
                         <option name="moduleType" value='{{ $moduleType->id }}' selected="selected">{{ $moduleType->nature }}</option>

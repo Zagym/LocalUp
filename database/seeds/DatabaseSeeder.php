@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ModulesTableSeeder::class);
         $this->call(ModuleTypesTableSeeder::class);
         $this->call(ReductionsTableSeeder::class);
-        $this->call(TownsTableSeeder::class);
+        $this->call(CitiesTableSeeder::class);
         $this->call(flatRateModuleTableSeeder::class);
+        $this->call(BookingTableSeeder::class);
     }
 }

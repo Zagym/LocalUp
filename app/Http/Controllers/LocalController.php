@@ -48,9 +48,17 @@ class LocalController extends Controller
     }
     public function adminOneLocal($id)
     {
-
          return view('admin.detail.local', ['local' => Local::find($id), 'types' => Local_Type::all(), 'cities' => City::all()]);
     }
+
+    public function create()
+    {
+        $cities = City::all();
+        $types = Local_Type::all();
+
+        return view('admin.create.local', ['cities' => $cities, 'types' => $types]);
+    }
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -59,7 +67,20 @@ class LocalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $local = new Local();
+        $validator = $local->validator($request->all());
+
+        if ($validator->fails()) {
+            return redirect()->route('admin_local_create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $local->fill($request->all());
+
+        $local->save();
+
+        return redirect()->route('admin_local', ['local' => $local]);
     }
 
     /**
@@ -86,7 +107,7 @@ class LocalController extends Controller
         $local->label = $request->label;
         $local->description = $request->description;
         $local->address = $request->address;
-        $local->city_id = $request->city;
+        $local->city_id = $request->city_id;
         $local->floor = $request->floor;
         $local->door = $request->door;
         $local->capacity = $request->capacity;
@@ -122,18 +143,9 @@ class LocalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Local $local)
     {
-        Local::destroy($id);
+        Local::destroy($local->id);
         return back();
     }
-    // public function destroy($id)
-    // {
-    //     Local::destroy($id);
-    //     $locals = Local::All();
-    //     $cities = City::all();
-    //     $categories = Local_Type::all();
-    //
-    //     return view('listing', ['locals' => $locals, 'cities' => $cities, 'categories' => $categories]);
-    // }
 }
