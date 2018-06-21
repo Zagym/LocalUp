@@ -6,7 +6,7 @@
         Ajouter le local, mais aussi envoyer la liste des types.
     --}}
 
-    <h1>Modification d'une ville {{ $city->id }}</h1>
+    <h1>Modification de "{{ $city->label }}"</h1>
 
     <form method="POST" action="{{ route('admin_city_update', ['city' => $city]) }}">
         {{ csrf_field() }}
