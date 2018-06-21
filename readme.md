@@ -73,3 +73,5 @@ Il peut intéragir comme bon lui semble, en créant, modifiant et supprimant ce 
 - Dylan : Il a travaillé sur la partie front-end. Avec Patrice, Ils ont créé les vues et préparé les données entre le back-end et le front-end. Ils ont implémenté des templates et ont travaillé sur l'implémentation de leurs vues. Il s'est également occupé de la partie création de la facturation. Il a également ajouté quelques détails, comme le fait qu'un admin ne peut pas supprimer son compte.
 
 - Patrice : Le lead front-end. Il a aidé Dylan dans l'implémentation des vues et a aussi travaillé sur les détails du site, qui font qu'il est propre et soigné. Il s'est également occupé des templates et a aidé à créer des vues bien organisées, dans des dossiers différents. Il s'est chargé de créer la partie "Administration", en créant une apparence tout autre que celle du template de base.
+
+# MAIS OU EST ANTONY ?
