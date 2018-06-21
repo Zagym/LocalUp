@@ -7,8 +7,9 @@
         Ne pas oublier de supprimer la class user pr test, et ce commentaire.
     --}}
 
-    <h1>Liste des ratios de niveaux</h1>
 
+    <h1>Liste des ratios de niveaux</h1>
+    <hr>
     <div class="row">
         <table class="table table-striped">
             <thead>
