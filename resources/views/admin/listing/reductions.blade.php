@@ -8,13 +8,13 @@
         <a href="" class="btn btn-primary">Ajouter une réduction</a>
     </p>
 
+
     <table class="table table-striped">
         <thead>
         <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Rate</th>
-            <th scope="col">Modifier</th>
-            <th scope="col">Supprimer</th>
+            <th scope="col" width="30%">Id</th>
+            <th scope="col" width="60%">Rate</th>
+            <th scope="col" width="20%">Modifier</th>
         </tr>
         </thead>
         <tbody>
@@ -22,8 +22,7 @@
             <tr>
                 <td>{{ $reduction->id }}</td>
                 <td>{{ $reduction->rates }}%</td>
-                <td><a href="" class="btn btn-primary">Modifier</a></td>
-                <td><a href="" class="btn btn-danger">Delete</a></td>
+                <td><a href="{{route('admin_reduction', ['reduction'=> $reduction])}}" class="btn btn-primary">Modifier</a></td>
             </tr>
         @endforeach
         </tbody>

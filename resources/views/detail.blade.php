@@ -10,7 +10,11 @@
 
             <div class="row mb-5">
                 <div class="col-12 col-md-5 text-center">
-                    <img src="https://imgplaceholder.com/800x800" class="img-fluid" alt=""/>
+                    @if($local->image_url)
+                        <img src="{{ asset('storage').'/'.$local->image_url }}" class="img-fluid" alt="">
+                    @else
+                        <img src="https://imgplaceholder.com/500x300" class="img-fluid" alt="">
+                    @endif
                 </div>
                 <div class="col-12 col-md-7">
                     <h1 class="pt-3">{{ $local->label }}<br/><small>{{ $local->category->label }}, {{ $local->city->label }}</small></h1>
@@ -84,6 +88,31 @@
                                     id="inlineRadio3" value="option3">
                                     <label class="form-check-label" for="inlineRadio3">Offre premium</label>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                @php
+                                $i = 1;
+                                @endphp
+                                @foreach($modules_bases as $modules)
+                                    <div class="form-check form-check-inline" id="module_radio{{$i}}">
+                                        @php
+                                        $res = $modules[0];
+                                        @endphp
+                                        @foreach($modules as $module)
+                                            @if($module != $res)
+                                                @php
+                                                $res .=", ". $module;
+                                                @endphp
+                                            @endif
+                                        @endforeach
+                                        <p>{{$res}}</p>
+                                    </div>
+                                    @php
+                                    $i++;
+                                    $res = "";
+                                    @endphp
+                                @endforeach
+
                             </div>
                             <h4>Choisissez des options supplémentaires :</h4>
 
