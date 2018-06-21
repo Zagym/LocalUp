@@ -16,6 +16,10 @@ Si tu as des erreurs sur le ```php artisan db:seed```, fait un ```composer dump-
 Si tu as des erreurs pendant le ```npm install```, essaye d'installer ce paquet sur ta machine :
 ```sudo apt-get install build-essential```
 
+### Extension php à installer
+
+
+
 ### Commande de compilations :
 
 - ```npm run watch-poll``` : Permet de réécrire le sass en direct
