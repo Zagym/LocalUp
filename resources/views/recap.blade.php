@@ -8,6 +8,9 @@
         <h1 class="py-0">
             <span>Facture du {{ $booking->created_at }}</span>
         </h1>
+        <div>
+            <a href="{{ route('pdf_download') }}">Télécharger la facture</a>
+        </div>
     </div>
     <hr>
     <div class="row">
