@@ -4,10 +4,9 @@
 
     <div id="component-offer-detail" class="pb-5">
         <div class="container">
-            <p class="mt-4">
+            <p class="my-5">
                 <a href="/locations">< Retour à la liste des offres de location</a>
             </p>
-            <h1 class="pt-3">{{ $local->label }}<br/><small>{{ $local->category->label }}, {{ $local->city->label }}</small></h1>
 
             <div class="row mb-5">
                 <div class="col-12 col-md-5 text-center">
@@ -19,7 +18,7 @@
 
                     <h4>Description :</h4>
                     <p class="description">
-                        {{ $local->description }}
+                        {!! nl2br(e($local->description)) !!} 
                     </p>
 
                     <ul class="list-unstyled">
@@ -113,7 +112,7 @@
                             <button type="submit" class="btn btn-primary btn-lg">Choisir cette offre</button>
                         </form>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     </div>
