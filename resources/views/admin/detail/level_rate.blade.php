@@ -24,6 +24,7 @@
             <label for="rate">Rate</label>
             <input type="number" class="form-control" name="rate" value="{{ $levelRate->rate }}">
         </div>
+        <br/>
         <button type="submit" class="btn btn-primary">Modifier</button>
         <a href="" class="btn btn-danger">Supprimer</a>
     </form>

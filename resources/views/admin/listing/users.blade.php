@@ -10,7 +10,7 @@
     <h1>Liste des utilisateurs</h1>
 
     <p class="d-block text-right">
-        <a href="{{ route('admin_user_create') }}" class="btn btn-primary">Ajouter</a>
+        <a href="{{ route('admin_user_create') }}" class="btn btn-primary">Ajouter un utilisateur</a>
     </p>
 
     <table class="table table-striped">

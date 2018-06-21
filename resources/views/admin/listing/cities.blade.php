@@ -5,7 +5,7 @@
     <h1>Liste des villes</h1>
 
     <p class="d-block text-right">
-        <a href="{{ route('admin_city_create') }}" class="btn btn-primary">Ajouter</a>
+        <a href="{{ route('admin_city_create') }}" class="btn btn-primary">Ajouter une ville</a>
     </p>
 
     <table class="table table-striped">

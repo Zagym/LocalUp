@@ -5,7 +5,7 @@
     <h1>Liste des réductions</h1>
 
     <p class="d-block text-right">
-        <a href="" class="btn btn-primary">Ajouter</a>
+        <a href="" class="btn btn-primary">Ajouter une réduction</a>
     </p>
 
     <table class="table table-striped">
