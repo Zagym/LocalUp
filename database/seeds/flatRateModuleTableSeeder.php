@@ -57,34 +57,38 @@ class flatRateModuleTableSeeder extends Seeder
         ]);
 
 
-        // Offre premium : bureau, chaise, imprimante, climatisation, téléphone, pouff
+        // Offre premium : bureau, chaise, imprimante, climatisation, téléphone, pouff, acces salle de reunion
         DB::table('flat_rates_modules')->insert([
-            'flat_rate_id' => 2,
+            'flat_rate_id' => 3,
             'module_id' => 1
         ]);
         DB::table('flat_rates_modules')->insert([
-            'flat_rate_id' => 2,
+            'flat_rate_id' => 3,
             'module_id' => 2
         ]);
         DB::table('flat_rates_modules')->insert([
-            'flat_rate_id' => 2,
+            'flat_rate_id' => 3,
             'module_id' => 3
         ]);
         DB::table('flat_rates_modules')->insert([
-            'flat_rate_id' => 2,
+            'flat_rate_id' => 3,
             'module_id' => 4
         ]);
         DB::table('flat_rates_modules')->insert([
-            'flat_rate_id' => 2,
+            'flat_rate_id' => 3,
             'module_id' => 5
         ]);
         DB::table('flat_rates_modules')->insert([
-            'flat_rate_id' => 2,
+            'flat_rate_id' => 3,
             'module_id' => 9
         ]);
         DB::table('flat_rates_modules')->insert([
-            'flat_rate_id' => 2,
+            'flat_rate_id' => 3,
             'module_id' => 10
+        ]);
+        DB::table('flat_rates_modules')->insert([
+            'flat_rate_id' => 3,
+            'module_id' => 11
         ]);
     }
 }

@@ -4,10 +4,9 @@
 
     <div id="component-offer-detail" class="pb-5">
         <div class="container">
-            <p class="mt-4">
+            <p class="my-5">
                 <a href="/locations">< Retour à la liste des offres de location</a>
             </p>
-            <h1 class="pt-3">{{ $local->label }}<br/><small>{{ $local->category->label }}, {{ $local->city->label }}</small></h1>
 
             <div class="row mb-5">
                 <div class="col-12 col-md-5 text-center">
@@ -23,7 +22,7 @@
 
                     <h4>Description :</h4>
                     <p class="description">
-                        {{ $local->description }}
+                        {!! nl2br(e($local->description)) !!}
                     </p>
 
                     <ul class="list-unstyled">
@@ -75,49 +74,83 @@
                             <h4>Choisissez un forfait :</h4>
                             <div class="form-group">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                    id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">Offre basic</label>
+                                    <input class="form-check-input" type="radio" name="offre"
+                                    id="offre1" value="offre1"> 
+                                    <label class="form-check-label" for="offre1">Offre basic</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                    id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">Offre perso</label>
+                                    <input class="form-check-input" type="radio" name="offre"
+                                    id="offre2" value="offre2">
+                                    <label class="form-check-label" for="offre2">Offre perso</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                    id="inlineRadio3" value="option3">
-                                    <label class="form-check-label" for="inlineRadio3">Offre premium</label>
+                                    <input class="form-check-input" type="radio" name="offre"
+                                    id="offre3" value="offre3">
+                                    <label class="form-check-label" for="offre3">Offre premium</label>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                @php
+                                $i = 1;
+                                @endphp
+                                @foreach($modules_bases as $moduls)
+                                    <div class="form-check form-check-inline" id="module_radio{{$i}}">
+                                        @php
+                                        $res = $moduls[0];
+                                        @endphp
+                                        @foreach($moduls as $module)
+                                            @if($module != $res)
+                                                @php
+                                                $res .=", ". $module;
+                                                @endphp
+                                            @endif
+                                        @endforeach
+                                        <p>{{$res}}</p>
+                                    </div>
+                                    @php
+                                    $i++;
+                                    $res = "";
+                                    @endphp
+                                @endforeach
+
                             </div>
                             <h4>Choisissez des options supplémentaires :</h4>
-
-                            <div class="form-group">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
-                                    value="option1">
-                                    <label class="form-check-label" for="inlineCheckbox1">Imprimante</label>
+                            @php
+                                $occurence = count($modules_bases);
+                            @endphp
+                            @for($j = 1; $j <= $occurence; $j++)
+                                <div class="form-group" id="optionSuppl{{$j}}">
+                                    @php
+                                        $i = 1;
+                                    @endphp
+                                    @foreach($modules as $module)
+                                        @php
+                                            $flag = true;
+                                        @endphp
+                                        @foreach($modules_ids_ex[$j-1] as $id)
+                                            @if($module->id == $id)
+                                                @php
+                                                    $flag = false;
+                                                @endphp
+                                            @endif
+                                        @endforeach
+                                        @if($flag)
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox{{$j."-".$i}}"
+                                                value="option{{$j."-".$i}}">
+                                                <label class="form-check-label" for="inlineCheckbox{{$j."-".$i}}">{{$module->label." (".$module->price.'€)'}}</label>
+                                            </div>
+                                        @endif
+                                        @php
+                                            $i++;
+                                        @endphp
+                                    @endforeach
                                 </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
-                                    value="option2">
-                                    <label class="form-check-label" for="inlineCheckbox2">Option 2</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
-                                    value="option3">
-                                    <label class="form-check-label" for="inlineCheckbox3">Option 3</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox4"
-                                    value="option4">
-                                    <label class="form-check-label" for="inlineCheckbox4">Option 4</label>
-                                </div>
-                            </div>
+                            @endfor
                             <button type="submit" class="btn btn-primary btn-lg">Choisir cette offre</button>
                         </form>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     </div>

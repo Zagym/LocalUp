@@ -41,3 +41,10 @@ if(pathname == '/locations'){
 window.setTimeout(function(){
       $("#alert-message").fadeOut(500);
 },2000)
+
+
+$("input[name$='offre']").click(function() {
+    var test = $(this).val();
+
+    console.log(test);
+});
