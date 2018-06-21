@@ -1,44 +1,3 @@
-@php
-    $order = new class() {
-        public $created_date = '15/06/2018';
-        public $jours_locations = '15';
-        public $start_date = '15/06/2018';
-        public $end_date = '25/06/2018';
-        public $price = '78745';
-    };
-
-    $user = new class() {
-        public $firstname = 'Jean';
-        public $lastname = 'Neymar';
-        public $address = '35 rue de la mer';
-        public $zip = '69000';
-        public $city = 'Lyon';
-        public $email = 'lol@lol.lol';
-    };
-
-    $local = new class () {
-        public $label = 'Chez ginette';
-        public $type = 'Bureau fermé';
-        public $address = '32 rue chez jean, 69000, Lyon';
-        public $price = '350';
-        public $description = 'blablablafezfezfezfezfezfez zeezfzefze eezfezfezfezfez';
-    };
-
-    $module = new class () {
-        public $label = 'Café';
-        public $price = '50';
-        public $description = 'fezfezf fzefezfefe fezfzegrgthtrh gefezdafez grehehh';
-        public $type = 'Boisson';
-    };
-
-    $modules[] = $module;
-    $modules[] = $module;
-    $baseModules[] = $module;
-    $baseModules[] = $module;
-
-@endphp
-
-
 @extends('pdf.layouts.app')
 
 @section('content')
@@ -49,7 +8,7 @@
             <img src="{{ asset('img/logo-localup.png') }}" class="img-fluid" width="300">
 
             <h1 class="py-0">
-                <span>Facture du {{ $order->created_date }}</span>
+                {{-- <span>Facture du {{ $order->created_date }}</span> --}}
             </h1>
         </div>
         <hr>
@@ -86,7 +45,7 @@
                         <td>{{ $local->type }}</td>
                         <td>{{ $local->address }}</td>
                         <td>{{ $local->description }}</td>
-                        <td>{{ $order->jours_locations }}</td>
+                        {{-- <td>{{ $order->jours_locations }}</td> --}}
                         <td>{{ $local->price}}€</td>
                     </tr>
                     </tbody>
@@ -106,14 +65,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($baseModules as $baseModule)
+                    {{-- @foreach($baseModules as $baseModule)
                         <tr>
                             <td>{{ $baseModule->label }}</td>
                             <td>{{ $baseModule->description }}</td>
                             <td>{{ $baseModule->type }}</td>
                             <td>{{ $baseModule->price }}</td>
                         </tr>
-                    @endforeach
+                    @endforeach --}}
                     </tbody>
                 </table>
             </div>
@@ -154,9 +113,9 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{{ $order->start_date }}</td>
+                            {{-- <td>{{ $order->start_date }}</td>
                             <td>{{ $order->end_date }}</td>
-                            <td>{{ $order->price }}€</td>
+                            <td>{{ $order->price }}€</td> --}}
                         </tr>
                     </tbody>
                 </table>

@@ -14,14 +14,6 @@
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
-Route::get('test', function() {
-  $pdf = PDF::loadView('pdf.order');
-  return $pdf->download();
-});
-
-Route::get('test2', function() {
-  return view('detail');
-});
 Route::get('/', 'HomeController@index')->name('home');
 
 //////Côté admin//////
@@ -115,10 +107,11 @@ Route::get('local/{local}', 'LocalController@getOneLocal')->name('local');
 
 //Contact
 
-//Route::get('', '')->name('');
-
 //Louer
 
-//Historique
+// Route::get('test', function() {
+//   $pdf = PDF::loadView('pdf.order');
+//   return $pdf->download();
+// });
 
-//Panier
+Route::get('pdf', 'LocalController@pdf')->name('pdf');
