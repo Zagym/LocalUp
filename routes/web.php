@@ -69,6 +69,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function() {
 
     // Reductions
     Route::get('reductions', 'ReductionController@index')->name('admin_reduction_index');
+    Route::get('reduction/{reduction}', 'ReductionController@oneReduction')->name('admin_reduction');
+    Route::post('reduction/{reduction}/update', 'ReductionController@updateReduction')->name('admin_reduction_update');
 
     //Historique
 
