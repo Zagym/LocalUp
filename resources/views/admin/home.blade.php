@@ -2,7 +2,9 @@
 
 @section('content')
     <div id="component-admin-home">
-        <div class="row">
+        <h1 class="pb-4 pt-3">Tableau de bord</h1>
+        <hr>
+        <div class="row mt-5">
             <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
                 <div class="numbers text-center p-4 bg-light d-flex flex-column justify-content-center">
                     <h2 class="mt-0">Nombre de locaux</h2>
@@ -34,5 +36,5 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 @endsection
