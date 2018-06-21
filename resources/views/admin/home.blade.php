@@ -13,8 +13,8 @@
         <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
             <div class="locals">
                 <div class="description-offer text-center p-4 bg-light">
-                    <h2 class="mt-0">Nombre de locaux loué</h2>
-                    <p class="lead">5</p>
+                    <h2 class="mt-0">Nombre de locaux loués</h2>
+                    <p class="lead">{{$bookings}}</p>
                 </div>
             </div>
         </div>

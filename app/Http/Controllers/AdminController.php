@@ -26,6 +26,9 @@ class AdminController extends Controller
         return view('admin.auth.login');
     }
 
+    /**
+     * @return array|\Illuminate\Contracts\View\Factory|\Illuminate\View\View|mixed
+     */
     public function login()
     {
         return view('admin.auth.login');

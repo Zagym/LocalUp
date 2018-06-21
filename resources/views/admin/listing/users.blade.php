@@ -10,7 +10,7 @@
     <h1>Liste des utilisateurs</h1>
 
     <p class="d-block text-right">
-        <a href="" class="btn btn-primary">Ajouter</a>
+        <a href="{{ route('admin_user_create') }}" class="btn btn-primary">Ajouter</a>
     </p>
 
     <table class="table table-striped">
@@ -31,9 +31,8 @@
                     <td>{{ $user->firstname }}</td>
                     <td>{{ $user->lastname }}</td>
                     <td>{{ $user->email }}</td>
-                <td><a href="{{ route('admin_user', ['id' => $user]) }}" class="btn btn-primary">Modifier</a></td>
-                <td><a href="{{ route('admin_user_delete', ['id' => $user]) }}" class="btn btn-danger">Delete</a></td>
-                
+                    <td><a href="{{ route('admin_user', ['id' => $user]) }}" class="btn btn-primary">Modifier</a></td>
+                    <td><a href="{{ route('admin_user_delete', ['user' => $user]) }}" class="btn btn-danger {{ $user->id == request()->user()->id ? 'disabled' : '' }}">Delete</a></td>
                 </tr>
             @endforeach
             </tbody>

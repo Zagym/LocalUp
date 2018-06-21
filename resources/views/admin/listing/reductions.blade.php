@@ -2,23 +2,6 @@
 
 @section('content')
 
-    {{--
-        Ajouter chaque réduction + les liens modification/suppresion
-        Ne pas oublier de supprimer la class user pr test, et ce commentaire.
-    --}}
-
-    @php
-
-        $reduction = new class () {
-            public $id = 2;
-            public $rate = 'Test';
-        };
-
-        $reductions[] = $reduction;
-        $reductions[] = $reduction;
-
-    @endphp
-
     <h1>Liste des réductions</h1>
 
     <p class="d-block text-right">
@@ -38,7 +21,7 @@
         @foreach($reductions as $reduction)
             <tr>
                 <td>{{ $reduction->id }}</td>
-                <td>{{ $reduction->rate }}%</td>
+                <td>{{ $reduction->rates }}%</td>
                 <td><a href="" class="btn btn-primary">Modifier</a></td>
                 <td><a href="" class="btn btn-danger">Delete</a></td>
             </tr>
