@@ -5,6 +5,41 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * App\Local
+ *
+ * @property int $id
+ * @property string $label
+ * @property string $description
+ * @property string $address
+ * @property string $zip
+ * @property int $city_id
+ * @property int $floor
+ * @property int $door
+ * @property int $capacity
+ * @property float $price
+ * @property int $type_id
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property string|null $image_url
+ * @property-read \App\Local_Type $category
+ * @property-read \App\City $city
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Local whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Local whereCapacity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Local whereCityId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Local whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Local whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Local whereDoor($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Local whereFloor($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Local whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Local whereImageUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Local whereLabel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Local wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Local whereTypeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Local whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Local whereZip($value)
+ * @mixin \Eloquent
+ */
 class Local extends Model
 {
     protected $table = 'locals';

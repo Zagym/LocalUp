@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use App\Booking;
 use App\Local;
@@ -21,7 +22,7 @@ class LocalController extends Controller
      */
     public function getAllLocals()
     {
-        $locals = Local::whereHas('city', function($query) {
+        $locals = Local::whereHas('city', function(Builder $query) {
                 $query->where('active', 1);
             })
             ->get()
@@ -221,7 +222,6 @@ class LocalController extends Controller
     public function pdf(){
         //Local $local, $modules
         $local = Local::find(1);
-        $modules = Module::all();
         $modules_bases_ids = Flat_Rate_Module::all();
         $flats_rates_count = Flat_Rate::all()->count();
         $modules = Module::all();

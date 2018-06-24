@@ -14,3 +14,8 @@ yarn-error.log
 .env
 .DS_STORE
 /public/.DS_STORE
+
+# Helper for PHPSTORM
+_ide_helper.php
+.phpstorm.meta.php
+/config/ide-helper.php
